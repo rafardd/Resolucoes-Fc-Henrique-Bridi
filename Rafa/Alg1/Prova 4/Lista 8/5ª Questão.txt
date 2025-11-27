@@ -1,0 +1,26 @@
+5ª Questão:
+algoritmo CalculaFrequência
+
+var
+   frequência : vetor[1..63] de inteiro
+   i, n : inteiro
+
+início
+   para i de 1 até 63 faça
+      frequência[i] <- 0
+   fimpara
+   para i de 1 até 4095 faça
+      escreva("Insira um número da sequência entre 1 e 63: ")
+      leia(n)
+      enquanto n < 1 ou n > 63 faça
+         escreva("Inválido. Número deve estar entre 1 e 63: ")
+         leia(n)
+      fimenquanto
+      frequência[n] <- frequência[n] + 1
+   fimpara
+   para i de 1 até 63 faça
+      se frequência[i] > 0 então
+         escreva("O número ", i, " aparece ", frequência[i], " vez(es)")
+      fimse
+   fimpara
+fimalgoritmo

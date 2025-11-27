@@ -1,0 +1,21 @@
+funcao inverso(x:real):real
+var
+  a,c,a_anterior,c_anterior:real
+inicio
+  se x >= 2 ou x <= 0 entao
+    retorne -9999
+  fimse
+  c_anterior <- 1 - x
+  a_anterior<- 1
+  c <- c_anterior * c_anterior
+  a <- a_anterior * (1 + c_anteior)
+  enquanto abs(a - a_anterior ) > 0,000000001 faca
+    c_anterior <- c
+    a_anterior <- a
+    c <- c_anterior * c_anterior
+    a <- a_anteior * (1+c_anterior)
+  fim enquanto
+  retorne a
+fim funcao
+  
+  

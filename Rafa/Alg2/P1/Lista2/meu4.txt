@@ -1,0 +1,16 @@
+funcao raizquadrada(A:real):real
+var
+  x,x_anterior: real
+inicio
+  se A < 0  entao
+    retorne -9999
+  fimse
+  x_anterior <- 1
+  x <- 0,5 * (x_anterior + A/x_anterior)
+  enquanto abs(x - x_anterior) > 0,000001 faca
+    x_anterior <- x
+    x <- 0,5 * (x_anterior + A/x_anterior)
+  fimenquanto
+  retorne x
+fim funcao
+

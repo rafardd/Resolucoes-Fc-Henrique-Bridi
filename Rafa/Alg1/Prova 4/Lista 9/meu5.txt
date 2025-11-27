@@ -1,0 +1,25 @@
+algoritmo descida_mais_longa_inserction_sort 
+var
+  v:vetor[1..100] de inteiro
+  i,j,maiorDescida,elemento,volta : inteiro
+
+inicio
+  maiorDescida <- 0
+  para i de 2 ate n faca
+    aux <- v[i] 
+    j <- i - 1
+    enquanto j > 0  e v[j] > aux faca
+      v[j+1] <- v[j]
+      j <- j - 1 
+    fimenquanto
+    se i - j - 1 > maiorDescida entao
+      maiorDescida <- i - j - 1
+      elemento <- aux 
+      volta <- i
+    fimse
+    v[j+1] <- aux
+  fimpara
+  se maiorDescida > 0 entao
+    escreva("A maior distancida de descida aconteceu com o elemento", elemento," na volta", volta,"e foi de ",maiorDescida)
+  fimse
+fimalgoritmo

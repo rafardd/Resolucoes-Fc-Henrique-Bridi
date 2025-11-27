@@ -1,0 +1,26 @@
+Algoritmo valor_mais_proximo_da_media
+Var
+    v: vetor[1..537] de real
+    i:inteiro
+    media,diferenca: real
+Início
+    Media <- 0
+    Para i de 1 ate 537 faca
+        Leia(v[i])
+        media <- media + v[i]
+    Fim para
+    media<- media / 537
+    Diferença <- abs(media - v[1])
+    Para i de 2 ate 537
+        Se abs(media - v[i]) < diferenca então
+            Diferenca <- abs(media -v[i])
+         Fimse
+     Fimpara
+     Para i de 1 ate 537 faca
+         Se abs(media - v[i]) = diferenca entao
+             Escreva("valor mais proximo da media = ", v[i])
+         Fimse 
+      Fimpara
+ Fimalgoritmo 
+     
+    

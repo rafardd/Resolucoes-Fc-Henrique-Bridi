@@ -1,0 +1,45 @@
+algoritmo
+const 
+  MAX = 71
+  MIN = 37
+var
+  H:vetor[1..100] de vetor[1..100] de real
+  i,j,m,n,linha:inteiro
+  soma:real
+inicio
+  escreva("insira o valor de m: ")
+  leia(m)
+  enquanto m < 1 ou m > 100 faca
+    escreva("deve estar entre 1 e 100")
+    leia(m)
+  fimenquanto
+  escreva("insira o valor de n: ")
+  leia(n)
+  enquanto n < 1 ou n > 100 faca
+    escreva("deve estar entre 1 e 100")
+    leia(n)
+  fimenquanto
+  para i de 1 ate m faca
+    para j de 1 ate n faca
+      H[i][j] <- trunca(((MAX - MIN) * 100 + 1) * aleatorio()) mod trunca((MAX - MIN) * 100 + 1) / 100 + MIN
+    fimpara
+  fimpara
+  soma <- 0
+  para j de 1 ate n faca
+    soma <- soma + H[1][j]
+  fimpara
+  linha <- 1
+  para i de 2 ate m faca
+    soma_temp <- 0
+    para j de 1 ate n faca
+      soma_temp <- soma_temp + H[i][j]
+    fimpara
+    se soma_temp > soma entao
+      soma <- soma_temp
+      linha <- i 
+    fimse
+  fimpara
+  escreva("maior soma: ", soma," e acontece na linha ",linha)
+fimalgoritmo
+
+      

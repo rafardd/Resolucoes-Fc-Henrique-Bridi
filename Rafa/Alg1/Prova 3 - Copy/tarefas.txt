@@ -1,0 +1,16 @@
+quarta:
+  passar a limpo o papel pre prova com as estruturas basicas das questoes mais dificeis, tipo a do espaco multiplo
+  ver as questoes que a larissa colocou como as que mais caem
+quinta:
+  estudar para calculo
+sexta:
+  marcar aulas da auto escola
+
+
+editar cores do rofi
+Para depois:
+  Comprar controle para tv de fora
+  terminar curso de C#
+  Ver metodo do completamneto de quadrados
+  Limpar mousepad
+  Ver grupo de pesquisa com a Maria 

@@ -1,0 +1,27 @@
+algoritmo sequencia_A_B_sao_iguais
+var
+  A,B: vetor[1..542] de inteiro
+  i,n:inteiro
+inicio
+  escreva("insira um numero entre 1 e 542")
+  leia(n)
+  enquanto nao(n >0 e n <543) faca
+    escreva("deve estar entre 1 e 542")
+    leia(n)
+  fim enquanto
+  para i de 1 ate n faca
+    leia(A[i])
+  fim para
+  para i de 1 ate n faca
+    leia(B[i])
+  fim para
+  i <- 1
+  enquanto i <= n e A[i] = B[i] faca
+    i <- i + 1 
+  fim enquanto
+  se i > n entao
+    escreva("sao iguais")
+  senao
+    escreva("sao diferentes")
+  fimse
+fimalgoritmo

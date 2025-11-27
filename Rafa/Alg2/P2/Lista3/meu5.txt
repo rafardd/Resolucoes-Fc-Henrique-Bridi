@@ -1,0 +1,16 @@
+funcao bApareceEmA(a,b:inteiro):inteiro
+inicio
+  se a < 0 ou b < 0 ou b > 9 entao
+    retorne -1
+  fimse
+  se a < 10 entao
+    se a = b entao
+      retorne 1
+    fimse
+    retorne 0
+  fimse
+  se a mod 10 = b entao
+    retorne bApareceEmA(a,b) + 1
+  fimse
+  retorne bApareceEmA(a,b)
+fim funcao

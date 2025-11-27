@@ -1,0 +1,17 @@
+funcao euler(x:real):real
+var
+  n,soma:real
+  d:inteiro
+inicio
+  n <- 1
+  d <- 1
+  soma <- 1
+  i <- 1 + 1
+  enquanto abs(n/d) > 0,00001 faca
+    n <- n * x 
+    d <- d * (i-1)
+    soma <- soma  + n/d
+    i <- i + 1 
+  fim enquanto
+  retorne soma
+fim funcao

@@ -1,0 +1,32 @@
+Algoritmo n_numeros_distintos
+Var
+    Números: vetor[1..30] de real
+    I,n:inteiro
+Início 
+    Escreva("insira o valor de n: ")
+    Leia(n)
+    Enquanto n < 3 ou n > 30 faca 
+        Escreva("n deve estar entre 3 e 30, insira o novo valor de n: ")
+        Leia(n)
+    Fimenquanto 
+    i <- 1 
+    Para i de 1 ate n faca 
+        Escreva("insira o valor da posição ",i," do vetor :")
+        Leia(num)
+        J <- 1 
+        Enquanto j <= i - 1 faca
+            Se numeros[j] = num então 
+                Escreva("o número deve ser distinto dos anteriores, reinsira seu valor: ")
+                Leia(num)
+                J <- 0
+            Fimse
+            J <- j + 1 
+        Fimenquanto
+        Numeros[i] <- num
+    Fimenquanto 
+    Para i de 1 ate n faca
+        Escreva(numeros[i])
+    Fim para
+Fimalgoritmo
+    
+    

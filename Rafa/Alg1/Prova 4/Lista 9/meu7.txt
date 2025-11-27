@@ -1,0 +1,26 @@
+algoritmo total_trocas_bubble_sort
+const
+  N = 100
+var
+  v:vetor[1..N] de inteiro
+  i,j,trocas,aux:inteiro
+  trocou:logico
+inicio
+  trocas <- 0
+  trocou <- VERDADEIRO
+  enquanto trocou faca
+    trocou <- FALSO
+    para i de 1 ate N - 1 faca
+      se v[i] > v[i+1] entao
+        aux <- v[i] 
+        v[i] <- v[i+1]
+        v[i+1] <- aux
+        trocou <- VERDADEIRO
+        trocas <- trocas + 1
+      fimse
+    fimpara
+  fimenquanto
+  escreva("o bubble sort realizou um total de ",trocas," trocas")
+fimalgoritmo
+
+    

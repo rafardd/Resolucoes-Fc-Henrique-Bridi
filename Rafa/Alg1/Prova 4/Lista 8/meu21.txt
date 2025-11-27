@@ -1,0 +1,37 @@
+algoritmo onde_b_aparece_em_a 
+const 
+  MIN:17
+  MAX:71
+var
+  nA,nB,i,posicao,j:inteiro
+  A,B:vetores[1..71] de inteiro
+  e_igual:logico
+inicio
+  nA <- trunca((MAX - MIN +1) aleatorio()) mod (MAX - MIN +1) + MIN
+  nB <- trunca((MAX - MIN +1) aleatorio()) mod (MAX - MIN +1) + MIN
+  para i de 1 ate nA faca
+    leia(A[i])
+  fimpara
+  para i de 1 ate nB faca
+    leia(B[i])
+  fimpara
+  posicao <- 0
+  se nB <= nA entao
+    i <- 1 
+    e_igual <- FALSO
+    enquanto i<= nA - nB + 1 e nao e_igual faca
+      se A[i] = B[1] entao
+        j <- 1 
+        e_igual <- VERDADEIRO
+        enquanto j + 1 <= nB e i + j <= nA faca
+          e_igual <- e_igual e A[i+j] = B[j+1]
+        fimenquanto
+        se e_igual entao
+          posicao <- i
+        fimse
+      fimse
+      i <- i + 1
+    fimenquanto
+  fimse
+  escreva(posicao)
+fimalgoritmo

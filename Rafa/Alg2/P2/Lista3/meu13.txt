@@ -1,0 +1,52 @@
+funcao hexadecimalParaDecimal(hexa:string):string
+var
+  decimal:inteiro
+  stringDecimal:string
+  funcao stringValida(n:inteiro):logico
+  var
+    caracterValido: logico
+  inicio
+    se n = 0 entao
+      retorne VERDADEIRO
+    fimse
+    se n = 1 e (hexa[n] = '-' ou hexa [n] = '+') entao
+      retorne VERDADEIRO
+    fimse
+    caracterValido <- (hexa[n] >= '0' e hexa[n] <= '9') ou (hexa[n] >= 'A' e hexa[n] <= 'F')
+    retorne caracterValido e stringValida(n-1)
+  fim funcao
+
+  funcao stringParaInt(n,potencia:inteiro):inteiro
+  inicio
+    se n = 0 entao
+      retorne 0
+    fimse
+    se n = 1 e (hexa[n] = '-' ou hexa[n] = '+') entao
+      retorne 0
+    fimse
+    se hexa[n] >= 'A' entao
+      retorne stringParaInt(n-1,potencia * 16) + (asc(hexa[n]) - asc('A') + 10) * potencia
+    senao
+      retorne stringParaInt(n-1,potencia*16) + (asc(hexa[n]) - asc('0')) * potencia
+    fimse
+  fim funcao
+
+  funcao intParaString(n:inteiro):string
+  inicio
+    se n = 0 entao
+      retorne ""
+    fimse
+    retorne intparaString(n div 10) + chr(asc('0') + n mod 10)
+  fim funcao
+inicio
+  se stringValida(tamanho(hexa)) entao
+    decimal <- stringParaInt(tamanho(hexa), 1)
+    stringDecimal <- intParaString(decimal)
+    se hexa[1] = '-' entao
+      retorne '-' + stringDecimal
+    fimse
+    retorne stringDecimal
+  senao
+    retorne ""
+  fimse
+fim funcao

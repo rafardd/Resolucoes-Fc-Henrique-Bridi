@@ -1,0 +1,15 @@
+funcao éPalindrome(s:string):logico
+var
+  i,j:inteiro
+inicio
+  i <- 1
+  j <- tamanho(s)
+  enquanto i < j  faca
+    se s[i] != s[j] entao
+      retorne FALSO
+    fimse
+    i <- i + 1
+    j <- j - 1
+  fimenquanto
+  retorne VERDADEIRO
+fimfuncao

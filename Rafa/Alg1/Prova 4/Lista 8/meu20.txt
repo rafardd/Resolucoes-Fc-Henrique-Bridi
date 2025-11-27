@@ -1,0 +1,20 @@
+algoritmo produto_escalar_entre_vetores
+var
+  A,B:vetor[1..317] de real
+  i:inteiro
+  escalar:real
+inicio
+  para i de 1 ate 317 faca
+    escreva("insira o valor da posicao ",i," para o vetor A")
+    leia(A[i])
+  fimpara
+  para i de 1 ate 317 faca
+    escreva("insira o valor da posicao ",i," para o vetor B")
+    leia(B[i])
+  fimpara
+  escalar <- 0
+  para i de 1 ate 317 faca
+    escalar <- escalar + A[i] * B[i]
+  fimpara
+  escreva("produto escalar = ",escalar)
+fimalgoritmo

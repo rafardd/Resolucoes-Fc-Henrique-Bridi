@@ -1,0 +1,32 @@
+ tipos
+	PNo:ponteiro para Tno
+	Tno: registro 
+		info: string
+		chave: inteiro
+		prox : PNo
+funcao elementeMeio(l:PNo):string
+var	
+	tamanho:inteiro
+	p: PNo
+inicio
+	se l = NULO entao
+		retorne ""
+	fimse
+	p <- l
+	tamanho <- 0 
+	enquanto p != NULO faca
+		tamanho <- tamanho + 1
+		p <- p^.prox
+	fim enquanto
+	se tamanho mod 2 = 1 entao
+		para i de 1 ate tamanho div 2 faca
+			l <- l^.prox
+		fim para
+		retorne l^.info
+	fimse
+	para i de 1 ate tamanho div 2 -1  faca
+		l <- l^.prox
+	fim para
+	retorne l^.info
+fim funcao
+		

@@ -1,0 +1,29 @@
+algoritmo sorteia_l_e_multiplica_sua_transposta
+var
+  L:vetor[1..6] de vetor[1..4] de real
+  T:vetor[1..4] de vetor[1..6] de real
+  i,j:inteiro
+inicio
+  para i de 1 ate 6 faca
+    para j de 1 ate 4 faca
+      L[i][j] <- ( 1 - (-1)) *aleatorio() - 1 
+    fimpara
+  fimpara
+  para i de 1 ate 6 faca 
+    para j de 1 ate 6 faca
+      T[i][j] <- 0
+      para k de 1 ate 4 faca
+        T[i][j] <- T[i][j] + L[i][k] * L[j][k]
+    fimpara
+  fimpara
+  para i de 1 ate 6 faca
+    para j de 1 ate 4 faca
+      escreva(L[i][j])
+    fimpara
+  fimpara
+  para i de 1 ate 6 faca
+    para j de 1 ate 6 faca
+      escreva(T[i][j])
+    fimpara
+  fimpara
+fimalgoritmo

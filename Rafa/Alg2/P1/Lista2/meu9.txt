@@ -1,0 +1,15 @@
+procedimento escreveSoma()
+var
+  n,d:inteiro
+  soma:real
+inicio
+  n <- 2
+  d <- 50
+  soma <- 2/50
+  enquanto d >= 1 faca
+    n <- n * 2
+    d <- d -1
+    soma <- soma + n/d
+  fim enquanto
+  escreva(soma)
+fim procedimento

@@ -1,0 +1,15 @@
+funcao Pi():real
+var
+  soma:real
+  n,d:inteiro
+inicio
+  n <- 4
+  d <- 1
+  soma <- 4
+  enquanto abs(n/d) >= 0,0001 faca
+    n <- -n
+    d <- d + 2
+    soma <- soma + n/d
+  fim enquanto
+  retorne soma
+fim funcao

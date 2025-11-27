@@ -1,0 +1,65 @@
+algoritmo matrizes_linearmente_dependentes
+const
+  MAX=7
+  MIN=-3
+var
+  P,U:vetor[1..1000] de vetor[1..1000] de real
+  i,j,m,n:inteiro
+  dependentes,encontrou_escalar : logico
+  escalar: real
+inicio
+  escreva("insira o numero de linhas das matrizes: ")
+  leia(m)
+  enquanto m < 1 ou m > 1000 faca
+    escreva("deve estar entre 1 e 1000, reinsira: ")
+    leia(m)
+  fimenquanto
+  escreva("insira o numero de colunas das matrizes: ")
+  leia(n) 
+  enquanto n < 1 ou n > 1000 faca
+    escreva("deve estar entre 1 e 1000, reinsira: ")
+    leia(n)
+  fimenquanto
+  para j de 1 ate n faca
+    para i de 1 ate m faca
+      P[i][j] <- trunca(((MAX - MIN)*10 + 1 )*aleatorio()) mod (MAX - MIN)*10 + 1 /10 + MIN
+    fimpara
+  fimpara
+  para j de 1 ate n faca
+    para i de 1 ate m faca
+      U[i][j] <- trunca(((MAX - MIN)*10 + 1 )*aleatorio()) mod (MAX - MIN)*10 + 1 /10 + MIN
+    fimpara
+  fimpara
+  escalar <- 0 
+  encontrou_escalar <- FALSO
+  i <- 1 
+  enquanto i <= m e nao escontrou_escalar faca
+    j <- 1 
+    enquanto j <= n nao encontrou_escalar faca
+      se U[i][j] != 0 entao
+        escalar <- P[i][j] / U[i][j]
+        encontrou_escalar <- VERDADEIRO
+      fimse
+      j <- j + 1 
+    fimenquanto
+    i <- i + 1
+  fimenquanto
+  i <- 1 
+  dependentes <- VERDADEIRO
+  enquanto i <= m e dependentes faca
+    j <- 1 
+    enquanto j <= n e dependentes faca
+      se abs(P[i][j] - escalar * U[i][j]) > 0 entao
+        dependentes <- FALSO
+      fimse
+      j <- j + 1
+    fimenquanto
+    i <- i + 1
+  fimenquanto
+  se dependentes entao
+    escreva("sao dependentes")
+  senao
+    escreva("nao sao dependentes")
+  fimse
+fimalgoritmo
+

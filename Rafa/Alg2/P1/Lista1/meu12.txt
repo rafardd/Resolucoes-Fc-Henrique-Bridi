@@ -1,0 +1,24 @@
+funcao montaSequencia(c:caracter;n:inteiro):string
+var
+  s:string
+  aux:inteiro
+inicio
+  s <- ""
+  i <- 1
+  aux <- asc(c)
+  se n > 0  entao
+    enquanto i <= n e aux >= 32 e aux <= 126 faca
+      s <- s + chr(aux)
+      aux <- aux + 1
+      i <- i + 1
+    fimenquanto
+  fimse
+  se n < 0 entao
+    enquanto i <= abs(n) e aux >= 32 e aux <= 126 faca
+      s <- s + chr(aux)           
+      aux <- aux - 1 
+      i <- i + 1
+    fimenquanto
+  fimse
+  retorne s
+fimfuncao    

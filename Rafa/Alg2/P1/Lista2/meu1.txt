@@ -1,0 +1,17 @@
+procedimento GeraEscreveNFibonnaci(n:inteiro)
+var
+  F1,F2:inteiro
+inicio
+  F1<- 1
+  escreva(F1)
+  F2<- 1 
+  escreva(F2)
+  i <- 2
+  enquanto i <= n faca
+    i <- i + 1
+    Fn <- F2 + F1
+    escreva(Fn)
+    F1 <- F2
+    F2 <- Fn
+  fim enquanto
+fim procedimento

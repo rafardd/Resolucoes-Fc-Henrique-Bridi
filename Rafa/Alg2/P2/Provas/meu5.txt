@@ -1,0 +1,15 @@
+funcao primeiraAparição(c:caracter;s:string):inteiro
+var
+  funcao achaPosição(i:inteiro):inteiro
+  inicio
+    se i > tamanho(s) entao
+      retorne 0
+    fimse
+    se s[i] = c entao
+      retorne i
+    fimse
+    retorne achaPosição(i+1)
+  fim funcao
+inicio
+  retorne achaPosição(1)
+fim funcao

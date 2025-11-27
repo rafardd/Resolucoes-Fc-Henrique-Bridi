@@ -1,0 +1,45 @@
+9ª Questão:
+algoritmo LetrasDoAlfabetoAparecem
+
+var
+   s : string
+   alfabeto : vetor[1..26] de lógico
+   n, i, t : inteiro
+
+início
+   escreva("Insira uma string: ")
+   leia(s)
+   t <- tamanho(s)
+   se t > 26 então
+      t <- 26
+   fimse
+   se t > 0 então
+      para i de 1 até 26 faça
+         alfabeto[i] <- FALSO
+      fimpara
+      para i de 1 até tamanho(s) faça
+         se 'A' <= s[i] e s[i] <= 'Z' então 
+            n <- asc(s[i]) - asc('A') + 1
+            alfabeto[n] <- VERDADEIRO
+         fimse
+         se 'a' <= s[i] e s[i] <= 'z' então
+            n <- asc(s[i]) - asc('a') + 1
+            alfabeto[n] <- VERDADEIRO
+         fimse
+      fimpara
+      i <- 1
+      enquanto i <= t e alfabeto[i] então
+         i <- i + 1
+      fimenquanto
+      se i > t então
+         escreva("As primeiras ", t, " letras do alfabeto aparecem")
+      senão
+         escreva("As primeiras ", t, " letras do alfabeto não aparecem")
+      fimse
+   senão
+      escreva("String vazia")
+   fimse
+fimalgoritmo
+      
+            
+  
