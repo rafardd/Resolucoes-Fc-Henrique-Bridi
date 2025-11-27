@@ -1,0 +1,19 @@
+tipos
+    PNo : ponteiro para TNo
+    TNo : registro
+            info : string
+            prox : PNo
+          fimregistro
+
+função retornaStrEmPosiçãoP(l: PNo, p: inteiro): string
+início
+    enquanto l != NULO e p > 0 faça
+        l <- l^.prox
+        p <- p - 1
+    fimenquanto
+    se l = NULO então
+        retorne ""
+    senão
+        retorne l^.info
+    fimse
+fimfunção
