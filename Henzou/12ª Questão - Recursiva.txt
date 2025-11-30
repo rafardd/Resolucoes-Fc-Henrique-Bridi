@@ -1,0 +1,23 @@
+tipos
+    PNo : ponteiro para TNo
+    TNo : registro
+            info : string
+            prox : PNo
+          fimregistro
+
+função comparaListas(l1, l2 : PNo): lógico
+início
+    se l1 = NULO e l2 = NULO então
+        retorne VERDADEIRO
+    senão
+        se (l1 = NULO e l2 != NULO) ou (l1 != NULO e l2 = NULO) então
+            retorne FALSO
+        senão
+            se l1^.info = l2^.info então
+                retorne VERDADEIRO e comparaListas(l1^.prox, l2^.prox)
+            senão
+                retorne FALSO
+            fimse
+        fimse
+    fimse
+fimfunção

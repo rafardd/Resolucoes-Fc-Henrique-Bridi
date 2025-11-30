@@ -1,0 +1,19 @@
+tipos
+    PNo : ponteiro para TNo
+    TNo : registro
+            info : string
+            prox : PNo
+          fimregistro
+
+função comparaListas(l1, l2 : PNo): lógico
+var
+    iguais : lógico
+início
+    iguais <- VERDADEIRO
+    enquanto l1 != NULO e l2 != NULO faça
+        iguais <- iguais e (l1^.info = l2^.info) e l1^.prox != NULO e l2^.prox != NULO
+        l1 = l1^.prox
+        l2 = l2^.prox
+    fimenquanto
+    retorne iguais
+fimfunção
