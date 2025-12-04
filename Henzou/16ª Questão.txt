@@ -1,0 +1,32 @@
+tipos
+    PNo : ponteiro para TNo
+    TNo : registro
+            info : inteiro
+            prox : PNo
+          fimregistro
+
+função insereEmOrdem(ref l: PNo; x: inteiro): lógico
+var
+    temp, novo, ant : PNo
+início
+    temp <- l
+    ant <- NULO
+    enquanto temp != NULO e temp^.info < x faça
+        ant <- temp
+        temp <- temp^.prox
+    fimenquanto
+
+    novo <- aloca(TNo)
+    se novo = NULO então
+        retorne FALSO
+    fimse
+    novo^.info <- x
+    novo^.prox <- temp
+
+    se ant = NULO então
+        l <- novo
+    senão
+        ant^.prox <- novo
+    fimse
+    retorne VERDADEIRO
+fimfunção

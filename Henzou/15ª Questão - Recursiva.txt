@@ -15,9 +15,9 @@ início
       retorne FALSO
     fimse
 
-    novo^.info = x
-    novo^.prox = NULO
-    l = novo
+    novo^.info <- x
+    novo^.prox <- NULO
+    l <- novo
     retorne VERDADEIRO
   fimse
   insereFim(l^.prox, x)
