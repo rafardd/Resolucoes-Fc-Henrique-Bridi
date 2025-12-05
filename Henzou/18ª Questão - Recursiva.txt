@@ -9,7 +9,11 @@ função insereNaPosição(ref l: PNo; x: real; p: inteiro): lógico
 var
     novo : PNo
 início
-    se l = NULO ou p = 1 então
+    se p <= 0 ou (l = NULO e p > 1) então
+        retorne FALSO
+    fimse
+
+    se p = 1 então
         novo <- aloca(TNo)
         se novo = NULO então
             retorne FALSO
@@ -17,12 +21,7 @@ início
         novo^.info <- x
         novo^.prox <- l
         l <- novo
-
-        se p = 1 então
-            retorne VERDADEIRO
-        senão
-            retorne FALSO
-        fimse
+        retorne VERDADEIRO
     fimse
     retorne insereNaPosição(l^.prox, x, p-1)
 fimfunção
