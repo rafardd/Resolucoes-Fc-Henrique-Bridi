@@ -1,0 +1,34 @@
+tipos
+    PNo : ponteiro para TNo
+    TNo : registro
+            info : real
+            prox : PNo
+          fimregistro
+
+função somaNós(ref l: PNo; p: inteiro): lógico
+var
+    temp, ant : PNo
+início
+    se l = NULO ou l^.prox = NULO então
+        retorne FALSO
+    fimse
+
+    ant <- l
+    temp <- l^.prox
+    enquanto temp != NULO e p > 1 faça
+        ant <- temp
+        temp <- temp^.prox
+        p <- p - 1
+    fimenquanto
+
+    se temp = NULO então
+        retorne FALSO
+    senão
+        ant^.info <- ant^.info + temp^.info
+        ant^.prox <- temp^.prox
+        desaloca(temp)
+        retorne VERDADEIRO
+    fimse
+fimfunção
+
+

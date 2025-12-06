@@ -1,0 +1,34 @@
+tipos
+    PNo : ponteiro para TNo
+    TNo : registro
+            info : real
+            prox : PNo
+          fimregistro
+
+função removeDuplicados(ref l: PNo): inteiro
+var
+    temp, ant : PNo
+    total : inteiro
+início
+    se l = NULO então
+        retorne 0
+    fimse
+
+    total <- 0
+    ant <- l
+    temp <- l^.prox
+
+    enquanto temp != NULO faça
+        se ant^.info = temp^.info então
+            ant^.prox <- temp^.prox
+            desaloca(temp)
+            temp <- ant^.prox
+            total <- total + 1
+        senão
+            ant <- temp
+            temp <- temp^.prox
+        fimse
+    fimenquanto
+    retorne total
+fimfunção
+

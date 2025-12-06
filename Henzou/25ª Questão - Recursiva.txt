@@ -1,0 +1,24 @@
+tipos
+    PNo : ponteiro para TNo
+    TNo : registro
+            info : real
+            prox : PNo
+          fimregistro
+
+procedimento passaÚltimoParaInício(ref l: PNo)
+var
+    temp, ant : PNo
+início
+    se l = NULO ou l^.prox = NULO então
+        pare
+    fimse
+
+    se l^.prox^.prox = NULO então
+        temp <- l^.prox
+        l^.prox <- NULO
+        temp^.prox <- l
+        l <- temp
+    senão
+        passaÚltimoParaInício(l^.prox)
+    fimse
+fimprocedimento
