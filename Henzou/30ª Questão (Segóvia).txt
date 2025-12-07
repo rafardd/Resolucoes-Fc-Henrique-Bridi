@@ -1,0 +1,59 @@
+tipos
+    PNo = ponteiro para TNo
+    TNo = registro
+            coef: real
+            exp: real
+            prox: PNo
+          fimregistro
+função MergePolinomio(l1, l2: PNo): PNo
+var
+    novo, ultimo, head, p1, p2: PNo
+    c, expo: real
+início
+    p1 ← l1
+    p2 ← l2
+    Se p1 = p2 então
+        Retorne NULO
+    Fim se
+    Se p1 = NULO e p2 = NULO então
+        head ← NULO
+    ultimo ← NULO
+    Enquanto p1 ≠ NULO ou p2 ≠ NULO faça
+        c ← 0
+        Se p2 = NULO ou (p1 ≠ NULO e p1↑.exp > p2↑.exp) então
+            expo ← p1↑.exp
+            c ← p1↑.coef
+            p1 ← p1↑.prox
+            p2 ← p2
+        Senão
+            Se p1 = NULO ou p2↑.exp > p1↑.exp então
+                expo ← p2↑.exp
+                c ← p2↑.coef
+                p1 ← p1
+                p2 ← p2↑.prox
+            Senão
+                expo ← p1↑.exp
+                c ← p1↑.coef + p2↑.coef
+                p1 ← p1↑.prox
+                p2 ← p2↑.prox
+            Fim se
+        Fim se
+        Se c ≠ 0 então
+            novo ← aloca(TNo)
+            Se novo = NULO então
+                Retorne NULO
+            Fim se
+            novo↑.exp ← expo
+            novo↑.coef ← c
+            novo↑.prox ← NULO
+            Se head = NULO então
+                head ← novo
+                ultimo ← novo
+            Senão
+                ultimo↑.prox ← novo
+                ultimo ← novo
+            Fim se
+        Fim se
+    Fim enquanto
+    Retorne head
+fim função
