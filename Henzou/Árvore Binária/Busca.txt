@@ -1,0 +1,24 @@
+tipos
+    PNo = ponteiro para TNo
+    TNo = registro
+            chave : real
+            info : inteiro
+            esq : PNo
+            dir : PNo
+          fimregistro
+
+função busca(l: PNo; ch: real): PNo
+início
+    enquanto l != NULO faça
+        se ch = l^.chave então
+            retorne l
+        fimse
+
+        se ch < l^.chave então
+            l <- l^.esq
+        senão
+            l <- l^.dir
+        fimse
+    fimenquanto
+    retorne NULO
+fimfunção

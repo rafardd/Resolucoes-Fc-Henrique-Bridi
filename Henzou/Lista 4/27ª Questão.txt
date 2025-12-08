@@ -1,0 +1,36 @@
+tipos
+    PNo = ponteiro para TNo
+    TNo = registro
+            info : real
+            prox : PNo
+          fimregistro
+
+função copiaLista(l: PNo): PNo
+var
+    cópial, temp, novo, ant : PNo
+início
+    se l = NULO então
+        retorne NULO
+    fimse
+
+    temp <- l
+    novo <- aloca(TNo)
+    se novo = NULO então
+        retorne FALSO
+    fimse
+    novo^.info <- temp^.info
+    novo^.prox <- NULO
+    cópial <- novo
+
+    ant <- novo
+    temp <- temp^.prox
+    enquanto temp != NULO faça
+        novo <- aloca(TNo)
+        novo^.info <- temp^.info
+        novo^·prox <- NULO
+        ant^.prox <- novo
+        ant <- novo
+        temp <- temp^.prox
+    fimenquanto
+    retorne cópial
+fimfunção

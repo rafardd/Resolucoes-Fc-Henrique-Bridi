@@ -1,0 +1,43 @@
+tipos 
+  PNo = ponteiro para TNo
+  TNo = registro
+          info : string
+          prev : PNo
+          prox : PNo
+        fimregistro
+
+função removeValor(ref l: PNo; x: string): lógico
+var
+  temp : PNo
+início
+  se l = NULO então 
+    retorne FALSO
+  fimse
+
+  temp <- l
+  se l^.info = x então
+    l <- l^.prox
+    se l != NULO então
+      l^.prev <- NULO
+    fimse
+    desaloca(temp)
+    retorne VERDADEIRO
+  fimse
+
+  ant <- NULO
+  enquanto temp != NULO e temp^.info != x faça
+    temp <- temp^.prox
+  fimenquanto
+
+  se temp = NULO então
+    retorne FALSO
+  senão
+    temp^.prev^.prox <- temp^.prox
+    se temp^.prox != NULO então
+      temp^.prox^.prev <- temp^.prev
+    fimse
+    desaloca(temp)
+    retorne VERDADEIRO
+  fimse
+fimfunção
+    

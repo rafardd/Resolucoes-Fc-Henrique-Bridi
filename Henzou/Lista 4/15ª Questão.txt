@@ -1,0 +1,33 @@
+tipos 
+  PNo = ponteiro para TNo
+  TNo = registro
+          info : string
+          prox : PNo
+        fimregistro
+
+função insereFim(ref l: PNo; x: string): lógico
+var
+  novo, temp : PNo
+início
+  novo <- aloca(TNo)
+  se novo = NULO então
+    retorne FALSO
+  fimse
+  
+  novo^.info = x
+  novo^.prox = NULO
+
+  se l = NULO então
+    l <- novo
+    retorne VERDADEIRO
+  fimse
+
+  temp <- l 
+  enquanto temp^.prox != NULO faça
+    temp <- temp^.prox
+  fimenquanto
+
+  temp^.prox <- novo
+  retorne VERDADEIRO
+fimfunção
+  

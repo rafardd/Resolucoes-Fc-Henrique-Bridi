@@ -1,0 +1,49 @@
+tipos
+    PNo = ponteiro
+    TNo = registro
+            chave : string
+            info : inteiro
+            esq : PNo
+            dir : PNo
+          fimregistro
+
+função Insere(ref l: PNo; ch: string, Tinfo: inteiro): lógico
+var
+    novo, temp, pai : PNo
+início
+    pai <- NULO
+    temp <- l
+    enquanto temp != NULO e temp^.chave != ch faça
+        pai <- temp
+        se ch < temp^.chave então
+            temp <- temp^.esq
+        senão
+            temp <- temp^.dir
+        fimse
+    fimenquanto
+
+    se temp != NULO então
+        retorne FALSO
+    fimse
+
+    novo <- aloca(TNo)
+    se novo = NULO então
+        retorne FALSO
+    fimse
+
+    novo^.chave <- ch
+    novo^.info <- Tinfo
+    novo^.esq <- NULO
+    novo^.dir <- NULO
+
+    se pai = NULO então
+        l <- novo
+    senão
+        se ch < pai^.chave então
+            pai^.esq <- novo
+        senão
+            pai^.dir <- novo
+        fimse
+    fimse
+    retorne VERDADEIRO
+fimfunção

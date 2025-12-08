@@ -1,0 +1,29 @@
+tipos
+  PNo = ponteiro para TNo
+  TNo = registro
+          info : string
+          prox : PNo
+        fimregistro
+
+função removeÚltimo(ref l: PNo): lógico
+var
+  temp, ant : PNo
+início
+  se l = NULO então
+    retorne FALSO
+  fimse
+  
+  temp <- l
+  se l^.prox = NULO então
+    desaloca(temp)
+    l <- NULO
+  fimse
+
+  enquanto temp^.prox != NULO faça
+    ant <- temp
+    temp <- temp^.prox
+  fimenquanto
+
+  desaloca(temp)
+  ant^.prox <- NULO
+fimfunção

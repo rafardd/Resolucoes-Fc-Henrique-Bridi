@@ -1,0 +1,24 @@
+tipos
+    PNo = ponteiro para TNo
+    TNo = registro
+            chave : inteiro
+            info : real
+            esq : PNo
+            dir : PNo
+          fimregistro
+
+procedimento inverte(ref l: PNo)
+var
+    aux : PNo
+início
+    se l = NULO então
+        pare
+    fimse
+
+    aux <- l^.esq
+    l^.esq <- l^.dir
+    l^.dir <- aux
+
+    InverteBST(l^.esq)
+    InverteBST(l^.dir)
+fimprocedimento

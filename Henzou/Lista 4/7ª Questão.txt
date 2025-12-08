@@ -1,0 +1,25 @@
+tipos
+    PNo = ponteiro para TNo
+    TNo = registro
+            info : inteiro
+            prox : PNo
+          fimregistro
+
+função retornaMédiaSimples(l: PNo): real
+var
+    soma, total : inteiro
+início
+    soma <- 0
+    total <- 0
+    enquanto l != NULO faça
+        soma <- soma + l^.info
+        total <- total + 1
+        l <- l^.prox
+    fimenquanto
+
+    se total = 0 então
+        retorne 0
+    senão
+        retorne soma / total
+    fimse
+fimfunção
