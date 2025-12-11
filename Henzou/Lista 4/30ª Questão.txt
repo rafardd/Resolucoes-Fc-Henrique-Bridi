@@ -1,0 +1,80 @@
+tipos
+    PNo = ponteiro para TNo
+    TNo = registro
+            coef: real
+            exp: real
+            prox: PNo
+          fimregistro
+função somaPolinômios(l1, l2: PNo): PNo
+var
+    novo, ant, head, aux : PNo
+    coef : real
+
+    função somou(head: PNo; c: real): lógico
+    início
+        novo <- aloca(TNo)
+        se novo = NULO então
+            aux <- head
+            enquanto head != NULO faça
+                head <- head^.prox
+                desaloca(aux)
+                aux <- head
+            fimenquanto
+            retorne FALSO
+        fimse
+
+        novo^.coef <- c
+        novo^.prox <- NULO
+        novo^.exp <- l1^.exp
+
+        se head = NULO então
+            head <- novo
+        senão
+            ant^.prox <- novo
+        fimse
+        ant <- novo
+        retorne VERDADEIRO
+    fimfunção
+
+início
+    ant <- NULO
+    head <- NULO
+    enquanto l1 != NULO e l2 != NULO faça
+        se l1^.exp = l2^.exp então
+            coef <- l1^.coef + l2^.coef
+            se coef != 0 então
+                se não somou(l1, coef) então
+                    retorne NULO
+                fimse
+            fimse
+            l1 <- l1^.prox
+            l2 <- l2^.prox
+        senão
+            se l1^.exp > l2^.exp então
+                se não somou(l1, l1^.coef) então
+                    retorne NULO
+                fimse
+                l1 <- l1^.prox
+            senão
+                se não somou(l2, l2^.coef) então
+                    retorne NULO
+                fimse
+                l2 <- l2^.prox
+            fimse
+        fimse
+    fimenquanto
+    enquanto l1 != NULO faça
+        se não somou(l1, l1^.coef) então
+            retorne NULO
+        fimse
+        l1 <- l1^.prox
+    fimenquanto
+
+    enquanto l2 != NULO faça
+        senão somou(l2, l2^.coef) então
+            retorne NULO
+        fimse
+        l2 <- l2^.prox
+    fimenquanto
+    retorne head
+fimfunção

@@ -1,0 +1,40 @@
+tipo
+    PNo = ponteiro para TNo
+    TNo = registro
+            coef: real
+            exp: real
+            prox: PNo
+          fim registro
+
+função somaPolinômios(l1, l2: PNo): PNo
+var
+    coef : real
+
+    procedimento destrói(ref l: PNo)
+    início
+        se l != NULO faça
+            destrói(l^.prox)
+            desaloca(l)
+            l <- NULO
+        fimse
+
+    função soma(head: PNo; c: real): lógico
+    início
+        novo <- aloca(TNo)
+        se novo = NULO então
+            destrói(head)
+            retorne FALSO
+        fimse
+
+        novo^.coef <- c
+        novo^.prox <- NULO
+        novo^.exp <- p1^.exp
+
+        head <- novo
+        retorne VERDADEIRO
+    fimfunção
+
+início
+    // todo
+fimfunção
+

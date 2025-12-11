@@ -9,7 +9,7 @@ função somaNós(ref l: PNo; p: inteiro): lógico
 var
     temp : PNo
 início
-    se l = NULO ou l^.prox = NULO então
+    se l = NULO ou l^.prox = NULO ou p < 1 então
         retorne FALSO
     fimse
 

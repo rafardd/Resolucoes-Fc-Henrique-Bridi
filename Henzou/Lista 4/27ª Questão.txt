@@ -26,6 +26,9 @@ início
     temp <- temp^.prox
     enquanto temp != NULO faça
         novo <- aloca(TNo)
+        se novo = NULO então
+            retorne FALSO
+        fimse
         novo^.info <- temp^.info
         novo^·prox <- NULO
         ant^.prox <- novo
