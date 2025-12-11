@@ -1,0 +1,35 @@
+tipos
+	Pno:ponteiro para Tno
+	Tno:registro
+		info:string
+		prox:Pno
+		ant:Pno
+funcao removePrimeiraOcorrencia(ref l:Pno;x:string):logico
+var
+	p,temp:Pno
+inicio
+	se l = NULO entao
+		retorne FALSO	
+	fimse
+	p <- l
+	se l^.info = x entao
+		se l^.prox != NULO entao
+			l^.prox^.ant <- NULO
+		fimse
+		l <- l^.prox
+		desaloca(p)
+		retorne VERDADEIRO
+	fimse
+	enquanto p^.prox != NULO e p^.prox^.info != x faca
+		p <- p^.prox
+	fim enquanto
+	se p^.prox != NULO entao
+		temp <- p^.prox
+		se p^.prox^.prox != NULO entao
+			p^.prox^.prox^.ant <- p
+		fimse
+		p^.prox <- p^.prox^.prox
+		desaloca(temp)
+		retorna VERDADEIRO
+	fim se
+fim funcao

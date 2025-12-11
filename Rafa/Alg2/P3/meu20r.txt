@@ -1,0 +1,18 @@
+tipos 
+	Pno:ponteiro para Tno
+	Tno:registro
+		info:string
+		prox:Pno
+funcao removeUltimo(ref l:Pno):logico
+inicio
+	se l = NULO entao
+		retorne FALSO
+	fimse
+	se l^.prox = NULO entao
+		desaloca(l)
+		l <- NULO
+		retorne VERDADEIRO
+	fimse
+	retorne removeUltimo(l^.prox)
+fim funcao
+	

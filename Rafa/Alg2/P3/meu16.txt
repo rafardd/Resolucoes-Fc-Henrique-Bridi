@@ -1,0 +1,28 @@
+tipos
+	Pno:ponteiro para Tno
+	Tno:registro
+		info:inteiro
+		prox:Pno
+	    fim registro
+funcao insereOrdenada(ref l : Pno;x:inteiro):logico
+var
+	p,novo:Pno
+inicio
+	novo <- aloca(Tno)
+	se novo = NULO entao
+		retorne FALSO
+	fimse
+	novo^.info <- x
+	se l = NULO ou x l^.info entao
+		l <- novo
+		novo^.prox <- NULO
+		retorne VERDADEIRO
+	fim se
+	p <- l
+	enquanto p^.prox != NULO e  p^.prox^.info < x faca
+		p <- p^.prox
+	fim enquanto
+	novo^.prox <- p^.prox
+	p^.prox <- novo
+	retorne VERDADEIRO
+fim funcao
