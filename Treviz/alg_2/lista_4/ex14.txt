@@ -1,0 +1,23 @@
+TIPOS
+    PNo = PONTEIRO PARA TNo
+    TNo =
+        REGISTRO
+            chave : inteiro
+            info : string
+            prox : PNo
+        FIM REGISTRO
+
+FUNÇÃO insere(REF l:PNo, inf:string, ch:inteiro):lógico
+VAR
+    novo : PNo
+INICIO
+    novo <- aloca(TNo)
+    SE novo = NULO ENTAO
+        RETORNE falso
+    FIM SE
+    novo.chave <- ch
+    novo.info <- inf
+    novo.prox <- l
+    l <- novo
+    RETORNE verdadeiro
+FIM FUNÇÃO

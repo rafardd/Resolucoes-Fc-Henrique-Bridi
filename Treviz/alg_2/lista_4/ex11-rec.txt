@@ -1,0 +1,21 @@
+TIPOS
+    PNo = PONTEIRO PARA TNo
+    TNo = 
+        REGISTRO
+            elemento : real
+            prox : PNo
+        FIM REGISTRO
+
+FUNÇÃO busca_x(l:PNo ; x:real):lógico
+INICIO
+    SE l = NULO ENTAO
+        RETORNE falso
+    FIM SE
+    SE x > l^.elemento ENTAO
+        RETORNE falso
+    FIM SE
+    SE x = l^.elemento ENTAO
+        RETORNE verdadeiro
+    FIM SE
+    RETORNE busca_x(l^.prox, x)
+FIM FUNÇÃO

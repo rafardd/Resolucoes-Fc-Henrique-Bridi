@@ -1,0 +1,21 @@
+TIPOS 
+    PNo = PONTEIRO PARA TNo
+    TNo = 
+        REGISTRO
+            info : string
+            prox : PNo
+        FIM REGISTRO
+
+FUNÇÃO listas_iguais(l1,l2:PNo):lógica
+INICIO
+    SE l1 = l2 ENTAO
+        RETORNE verdadeiro
+    FIM SE
+    SE l1 = NULO OU l2 = NULO ENTAO
+        RETORNE falso
+    FIM SE
+    SE l1^.info != l2^.info ENTAO
+        RETORNE falso
+    FIM SE
+    RETORNE listas_iguais(l1^.prox, l2^.prox)
+FIM FUNÇÃO

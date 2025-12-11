@@ -1,0 +1,24 @@
+TIPOS
+    PNo = PONTEIRO PARA TNo
+    TNo =
+        REGISTRO
+            elemento : real
+            prox : PNo
+        FIM REGISTRO
+
+FUNÇÃO l1_contem_l2(l1,l2:PNo):lógica
+VAR
+    aux: PNo
+INICIO
+    ENQUANTO l2 != NULO FAÇA
+        aux <- l1
+        ENQUANTO aux != NULO E aux^.elemento != l2^.elemento FAÇA
+            aux <- aux^.prox
+        FIM ENQUANTO
+        SE aux = NULO ENTAO
+            RETORNE falso
+        FIM SE
+        l2 <- l2^.prox
+    FIM ENQUANTO
+    RETORNE verdadeiro 
+FIM FUNÇÃO
