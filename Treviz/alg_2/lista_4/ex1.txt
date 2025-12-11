@@ -1,0 +1,13 @@
+TIPOS
+    PNo = PONTEIRO PARA TNo
+    TNo = 
+        REGISTRO
+            chave : inteiro
+            info : TInfo
+            prox : PNo
+        FIM REGISTRO
+
+funcao vazia(l:PNo):lógica
+inicio
+    retorna l = NULO
+fim funcao

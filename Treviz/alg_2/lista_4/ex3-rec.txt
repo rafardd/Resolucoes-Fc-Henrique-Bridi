@@ -1,0 +1,21 @@
+tipos
+    PNo = ponteiro para TNo
+    TNo = 
+        registro
+            chave : inteiro
+            info : TInfo
+            prox : PNo
+        fim registro
+
+funcao search(l:PNo ; ch:real):logico
+inicio
+    se l = nulo entao
+        retorne falso
+    senao
+        se l^.chave = ch entao
+            retorne verdadeiro
+        senao
+            retorne search(l^.prox; ch)
+        fimse
+    fimse
+fim funcao

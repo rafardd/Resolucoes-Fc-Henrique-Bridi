@@ -1,0 +1,20 @@
+tipos
+    PNo = PONTEIRO PARA TNo
+    TNo = 
+        REGISTRO
+            chave : inteiro
+            info : string
+            prox : PNo
+        fim registro
+
+funcao get(l:PNo ; p:inteiro):string
+inicio
+    ENQUANTO l != nulo E p > 0 FACA
+        l <- l^.prox
+        p = p - 1
+    FIM ENQUANTO
+    SE l = nulo ENTAO
+        retorne ""
+    FIMSE
+    retorne l^.info
+fim funcao
