@@ -1,0 +1,11 @@
+tipo
+    PNo = ponteiro para TNo
+    TNo = registro
+            info : real
+            prox : PNo
+        fimregistro
+
+funcao listaEncadeadaVazia(head : PNo) : logico
+inicio
+    retorne head = nulo
+fimfuncao

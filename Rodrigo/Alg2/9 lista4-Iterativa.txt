@@ -1,0 +1,22 @@
+tipo 
+    PNo : ponteiro para TNo
+    TNo : registro
+            info : real
+            prox : PNo
+        fimregistro
+
+funcao verificaElementosJuntos(head : PNo; x, y : real) : logico
+var
+    
+inicio
+    se head = NULO entao
+        retorne falso
+    fimse
+    enquanto head != NULO e head^.prox != NULO faca
+        se head^.info = x e head^.prox^.info = y entao
+            retorne verdadeiro
+        fimse
+        head <- head^.prox
+    fimenquanto
+    retorne falso
+fimfuncao

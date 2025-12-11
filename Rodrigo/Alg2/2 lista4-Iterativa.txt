@@ -1,0 +1,18 @@
+tipo 
+    PNo = ponteiro para TNo
+    TNo = registro
+            info : real
+            prox : PNo
+        fimregistro
+
+funcao tamanhoListaEncadeada(head : PNo) : inteiro
+var
+    tamanho : inteiro
+inicio
+    tamanho <- 0
+    enquanto head != NULO faca
+        tamanho <- tamanho + 1
+        head <- head^.prox
+    fimenquanto
+    retorne tamanho
+fimfuncao
