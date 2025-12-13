@@ -26,6 +26,7 @@ início
         retorne FALSO
     fimse
 
+    // Sem Filhos
     se r^.esq = NULO e r^.dir = NULO então
         se pai = NULO então
             l <- NULO
@@ -40,6 +41,7 @@ início
         retorne VERDADEIRO
     fimse
 
+    // 1 Filho
     se r^.esq = NULO ou r^.dir = NULO então
         se r^.esq != NULO então
             aux <- r^.esq
@@ -61,6 +63,7 @@ início
         retorne VERDADEIRO
     fimse
 
+    // 2 Filhos
     pai <- r
     aux <- r^.dir
 

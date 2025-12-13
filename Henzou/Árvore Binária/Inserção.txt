@@ -2,12 +2,12 @@ tipos
     PNo = ponteiro
     TNo = registro
             chave : string
-            info : inteiro
+            info : string
             esq : PNo
             dir : PNo
           fimregistro
 
-função Insere(ref l: PNo; ch: string, Tinfo: inteiro): lógico
+função Insere(ref l: PNo; ch, Tinfo: string): lógico
 var
     novo, temp, pai : PNo
 início

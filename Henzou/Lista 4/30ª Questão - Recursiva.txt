@@ -4,37 +4,56 @@ tipo
             coef: real
             exp: real
             prox: PNo
-          fim registro
+          fimregistro
 
 função somaPolinômios(l1, l2: PNo): PNo
 var
+    novo : PNo
     coef : real
 
-    procedimento destrói(ref l: PNo)
-    início
-        se l != NULO faça
-            destrói(l^.prox)
-            desaloca(l)
-            l <- NULO
+início
+    se l1 = NULO então
+        retorne l2
+    fimse
+    se l2 = NULO então
+        retorne l1
+    fimse
+
+    se l1^.exp = l2^.exp então
+        coef <- l1^.coef + l2^.coef
+        se coef = 0 então
+            retorne somaPolinômios(l1^.prox, l2^.prox)
         fimse
 
-    função soma(head: PNo; c: real): lógico
-    início
         novo <- aloca(TNo)
         se novo = NULO então
-            destrói(head)
-            retorne FALSO
+            retorne NULO
         fimse
+        novo^.coef <- coef
+        novo^.exp <- l1^.exp
+        novo^.prox <- somaPolinômios(l1^.prox, l2^.prox)
+        retorne novo
+    fimse
 
-        novo^.coef <- c
-        novo^.prox <- NULO
-        novo^.exp <- p1^.exp
+    se l1^.exp > l2^.exp então
+        novo <- aloca(TNo)
+        se novo = NULO então
+            retorne NULO
+        fimse
+        novo^.coef <- l1^.coef
+        novo^.exp <- l1^.exp
+        novo^.prox <- somaPolinômios(l1^.prox, l2)
+        retorne novo
+    fimse
 
-        head <- novo
-        retorne VERDADEIRO
-    fimfunção
-
-início
-    // todo
+    novo <- aloca(TNo)
+    se novo = NULO então
+        retorne NULO
+    fimse
+    novo^.coef <- l2^.coef
+    novo^.exp <- l2^.exp
+    novo^.prox <- somaPolinômios(l1, l2^.prox)
+    retorne novo
 fimfunção
+
 
