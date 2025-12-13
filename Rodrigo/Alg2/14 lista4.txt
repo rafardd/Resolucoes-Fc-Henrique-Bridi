@@ -1,0 +1,21 @@
+tipo 
+    PNo : ponteiro para TNo
+    TNo : registro
+            info : string
+            prox : PNo
+        fimregistro
+
+funcao insereNóInicioLista(ref head : PNo; x : string) : logico
+var 
+    novo : PNo
+inicio
+    novo <- aloca(TNo)
+    se novo = NULO entao
+        retorne falso 
+    fimse
+    novo^.prox <- head
+    head <- novo    
+    novo^.info <- x
+    retorne verdadeiro
+fimfuncao
+    

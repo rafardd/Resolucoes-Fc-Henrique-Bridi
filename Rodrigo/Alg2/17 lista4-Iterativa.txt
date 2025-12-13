@@ -1,0 +1,39 @@
+tipo 
+    PNo : ponteiro para TNo
+    TNo : registro
+            info : inteiro
+            prox : PNo
+        fimregistro
+
+funcao insereXNaListaOrdenada(ref head : PNo; x : inteiro) : logico
+var
+    novo, ant, aux : PNo
+inicio
+    novo <- aloca(TNo)
+    se novo = NULO entao    
+        retorne falso
+    fimse
+    se head = NULO ou head^.info >= x entao
+        se head != NULO e head^.info = x entao
+            retorne falso
+        fimse
+        novo^.prox <- head
+        novo^.info <- x 
+        head <- novo
+        retorne verdadeiro
+    fimse
+    ant <- head
+    aux <- head^.prox
+    enquanto aux != NULO e aux^.info < x faca
+        ant <- aux
+        aux <- aux^.prox
+    fimenquanto
+    se aux != NULO e aux^.info = x entao
+        retorne falso
+    fimse
+    novo^.prox <- aux
+    ant^.prox <- novo
+    novo^.info <- x
+    retorne verdadeiro
+fimfuncao
+    

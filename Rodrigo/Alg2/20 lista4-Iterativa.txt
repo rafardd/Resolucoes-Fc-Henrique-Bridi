@@ -1,0 +1,34 @@
+tipo 
+    PNo : ponteiro para TNo
+    TNo : registro
+            info : strings
+            prox : PNo
+        fimregistro 
+
+funcao retiraUltimoNó(ref head : PNo) : logico
+var
+    aux : PNo
+inicio
+    se head = NULO entao
+        retorne FALSO
+    fimse
+
+    se head^.prox = NULO entao
+        head <- NULO
+        desaloca(aux)
+        retorne VERDADEIRO
+    fimse
+    
+    ant <- head
+    aux <- head^.prox
+    enquanto aux != NULO faca
+        ant <- aux
+        aux <- aux^.prox
+    fimenquanto
+    ant^.prox <- NULO
+    desaloca(aux)
+fimfuncao
+
+ # A verificação aux^.prox no enquanto só dá erro na forma iterativa se a lista for nula ou se for unitária, de resto, é possível utilizar
+ esse teste sem medo.
+ #

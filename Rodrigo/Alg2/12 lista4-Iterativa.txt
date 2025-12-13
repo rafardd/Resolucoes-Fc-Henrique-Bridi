@@ -1,0 +1,35 @@
+tipo
+    PNo : ponteiro para TNo 
+    TNo : registro
+            info : inteiro
+            prox : PNo 
+        fimregistro
+
+funcao verificaListasEncadeadasIguais(head1, head2 : PNo) : logico
+var 
+    saoIguais : logico
+inicio
+    se head1 = NULO e head2 = NULO entao
+        retorne verdadeiro
+    fimse 
+    saoIguais <- verdadeiro
+    enquanto saoIguais e head1 != NULO e head2 != NULO entao
+        se head1^.info != head2^.info entao
+            saoIguais <- falso
+        fimse
+        head1 <- head1^.prox
+        head2 <- head2^.prox
+    fimenquanto
+    se saoIguais entao
+        se head1 = NULO e head2 = NULO entao
+            retorne verdadeiro
+        senao
+            retorne falso
+        fimse
+    senao
+        retorne falso
+    fimse
+fimfuncao
+
+# Pensamento : passo pelas duas listas, verificando se os valores são iguais, sem levar em consideracao que podem ser de tamanhos diferentes. Depois, trato
+a possibilidade dos tamanhos serem diferentes.
