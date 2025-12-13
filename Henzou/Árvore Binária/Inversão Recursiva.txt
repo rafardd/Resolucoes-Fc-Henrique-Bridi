@@ -11,14 +11,12 @@ procedimento inverte(ref l: PNo)
 var
     aux : PNo
 início
-    se l = NULO então
-        pare
+    se l != NULO então
+        aux <- l^.esq
+        l^.esq <- l^.dir
+        l^.dir <- aux
+
+        Inverte(l^.esq)
+        Inverte(l^.dir)
     fimse
-
-    aux <- l^.esq
-    l^.esq <- l^.dir
-    l^.dir <- aux
-
-    InverteBST(l^.esq)
-    InverteBST(l^.dir)
 fimprocedimento

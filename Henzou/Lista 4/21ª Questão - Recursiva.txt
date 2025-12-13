@@ -9,7 +9,7 @@ função removeEmPosição(ref l: PNo; p: inteiro): lógico
 var
   temp : PNo
 início
-  se l = NULO ou p <= 0 então
+  se l = NULO ou p < 1 então
     retorne FALSO
   fimse
 

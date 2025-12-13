@@ -9,7 +9,7 @@ função insereNaPosição(ref l: PNo; x: real; p: inteiro): lógico
 var
     novo : PNo
 início
-    se p <= 0 ou (l = NULO e p > 1) então
+    se p < 1 ou (l = NULO e p > 1) então
         retorne FALSO
     fimse
 

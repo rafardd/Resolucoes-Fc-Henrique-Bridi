@@ -24,7 +24,6 @@ início
     retorne VERDADEIRO
   fimse
 
-  ant <- NULO
   enquanto temp != NULO e temp^.info != x faça
     temp <- temp^.prox
   fimenquanto
