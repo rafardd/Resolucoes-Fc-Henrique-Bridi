@@ -1,0 +1,21 @@
+TIPOS
+    PNo = PONTEIRO PARA TNo
+    TNo = 
+        REGISTRO
+            info : string
+            prox : PNo
+        FIM REGISTRO
+
+FUNÇÃO remove_primeiro(REF l:PNo):lógico
+VAR
+    lixo : PNo
+INICIO
+    SE l != NULO ENTAO
+        lixo <- l
+        l <- lixo^.prox
+        desaloca(lixo)
+        lixo <- NULO
+        RETORNE verdadeiro
+    FIM SE
+    RETORNE falso
+FIM FUNÇÃO
