@@ -17,6 +17,7 @@ início
   se l^.prox = NULO então
     desaloca(temp)
     l <- NULO
+    retorne VERDADEIRO
   fimse
 
   enquanto temp^.prox != NULO faça
@@ -26,4 +27,5 @@ início
 
   desaloca(temp)
   ant^.prox <- NULO
+  retorne VERDADEIRO
 fimfunção

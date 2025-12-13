@@ -1,0 +1,25 @@
+tipos
+	Pno:ponteiro para Tno
+	Tno:registro
+		info:string
+		prox:Pno
+	     fim registro
+funcao insereUnico(ref l:Pno;x:string):logico
+var
+	novo:Pno
+inicio
+	se l = NULO ou l^.info >= x entao
+		se l != NULO e l^.info = x entao
+			retorne FALSO
+		fimse
+		novo <- aloca(Tno)
+		se novo = NULO entao
+			retorne FALSO
+		fimse
+		novo^.prox <- l
+		novo^.info <- x
+		l <- novo
+		retorne VERDADEIRO
+	fimse
+	retorne insereUnico(l^.prox,x)
+fim funcao

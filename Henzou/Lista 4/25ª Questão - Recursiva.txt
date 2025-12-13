@@ -7,18 +7,20 @@ tipos
 
 procedimento passaÚltimoParaInício(ref l: PNo)
 var
-    temp, ant : PNo
+    temp : PNo
 início
-    se l = NULO ou l^.prox = NULO então
-        pare
-    fimse
-
-    se l^.prox^.prox = NULO então
-        temp <- l^.prox
-        l^.prox <- NULO
-        temp^.prox <- l
-        l <- temp
-    senão
-        passaÚltimoParaInício(l^.prox)
+    se l != NULO e l^.prox != NULO então
+        se l^.prox^.prox = NULO então
+            temp <- l^.prox
+            l^.prox <- temp^.prox
+            temp^.prox <- l
+            l <- temp
+        senão
+            passaÚltimoParaInício(l^.prox)
+            temp <- l^.prox
+            l^.prox <- temp^.prox
+            temp^.prox <- l
+            l <- temp
+        fimse
     fimse
 fimprocedimento

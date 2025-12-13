@@ -1,0 +1,34 @@
+TIPOS
+    PNo = PONTEIRO PARA TNo
+    TNo = 
+        REGISTRO
+            chave : inteiro
+            prox : PNo
+        FIM REGISTRO
+
+FUNÇÃO insere_ordenado(REF l:PNo, x:inteiro):lógico
+VAR
+    aux, ant, novo: PNo
+INICIO
+    ant <- NULO
+    aux <- l
+    ENQUANTO aux != NULO E aux^.chave < x FAÇA
+        ant <- aux
+        aux <- aux^.prox
+    FIM ENQUANTO
+    SE aux != NULO E aux^.chave = x ENTAO
+        RETORNE falso
+    FIM SE
+    novo <- aloca(TNo)
+    SE novo = NULO ENTAO
+        RETORNE falso
+    FIM SE
+    novo^.chave <- x
+    novo^.prox <- aux
+    SE l = NULO ENTAO
+        l <- novo
+    SENAO
+        ant^.prox <- novo
+    FIM SE
+    RETORNE verdadeiro
+FIM FUNÇÃO

@@ -1,0 +1,35 @@
+TIPOS
+    PNo = PONTEIRO PARA TNo
+    TNo = 
+        REGISTRO
+            info : real
+            prox : PNo
+        FIM REGISTRO
+
+FUNÇÃO insere_em_p(REF l:PNo ; x:real ; p:inteiro):lógica
+VAR
+    ant, aux, novo: PNo
+INICIO
+    ant <- NULO
+    aux <- l
+    ENQUANTO aux != NULO E p > 1 FAÇA
+        ant <- aux
+        aux <- aux^.prox
+        p <- p - 1
+    FIM ENQUANTO
+    SE p = 1 ENTAO
+        novo <- aloca(TNo)
+        SE novo = NULO ENTAO
+            RETORNE falso
+        FIM SE
+        novo^.info <- x
+        novo^.prox <- aux
+        SE l = NULO ENTAO
+            l <- novo
+        SENAO 
+            ant^.prox <- novo
+        FIM SE
+        RETORNE verdadeiro
+    FIM SE
+    RETORNE falso
+FIM FUNÇÃO

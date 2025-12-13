@@ -16,7 +16,7 @@ início
         temp <- temp^.prox
     fimenquanto
 
-    se l != NULO e temp^.info = x então
+    se temp != NULO e temp^.info = x então
         retorne FALSO
     fimse
 

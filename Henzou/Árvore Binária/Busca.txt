@@ -8,16 +8,19 @@ tipos
           fimregistro
 
 função busca(l: PNo; ch: real): PNo
+var
+    temp : PNo
 início
-    enquanto l != NULO faça
-        se ch = l^.chave então
-            retorne l
+    temp <- l
+    enquanto temp != NULO faça
+        se ch = temp^.chave então
+            retorne temp
         fimse
 
-        se ch < l^.chave então
-            l <- l^.esq
+        se ch < temp^.chave então
+            temp <- temp^.esq
         senão
-            l <- l^.dir
+            temp <- temp^.dir
         fimse
     fimenquanto
     retorne NULO

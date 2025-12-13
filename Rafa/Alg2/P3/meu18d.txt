@@ -1,0 +1,43 @@
+tipos
+	Pno: ponteiro para Tno
+	Tno :registro
+		info:real
+		prox:Pno
+		ant:Pno
+	     fim registro
+funcao inserePorPosicao(ref l:Pno;x:real;p:inteiro):logico
+var
+	novo,temp,prev:Pno
+inicio
+	se p < 1 entao
+		retorne FALSO
+	fimse
+	temp <- l
+	prev <- NULO
+	enquanto temp != NULO e p > 1 faca
+		prev <- temp
+		temp <- temp^.prox
+		p <- p - 1
+	fim enquanto
+	se temp = NULO e p > 1 entao
+		retone FALSO
+	fimse
+	novo <- aloca(Tno)
+	se novo = NULO entao
+		retorne FALSO
+	fimse
+	novo^.info <- x
+	novo^.prox <- temp
+	se prev  = NULO entao
+		l <- novo
+	senao
+		prev^.prox <- novo
+	fimse
+	novo^.ant <- prev
+	se temp != NULO entao
+		temp^.ant <- novo
+	fimse
+	retorne VERDADEIRO
+fim funcao
+	
+

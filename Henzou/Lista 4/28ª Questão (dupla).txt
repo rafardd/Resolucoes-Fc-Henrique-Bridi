@@ -6,9 +6,9 @@ tipos
             prox : PNo
           fimregistro
 
-função mesclaListas(l1, l2 : PNo): PNo
+função mergeListas(l1, l2 : PNo): PNo
 var
-    head, temp1, temp2, ant : PNo
+    head, ant : PNo
 início
     se l1 = NULO então
         retorne l2
@@ -17,41 +17,37 @@ início
         retorne l1
     fimse
 
-    temp1 <- l1
-    temp2 <- l2
-
-    se temp1^.info <= temp2^.info então
-        head <- temp1
-        temp1 <- temp1^.prox
+    se l1^.info <= l2^.info então
+        head <- l1
+        l1 <- l1^.prox
     senão
-        head <- temp2
-        temp2 <- temp2^.prox
+        head <- l2
+        l2 <- l2^.prox
     fimse
 
     ant <- head
     ant^.prev <- NULO
-    enquanto temp1 != NULO e temp2 != NULO faça
-        se temp1^.info <= temp2^.info então
-            ant^.prox <- temp1
-            temp1^.prev <- ant
-            ant <- temp1
-            temp1 <- temp1^.prox
-
+    enquanto l1 != NULO e l2 != NULO faça
+        se l1^.info <= l2^.info então
+            ant^.prox <- l1
+            l1^.prev <- ant
+            ant <- l1
+            l1 <- l1^.prox
         senão
-            ant^.prox <- temp2
-            temp2^.prev <- ant
-            ant <- temp2
-            temp2 <- temp2^.prox
+            ant^.prox <- l2
+            l2^.prev <- ant
+            ant <- l2
+            l2 <- l2^.prox
         fimse
     fimenquanto
 
-    se temp1 != NULO então
-        ant^.prox <- temp1
-        temp1^.prev <- ant
+    se l1 != NULO então
+        ant^.prox <- l1
+        l1^.prev <- ant
     senão
-        ant^.prox <- temp2
-        se temp2 != NULO então
-            temp2^.prev <- ant
+        se l2 != NULO então
+            ant^.prox <- l2
+            l2^.prev <- ant
         fimse
     fimse
 
