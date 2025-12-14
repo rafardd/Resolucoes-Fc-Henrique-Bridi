@@ -1,0 +1,37 @@
+TIPOS
+    PNo = PONTEIRO PARA TNo
+    TNo =
+        REGISTRO
+            info : string
+            prox : PNo
+        FIM REGISTRO
+    
+FUNÇÃO remove_x_e_maior(REF l:PNo ; x:string):lógico
+VAR
+    ant, lixo : PNo
+    removeu : lógico
+INICIO
+    removeu <- falso
+    ant <- NULO
+    lixo <- l
+    ENQUANTO lixo != NULO FAÇA
+        SE lixo^.info >= x ENTAO
+            SE ant = NULO ENTAO
+                l <- lixo^.prox
+            SENAO
+                ant^.prox <- lixo^.prox
+            FIM SE
+            desaloca(lixo)
+            SE ant = NULO ENTAO
+                lixo <- l
+            SENAO
+                lixo <- ant^.prox
+            FIM SE
+            removeu <- verdadeiro
+        SENAO
+            ant <- lixo
+            lixo <- lixo^.prox
+        FIM SE
+    FIM ENQUANTO
+    RETORNE removeu
+FIM FUNÇÃO
