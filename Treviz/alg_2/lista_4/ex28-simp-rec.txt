@@ -8,6 +8,8 @@ TIPOS
 
 FUNÇÃO merge_lista(l1,l2:PNo):PNo
 VAR
+    l : PNo
+
     FUNÇÃO criou(ll:PNo):lógico
     VAR
         novo : PNo
@@ -18,11 +20,11 @@ VAR
         FIM SE
         novo^.info <- ll^.info
         novo^.prox <- NULO
-        head <- novo
+        ult <- novo
         RETORNE verdadeiro
     FIM FUNÇÃO
             
-    FUNÇÃO merge(l1, l2 , REF head : PNo):PNo
+    FUNÇÃO merge(l1, l2 , REF ult : PNo):PNo
     INICIO
         SE l1 = NULO E l2 = NULO ENTAO
             RETORNE head
@@ -31,27 +33,28 @@ VAR
                 SE NÂO criou(l2) ENTAO
                         RETORNE NULO
                     FIM SE
-                RETORNE merge(l1,l2^.prox,head^.prox)
+                RETORNE merge(l1,l2^.prox,ult^.prox)
             FIM SE
             SE l2 = NULO ENTAO
                 SE NÂO criou(l1) ENTAO
                         RETORNE NULO
                     FIM SE
-                RETORNE merge(l1^.prox,l2,head^.prox)
+                RETORNE merge(l1^.prox,l2,ult^.prox)
             FIM SE
             SE l1^.info > l2^.info ENTAO
                 SE NÂO criou(l1) ENTAO
                     RETORNE NULO
                 FIM SE
-                RETORNE merge(l1^.prox,l2,head^.prox)
+                RETORNE merge(l1^.prox,l2,ult^.prox)
             SENAO
                 SE NÂO criou(l2) ENTAO
                     RETORNE NULO
                 FIM SE
-                RETORNE merge(l1,l2^.prox,head^.prox)
+                RETORNE merge(l1,l2^.prox,ult^.prox)
             FIM SE  
         FIM SE
     FIM FUNÇÃO
 INICIO
-    RETORNE merge(l1, l2, NULO)
+    head <- NULO
+    RETORNE merge(l1, l2, head)
 FIM FUNÇÃO
