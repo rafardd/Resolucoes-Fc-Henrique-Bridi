@@ -1,0 +1,32 @@
+TIPOS
+    PNo = PONTEIRO PARA TNo
+    TNo = 
+        REGISTRO
+            info : real
+            prox : PNo
+        FIM REGISTRO
+
+FUNÇÃO copia(l:PNo):PNo
+VAR
+    head, novo, lixo : PNo
+INICIO
+    head <- l
+    SE l != NULO ENTAO
+        ENQUANTO l^.prox != NULO ENTAO
+            novo <- aloca(TNo)
+            SE novo = NULO ENTAO    // SE FICAR SEM MEMORIA DEVE DESTRUIR TUDO E RETORNAR NULO
+                ENQUANTO head != NULO FAÇA
+                    lixo <- head
+                    head <- lixo^.prox
+                    desaloca(lixo)
+                FIM ENQUANTO
+                RETORNE NULO
+            FIM SE
+            novo^.info <- l^.info
+            novo^.prox <- NULO
+            head^.prox <- novo
+            l <- l^.prox
+        FIM ENQUANTO
+    FIM SE
+    RETORNE head
+FIM FUNÇÃO
