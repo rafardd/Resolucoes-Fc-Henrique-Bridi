@@ -1,0 +1,23 @@
+tipos
+	Pno:ponteiro para Tno
+	Tno:registro
+		info:real
+		prox:Pno
+	    fim registro
+funcao juntaPorPosicao(ref l:Pno;p:inteiro):logico
+var
+	aux:Pno
+inicio
+	se l = NULO ou l^.prox = NULO entao 
+		retorne FALSO
+	fimse
+	se p = 1 entao
+		aux <- l^.prox
+		l^.info <- l^.info + aux^.info
+		l^.prox <- l^.prox^.prox
+		desaloca(aux)
+		retorne VERDADEIRO
+	fimse
+	retorne juntaPorPosicao(l^.prox,p-1)
+fim funcao
+		

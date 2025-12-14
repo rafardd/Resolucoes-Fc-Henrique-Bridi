@@ -1,0 +1,68 @@
+tipos
+	Pno:ponteiro para Tno
+	Tno:registro
+		info:string
+		prox:Pno
+	    fim registro
+funcao mergeListas(l1,l2:Pno):Pno
+var
+	head,ultimo,novo : Pno
+	procedimento limpaLista(l:Pno)
+	var
+		temp:Pno
+	inicio
+		enquanto l != NULO faca
+			temp <- l
+			l <- l^.prox
+			desaloca(temp)
+		fim enquanto
+	fim procedimento
+inicio
+	head <- NULO
+	ultimo <- NULO
+	enquanto l1 != NULO e l2 != NULO faca
+		novo <- aloca(Tno)
+		se novo = NULO entao
+			limpaLista(head)
+			retorne NULO
+		fimse
+		se l1^.info < l2^.info entao
+			novo^.info <- l1^.info
+			l1 <- l!^.prox
+		senao
+			novo^.info <- l2^.info
+			l2 <- l2^.prox
+		fimse
+		novo^.prox <- NULO
+		se head = NULO entao
+			head <- novo
+			ultimo <- novo
+		senao
+			ultimo^.prox <- novo
+			ultimo <- novo
+		fimse
+	fim enquanto
+	enquanto l1 != NULO ou l2 != NULO faca
+		novo <- aloca(Tno)
+		se novo = NULO entao
+			limpaLista(head)
+			retorne NULO
+		fimse
+		se l1 != NULO entao
+			novo^.info <- l1^.info
+			l1 <- l1^.prox
+		senao
+			novo^.info <- l2^.indo
+			l2 <- l2^.prox
+		fimse
+		novo^.prox <- NULO
+		se head = NULO entao
+			head <- novo
+			ultimo <- novo
+		senao
+			ultimo^.prox <- novo
+			ultimo <- novo
+		fimse
+	fim enquanto
+	retorne head
+fim funcao

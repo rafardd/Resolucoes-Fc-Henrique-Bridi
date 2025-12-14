@@ -1,0 +1,21 @@
+tipos
+	Pno:ponteiro para Tno
+	Tno:registro
+		info:real
+		prox:Pno
+	    fim registro
+funcao removeDuplicados(ref l:Pno):inteiro
+var
+	temp:Pno
+inicio
+	se l = NULO ou l^.prox = NULO entao
+		retorne 0
+	fimse
+	se l^.info = l^.prox^.info entao
+		temp <- l^.prox
+		l^.prox <- l^.prox^.prox
+		desaloca(temp)
+		retorne removeDuplicados(l) + 1
+	fimse
+	retorne removeDuplicados(l^.prox) 
+fim funcao
