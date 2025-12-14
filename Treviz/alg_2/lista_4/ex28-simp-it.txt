@@ -1,0 +1,66 @@
+TIPOS
+    PNo = PONTEIRO PARA TNo
+    TNo = 
+        REGISTRO
+            info : string
+            prox : PNo
+        FIM REGISTRO
+
+FUNÇÃO merge_lista(l1,l2:PNo):PNo
+VAR
+    head, ult : PNo
+
+    FUNÇÃO criou(ll:PNo):lógico
+    VAR
+        novo, lixo : PNo
+    INICIO
+        novo <- aloca(TNo)
+        SE novo = NULO ENTAO
+            ENQUANTO head != NULO FAÇA
+                lixo <- head
+                head <- lixo^.prox
+                desaloca(lixo)
+            FIM ENQUANTO
+            RETORNE falso
+        FIM SE
+        novo^.info <- ll^.info
+        novo^.prox <- NULO
+        SE head = NULO ENTAO
+            head <- novo
+        SENAO
+            ult^.prox <- novo
+        FIM SE
+        ult <- novo
+        RETORNE verdadeiro
+    FIM FUNÇÃO
+
+INICIO
+    head <- NULO
+    ult <- NULO
+    ENQUANTO l1 != NULO E l2 != NULO FAÇA
+        SE l1^.info > l2^.info ENTAO
+            SE NÃO criou(l1) ENTAO
+                RETORNE NULO
+            FIM SE
+            l1 <- l1^.prox
+        SENAO
+            SE NÃO criou(l2) ENTAO
+                RETORNE NULO
+            FIM SE
+            l2 <- l2^.prox
+        FIM SE
+    FIM ENQUANTO
+    ENQUANTO L1 != NULO FAÇA
+        SE NÃO criou(l1) ENTAO
+                RETORNE NULO
+        FIM SE
+        l1 <- l1^.prox
+    FIM ENQUANTO
+    ENQUANTO L2 != NULO FAÇA
+        SE NÃO criou(l2) ENTAO
+            RETORNE NULO
+        FIM SE
+        l2 <- l2^.prox
+    FIM ENQUANTO
+    RETORNE head
+FIM FUNÇÃO
