@@ -1,0 +1,19 @@
+algoritmo RemoveCaracterDaString
+var
+    s, s2: string
+    c, aux: caracter
+    i: inteiro
+inicio
+    escreva()
+    leia(s)
+    s2 <- ""
+    escreva ()
+    leia (c)
+    para i de 1 até tamanho(s) faça
+        aux <- s[i]
+        se aux <> c entao
+            s2 <- s2 + aux
+        fim se
+    fim para
+    escreva (s2)
+fim algoritmo
