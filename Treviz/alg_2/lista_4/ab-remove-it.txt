@@ -1,0 +1,75 @@
+TIPOS
+    PNo = PONTEIRO PARA TNo
+    TNo = 
+        REGISTRO
+            chave : inteiro
+            info : string
+            esq : PNo
+            dir : PNo
+        FIM REGISTRO
+
+FUNÇÃO remove(REF l:PNo; ch:inteiro):lógico
+VAR
+    lixo, pai, aux: PNo
+INICIO
+    pai <- NULO
+    lixo <- l
+    ENQUANTO lixo != NULO E lixo^.chave != ch FAÇA
+        pai <- lixo
+        SE ch > lixo^.chave ENTAO
+            lixo <- lixo^.dir
+        SENAO
+            lixo <- lixo^.esq
+        FIM SE
+    FIM ENQUANTO
+    SE lixo = NULO ENTAO
+        RETORNE falso
+    FIM SE
+    SE lixo^.esq = lixo^.dir ENTAO
+        SE pai = NULO ENTAO
+            l <- NULO
+        SENAO 
+            SE lixo^.chave > pai^.chave ENTAO
+                pai^.dir <- NULO
+            SENAO
+                pai^.esq <- NULO
+            FIM SE
+        FIM SE
+        desaloca(lixo)
+        RETORNE verdadeiro
+    SENAO
+        SE lixo^.dir = NULO OU lixo^.esq = NULO ENTAO
+            SE lixo^.esq != NULO ENTAO
+                SE lixo^chave > pai^.chave ENTAO
+                    pai^.dir <- lixo^.esq
+                SENAO
+                    pai^.esq <- lixo^.esq
+                FIM SE
+            SENAO
+                SE lixo^chave > pai^.chave ENTAO
+                    pai^.dir <- lixo^.dir
+                SENAO
+                    pai^.esq <- lixo^.dir
+                FIM SE
+            FIM SE
+            desaloca(lixo)
+            RETORNE verdadeiro
+        FIM SE
+        aux <- lixo
+        pai <- lixo
+        lixo <- lixo^.esq
+        ENQUANTO lixo^.dir != NULO FAÇA
+            pai <- lixo
+            lixo <- lixo^.dir
+        FIM ENQUANTO
+        SE lixo^.esq = NULO ENTAO
+            pai^.dir <- NULO
+        SENAO
+            pai^.dir <- lixo^.esq
+        FIM SE
+        aux^.chave <- lixo^.chave
+        aux^.info <- lixo^.info
+        desaloca(lixo)
+        RETORNE verdadeiro
+    FIM SE
+FIM FUNÇÃO
