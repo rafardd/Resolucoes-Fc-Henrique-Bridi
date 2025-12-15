@@ -1,0 +1,57 @@
+TIPOS
+    PNo = PONTEIRO PARA TNo
+    TNO = 
+        REGISTRO
+            info : inteiro
+            prox : PNo
+        FIM REGISTRO
+    
+PROCEDIMENTO filtra_paridade(l:PNo ; REF par, impar:PNo)
+VAR
+    auxPAR, auxIMPAR : PNo
+
+    PROCEDIMENTO cria(REF list, ll, auxll: PNo)
+    VAR
+        novo : PNo
+
+        PROCEDIMENTO destroi(REF lista)
+        VAR 
+            lixo : PNo
+        INICIO
+            ENQUANTO lista != NULO FAÇA
+                lixo <- lista
+                lista <- lista^.prox
+                desaloca(lixo)
+            FIM ENQUANTO
+        FIM PROCEDIMENTO
+
+    INICIO
+        novo <- aloca(TNo)
+        SE novo = NULO ENTAO
+            destroi(par)
+            destroi(impar)
+            list <- NULO
+        SENAO
+            novo^.info <- list^.info
+            novo^.prox <- NULO
+            SE ll = NULO ENTAO
+                ll <- novo
+            SENAO
+                auxll^.prox <- novo
+            FIM SE
+            auxll <- novo
+            list <- list^.prox
+        FIM SE
+    FIM PROCEDIMENTO
+
+INICIO
+    auxPAR <- par
+    auxIMPAR <- impar
+    ENQUANTO l != NULO FAÇA
+        SE l^.info MOD 2 = 0 ENTAO
+            cria(l, par, auxPAR)
+        SENAO
+            cria(l, impar, auxIMPAR)
+        FIM SE
+    FIM ENQUANTO
+FIM FUNÇÃO
