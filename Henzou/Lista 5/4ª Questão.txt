@@ -1,4 +1,4 @@
-procedimento escreveMetade(s: string)
+procedimento escreveMetade(ref s: string)
 var
   numAtual : real
   total, i : inteiro
