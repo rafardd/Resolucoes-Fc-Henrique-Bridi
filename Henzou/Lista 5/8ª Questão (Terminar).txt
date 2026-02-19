@@ -1,0 +1,14 @@
+função trocaElementos(s: string; p: inteiro): lógico
+var
+  numAtual : real
+  posição : inteiro
+  trocou : lógico
+  foriginal, fnovo: sequência de real
+início
+  se abre(foriginal, s) e cria(fnovo, "temp.dat") então
+    trocou <- FALSO
+    posição <- 1
+    enquanto não fds(foriginal) faça
+      se posição = p então
+      // todo
+      

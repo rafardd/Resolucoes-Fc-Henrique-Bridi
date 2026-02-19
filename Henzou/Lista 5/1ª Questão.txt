@@ -1,0 +1,23 @@
+função calculaMédia(s: string): real
+var
+  total, soma, x: inteiro
+  f: sequência de inteiros
+início
+  total <- 0
+  soma <- 0
+  se abre(f, s) então
+    enquanto não fds(f) faça
+      leia(f, x)
+      soma <- soma + x
+      total <- total + 1
+    fimenquanto
+    fecha(f)
+    se total != 0 então
+      retorne soma / total
+    senão
+      retorne -99999
+    fimse
+  senão
+    retorne -99999
+  fimse
+fimfunção
