@@ -1,35 +1,33 @@
 tipo 
     PNo : ponteiro para TNo
     TNo : registro
-            info : strings
+            info : inteiro
             prox : PNo
         fimregistro 
 
-funcao removeNoPosicaoP(ref head : PNo, p : inteiro) : logico
+funcao removePrimeiraOcorrenciaDeX(ref head : PNo; x : inteiro) : logico
 var
     aux, ant : PNo
-    i : inteiro
 inicio
-    se head = NULO ou p <= 0 entao
+    se head = NULO entao
         retorne falso
     fimse
-    
-    se p = 1 entao
+
+    se head^.info = x entao
         aux <- head
         head <- aux^.prox
         desaloca(aux)
         retorne verdadeiro
     fimse
 
-    i <- 2
+
     ant <- head
     aux <- head^.prox
-    enquanto aux != NULO e i < p faca
+    enquanto aux != NULO e aux^.info != x faca
         ant <- aux
         aux <- aux^.prox
-        i <- i + 1
     fimenquanto
-
+    
     se aux = NULO entao
         retorne falso
     fimse
@@ -37,5 +35,8 @@ inicio
     ant^.prox <- aux^.prox
     desaloca(aux)
     retorne verdadeiro
+
 fimfuncao
 
+
+# To esquecendo de ohar para o head se a lista nao for unitária, cuidado!
