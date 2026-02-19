@@ -1,0 +1,48 @@
+tipo 
+    PNo : ponteiro para TNo
+    TNo : registro
+            info : inteiro
+            prox : PNo
+        fimregistro 
+
+funcao removeNoPosicaoP(ref head : PNo; x : inteiro) : logico
+var
+    aux, ant, sucesso : PNo
+inicio
+    se head = NULO entao
+        retorne falso
+    fimse
+    sucesso <- falso
+
+    enquanto head != NULO e head^.info >= x faca
+        aux <- head
+        head <- aux^.prox
+        desaloca(aux)
+        sucesso <- verdadeiro
+    fimenquanto
+
+    se head = NULO entao
+        retorne falso
+    fimse
+
+    ant <- head
+    aux <- head^.prox
+    enquanto aux != NULO faca
+        se aux^.info >= x entao
+            ant^.prox <- aux^.prox
+            desaloca(aux)
+            sucesso <- verdadeiro
+            aux <- ant^.prox
+        senao
+            ant <- aux
+            aux <- ant^.prox
+        fimse
+    fimenquanto
+    retorne sucesso
+fimfuncao
+
+   # Em casos que o problema exige a remoção de 1 alvo, ou de um primeiro alvo, um se é o bastante para o head. Porém, nesses problemas de remover todos,
+   o novo head pode ser um possivel alvo também, entao um tratamento com um loop é necessário.
+   # No final do loop para o head, é preciso verificar se a lista nao acabou nessas retiradas dos heads.
+
+

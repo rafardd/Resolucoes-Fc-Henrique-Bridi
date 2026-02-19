@@ -1,0 +1,25 @@
+tipo 
+    PNo : ponteiro para TNo
+    TNo : registro
+            info : inteiro
+            prox : PNo
+        fimregistro 
+
+funcao removePrimeiraOcorrenciaDeXDupla(ref head : PNo; x : inteiro) : logico
+var
+    aux : PNo
+inicio
+    se head = NULO entao
+        retorne FALSO
+    fimse
+    se head^.info = x entao
+        aux <- head
+        head <- head^.prox
+        se head != NULO entao
+            head^.prev <- aux^.prev
+        fimse
+        desaloca(aux)
+        retorne VERDADEIRO
+    fimse
+    retorne removePrimeiraOcorrenciaDeXDupla(head^.prox, x)
+fimfuncao
