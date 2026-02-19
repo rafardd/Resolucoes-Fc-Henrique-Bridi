@@ -1,22 +1,23 @@
 tipo 
     PNo : ponteiro para TNo
     TNo : registro
-            info : strings
+            info : inteiro
             prox : PNo
         fimregistro 
 
-funcao removeNoPosicaoP(ref head : PNo, p : inteiro) : logico
+funcao juntarNoPComProximo(ref head : PNo; p : inteiro) : logico
 var
     aux, ant : PNo
     i : inteiro
 inicio
-    se head = NULO ou p <= 0 entao
+    se head = NULO ou head^.prox = NULO entao
         retorne falso
-    fimse
+    fimse 
     
     se p = 1 entao
-        aux <- head
-        head <- aux^.prox
+        aux <- head^.prox
+        head^.info <- head^.info + aux^.info
+        head^.prox <- aux^.prox
         desaloca(aux)
         retorne verdadeiro
     fimse
@@ -24,7 +25,7 @@ inicio
     i <- 2
     ant <- head
     aux <- head^.prox
-    enquanto aux != NULO e i < p faca
+    enquanto aux != NULO e i < p + 1 faca
         ant <- aux
         aux <- aux^.prox
         i <- i + 1
@@ -34,8 +35,9 @@ inicio
         retorne falso
     fimse
 
+    ant^.info <- ant^.info + aux^.info
     ant^.prox <- aux^.prox
     desaloca(aux)
     retorne verdadeiro
-fimfuncao
 
+fimfuncao
