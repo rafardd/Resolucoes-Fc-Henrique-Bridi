@@ -1,0 +1,27 @@
+Questão 1 Lista 5
+
+funcao mediaSequenciaDeInteiros(nome : string) : real
+var
+  quantidade, soma, x : inteiro
+  media : real
+  f : sequencia de inteiro
+inicio
+  quantidade <- 0
+  soma <- 0
+  se abre(f, nome) entao
+    enquanto nao fds(f) faca
+      leia(f, x)
+      soma <- soma + x
+      quantidade <- quantidade + 1
+    fimenquanto
+    fecha(f)
+    se quantidade != 0 entao
+      media <- soma / quantidade
+      retorne media
+    senao
+      retorne -99999
+    fimse
+  senao
+    retorne -99999
+  fimse
+fimfuncao
