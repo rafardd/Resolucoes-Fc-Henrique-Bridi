@@ -1,0 +1,33 @@
+7 lista5
+
+funcao insereValorEmSequenciaOrdenada(nome : string ; num : inteiro) : logico
+var
+  inseriu : logico
+  f, g : sequencia de inteiros
+  x : inteiro
+inicio
+  se abre(f, nome) e cria(g, "novo.txt") entao
+    inseriu <- falso
+    enquanto nao fds(f) faca
+      leia(f, x)
+      se x >= num e nao inseriu entao
+        escreva(g, num)
+        inseriu <- verdadeiro
+        // Esse laço cobre apenas casos em que num é ou o menor termo da sequencia, ou está entre os dois termos de uma sequencia, mas nao trata do caso do num ser o maior termo.
+      fimse
+      escreva(g, x)
+    fimenquanto
+    se nao inseriu entao
+      escreva(g, num)
+    fimse
+    // Esqueci que o num pode ser o maior número da sequencia que ele será inserido, então, dentro do laço principal, ele nunca vai ser inserido, por não ser menor ou igual a x.
+    // Por isso, é preciso testar se nada foi inserido e, se nao foi, inseri-lo depois.
+    fecha(f)
+    fecha(g)
+    apaga(nome)
+    renomeia("novo.txt", nome)
+    retorne verdadeiro
+  senao 
+    retorne falso
+  fimse
+fimfuncao

@@ -1,0 +1,45 @@
+funcao setimoMaior(s:string):real
+const
+	K = 7 
+var
+	a:vetor[1..K] de real
+	f:sequencia de real
+	n:real
+	i,j,z:inteiro
+	inseriu:logico
+inicio
+	se abre(f,s) entao
+		i <- 1
+		enquanto nao fds(f) faca
+			leia(f,n)
+			se i = 1 entao
+				v[1] <- n
+			senao
+				j <- 1
+				inseriu <- FALSO
+				enquanto j <= i e nao inseriu faca
+					se n > v[j] entao
+						z <- i
+						enquanto z > j faca
+							v[z] <- v[z-1]
+							z <- z -1
+						fim enquanto
+						v[j] <- n
+						inseriu <- VERDADEIRO
+					fimse
+					j <- j +1
+				fim enquanto
+			fimse
+			se i < K entao
+				i <- i + 1
+			fimse
+		fim enquanto
+		fecha(f)
+		se i < K  entao
+			pare
+		fimse
+		retorne v[K]
+	senao
+		pare
+	fimse
+fim funcao

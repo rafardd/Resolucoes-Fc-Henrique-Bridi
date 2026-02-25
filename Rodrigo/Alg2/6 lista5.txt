@@ -1,0 +1,22 @@
+6 lista 5
+
+funcao removeDeSequenciaInteira(nome : string ; num : inteiro) : logico
+var 
+  x : inteiro
+  f, g : sequencia de inteiro
+inicio
+  se abre(f, nome) e cria(g, "novo.txt") entao
+    enquanto nao fds(f) faca
+      leia(f, x)
+      se x != num entao
+        escreva(g, x)
+      fimse
+    fimenquanto
+    fecha(f)
+    fecha(g)
+    apaga(nome)
+    renomeia("novo.txt", nome)
+    retorne verdadeiro
+  senao
+    retorne falso
+fimfuncao
