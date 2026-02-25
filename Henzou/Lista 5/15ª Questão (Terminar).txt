@@ -1,8 +1,0 @@
-const
-  K = 7
-função retorna7Maior(s: string): real
-var
-  num : real
-  f : sequência de real
-início
-  
