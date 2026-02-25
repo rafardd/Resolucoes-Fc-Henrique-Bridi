@@ -1,0 +1,29 @@
+funcao remove(s:string;v:inteiro):logico
+var
+	fOriginal,fNovo:sequencia de inteiro
+	valorAtual:inteiro
+
+inicio
+	se abre(fOriginal,s) entao
+		se cria(FNovo,"temp.dat") entao
+			enquanto nao fds(fOriginal) faca
+				leia(fOriginal,valorAtual)
+				se valorAtual != v entao
+					escreva(fNovo,valorAtual)
+				fimse
+			fim enquanto
+			fecha(fNovo)
+		senao
+			retorne FALSO
+		fimse
+		fecha(fOriginal)
+		apaga(s)
+		renomeia("temp.dat",s)
+	senao
+		retorne FALSO
+	fimse
+	retorne VERDADEIRO
+fim funcao
+
+			
+	

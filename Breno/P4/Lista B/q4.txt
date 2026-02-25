@@ -1,0 +1,8 @@
+algoritmo GerarUmaSequenciaDeNAleatorio
+const
+    MIN = 10
+    MAX = 100
+var
+    n, x: inteiro
+    A: vetor[MIN .. n] de inteiro
+    

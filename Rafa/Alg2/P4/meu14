@@ -1,0 +1,60 @@
+funcao mediana(s:string):real
+var
+	f:sequencia de inteiro
+	v:vetor[0..3000] de inteiro
+	quantidade,vAtual:inteiro
+	
+inicio
+	para i de 0 ate 3000 faca
+		v[i] <- 0
+	fimpara
+	quantidade <- 0
+	se abre(f,s) entao
+		enquanto nao fds(f) faca
+			leia(f,vAtual)
+			v[vAtual] <- v[vAtual] + 1
+			quantidade <- quantidade + 1
+		fim enquanto
+		fecha(f)
+	senao
+		retorne -9999
+	fimse
+	se quantidade = 0  entao
+		retorne -9999
+	fimse
+	é_par <- quantidade mod 2 = 0
+	i <- 1
+	n <- 0
+	nAnterior <- 0
+	enquanto i <= quantidade div 2 + 1 faca
+		se v[n] = 0 entao
+			n <- n +1
+		senao
+			v[n] <- v[n] - 1
+			se i = quantidade div 2 entao
+				nAnterior <- n
+			fimse
+			i <- i + 1
+		fimse
+	fim enquanto
+	se é_par entao
+		retorne (nAnterior + n)/2
+	senao
+		retorne n
+	fimse
+fim funcao
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+

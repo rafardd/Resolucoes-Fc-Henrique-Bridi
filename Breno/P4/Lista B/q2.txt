@@ -1,0 +1,32 @@
+algoritmo QualOPrimeiroNumeroQueSeDifere
+var
+    n, i: inteiro
+    v1, v2: vetor[0..321] de inteiro
+inicio
+    escreva("Insira um numero; ")
+    leia(n)
+    enquanto n >= 321 ou n < 0 entao 
+        escreva("Numero invalido. Insira novamente: ")
+        leia (n)
+    fim enquanto
+    para i de 1 até n faça
+        escreva("Insira o ",i,"° da primeira sequencia: ")
+        leia (v1[i])
+        escreva ("Insira o ",i,"° da segunda sequencia: ")
+        leia (v2[i])
+    fim para
+    i <- 1
+    diferente <- FALSO
+    enquanto i <= n e nao diferente faça    
+        se v1[i] <> v2[i] entao
+            diferente <- VERDADEIRO
+        senao
+            i <- i + 1
+        fim se
+    fim enquanto
+    se diferente entao
+        escreva("Os valores se diferem na "i,"° posição.")
+    senao
+        escreva("As sequencias não se diferem entre si.")
+    fim se 
+fim algoritmo

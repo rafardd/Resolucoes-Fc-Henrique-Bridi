@@ -1,0 +1,23 @@
+algoritmo
+var
+    n: real
+    v: vetor[1..173] de real
+    i : inteiro
+inicio
+    para i de 1 até 173
+        escreva("Insira o "i,"° elemento: ")
+        leia(v[i])
+    fim para
+    escreva("Insira o escalar: ")
+    leia(n)
+    para i de 1 até 173 faça
+        se i = 1 entao
+            escreva("(",v[i] * n",")
+        fim se
+        se i = 173 entao
+            escreva ("(",v[i] * n")")
+        senao
+            escreva (v[i] * n",")
+        fim se
+    fim para
+fim algoritmo

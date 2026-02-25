@@ -1,0 +1,28 @@
+procedimento escreveMetade(s:string)
+var
+    i , tam : inteiro
+    x : real
+    f : sequencia de real
+inicio
+    tam <- 0
+    se abre(f, s) entao
+        enquanto NAO fds(f) faca
+            leia(f, x)
+            tam <- tam + 1
+        fim enquanto
+        fecha(f)
+    fim se
+    se tam > 0 entao
+        se abre(f, s) entao
+            i <- 0
+            enquanto NAO fds(f) faca
+                leia(f, x)
+                i <- i + 1
+                se i > tam/2 entao
+                    escreva(x)
+                fim se
+            fim enquanto
+            fecha(f)
+        fim se
+    fim se
+fim procedimento

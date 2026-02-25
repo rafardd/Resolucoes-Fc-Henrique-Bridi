@@ -1,0 +1,28 @@
+funcao apagaX(s:string; x:inteiro):logico
+var
+    n : inteiro
+    f, t : sequencia de inteiro
+inicio
+    se abre(f, s) entao
+        se cria(t, "temp") entao
+            enquanto NAO fds(f) faca
+                leia(f, n)
+                se n != x entao
+                    escreva(t, n)
+                fim se
+            fim enquanto
+            fecha(t)
+        senao
+            escreva("O arquivo ", temp, "não pode ser criado")
+            fecha(f)
+            retorne falso
+        fim se
+        fecha(f)
+        apaga(s)
+        renomeia(temp, s)
+        retorne verdadeiro
+    senao
+        escreva("O arquivo ", s, "não pode ser aberto")
+        retorne falso
+    fim se
+fim funcao

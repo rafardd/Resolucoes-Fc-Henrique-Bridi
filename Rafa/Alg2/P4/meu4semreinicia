@@ -1,0 +1,26 @@
+procedimento escreveMetade(ref s: string)
+var
+  numAtual : real
+  total, i : inteiro
+  f: sequência de real
+início
+  total <- 0
+  se abre(f, s) então
+    enquanto não fds(f) faça
+      leia(f, numAtual)
+      total <- total + 1
+    fimenquanto
+    fecha(f)  
+  fimse
+  
+  se abre(f, s) então
+    para i de 1 até total / 2 faça
+      leia(f, numAtual)
+    fimpara
+    enquanto não fds(f) faça
+      leia(f, numAtual)
+      escreva(numAtual)
+    fimenquanto
+    fecha(f)  
+  fimse
+fimprocedimento
