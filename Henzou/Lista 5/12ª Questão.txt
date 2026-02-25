@@ -1,0 +1,56 @@
+função valoresAcimaMédia(s: string): inteiro
+var
+  nomeStr : string
+  numReal, soma, média : real
+  total, quantidade : inteiro
+  fstring : sequência de string
+  freal : sequência de real
+início
+  se abre(fstring, s) então
+    total <- 0
+    soma <- 0
+    enquanto não fds(fstring) faça
+      leia(fstring, nomeStr)
+      se abre(freal, nomeStr) então
+        enquanto não fds(freal) faça
+          leia(freal, numReal)
+          soma <- soma + numReal
+          total <- total + 1
+        fimenquanto
+        fecha(freal)
+      senão
+        pare
+      fimse
+    fimenquanto
+    fecha(fstring)
+
+    se total > 0 então
+      média <- soma / total
+      quantidade <- 0
+      se abre(fstring, s) então
+        enquanto não fds(fstring) faça
+          leia(fstring, nomeStr)
+          se abre(freal, nomeStr) então
+            enquanto não fds(freal) faça
+              leia(freal, numReal)
+              se numReal > média então
+                quantidade <- quantidade + 1
+              fimse
+            fimenquanto
+            fecha(freal)
+          senão
+            pare
+          fimse
+        fimenquanto
+        fecha(fstring)
+        retorne quantidade
+      senão
+        pare
+      fimse
+    senão
+      pare
+    fimse
+  senão
+    pare
+  fimse
+fimfunção

@@ -4,24 +4,29 @@ var
   inserido : lógico
   foriginal, fnovo : sequência de inteiro
 início
-  se abre(foriginal, s) e cria(fnovo, "temp.dat") então
-    inserido <- FALSO
-    enquanto não fds(foriginal) faça
-      leia(foriginal, numAtual)
-      se x <= numAtual e não inserido então
+  se abre(foriginal, s) então
+    se cria(fnovo, "temp.dat") então
+      inserido <- FALSO
+      enquanto não fds(foriginal) faça
+        leia(foriginal, numAtual)
+        se x <= numAtual e não inserido então
+          escreva(fnovo, x)
+          inserido <- VERDADEIRO
+        fimse
+        escreva(fnovo, numAtual)
+      fimenquanto
+      se não inserido então
         escreva(fnovo, x)
-        inserido <- VERDADEIRO
       fimse
-      escreva(fnovo, numAtual)
-    fimenquanto
-    se não inserido então
-      escreva(fnovo, x)
+      fecha(foriginal)
+      fecha(fnovo)
+      apaga(s)
+      renomeia("temp.dat", s)
+      retorne VERDADEIRO
+    senão
+      fecha(foriginal)
+      retorne FALSO
     fimse
-    fecha(foriginal)
-    fecha(fnovo)
-    apaga(s)
-    renomeia("temp.dat", s)
-    retorne VERDADEIRO
   senão
     retorne FALSO
   fimse

@@ -1,6 +1,0 @@
-função mesclaSequências(s1, s2, s3): lógico
-var
-  n1, n2 : real
-  f1, f2, f3 : sequência de real
-início
-  // todo
