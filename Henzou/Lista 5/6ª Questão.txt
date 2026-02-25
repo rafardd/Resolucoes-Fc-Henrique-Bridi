@@ -3,18 +3,23 @@ var
   numAtual : inteiro
   foriginal, fnovo : sequência de inteiro
 início
-  se abre(foriginal, s) e cria(fnovo, "temp.dat") então
-    enquanto não fds(foriginal) faça
-      leia(foriginal, numAtual)
-      se numAtual != x então
-        escreva(fnovo, numAtual)
-      fimse
-    fimenquanto
-    fecha(foriginal)
-    fecha(fnovo)
-    apaga(s)
-    renomeia("temp.dat", s)
-    retorne VERDADEIRO
+  se abre(foriginal, s) então
+    se cria(fnovo, "temp.dat") então
+      enquanto não fds(foriginal) faça
+        leia(foriginal, numAtual)
+        se numAtual != x então
+          escreva(fnovo, numAtual)
+        fimse
+      fimenquanto
+      fecha(foriginal)
+      fecha(fnovo)
+      apaga(s)
+      renomeia("temp.dat", s)
+      retorne VERDADEIRO
+    senão
+      fecha(foriginal)
+      retorne FALSO
+    fimse
   senão
     retorne FALSO
   fimse

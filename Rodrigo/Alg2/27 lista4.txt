@@ -1,0 +1,42 @@
+tipo 
+    PNo : ponteiro para TNo
+    TNo : registro
+            info : inteiro
+            prox : PNo
+        fimregistro 
+
+funcao copiaListaEncadeada( head : PNo) : PNo
+var
+    novo, headNovo, aux : PNo
+inicio
+    se head = NULO entao
+        retorne NULO
+    fimse
+
+    headNovo <- aloca(TNo)
+    se headNovo = NULO entao
+        retorne NULO 
+    fimse
+    headNovo^.info <- head^.info
+    aux <- headNovo
+    head <- head^.prox
+    headNovo^.prox <- NULO
+
+    enquanto head != NULO faca
+        novo <- aloca(TNo)
+        se novo = NULO entao
+            retorne NULO
+        fimse
+        aux^.prox <- novo
+        aux <- novo
+        aux^.info <- head^.info
+        head <- head^.prox
+        novo^.prox <- NULO
+    fimenquanto
+
+    retorne headNovo
+
+
+fimfuncao
+
+# Nao esquecer de atribuir NULO aos tails das listas criadas.

@@ -2,24 +2,23 @@ função substituiString(s, a, b: string): inteiro
 var
   total : inteiro
   strAtual : string
-  foriginal, fnovo: sequência de string
+  f : sequência de string
 início
   total <- 0
-  se abre(foriginal, s) e cria(fnovo, "temp.dat") então
-    enquanto não fds(foriginal) faça
-      leia(foriginal, strAtual)
-      se strAtual = a então
-        escreva(fnovo, b)
-        total <- total + 1
-      senão
-        escreva(fnovo, strAtual)
-      fimse
-    fimenquanto
-    fecha(foriginal)
-    fecha(fnovo)
-    apaga(s)
-    renomeia("temp.dat", s)
-    retorne total
+  se abre(f, s) então
+    enquanto não fds(f) faça
+        leia(f, strAtual)
+        se strAtual = a então
+          escreva(f, b)
+          total <- total + 1
+        fimse
+      fimenquanto
+      fecha(f)
+      retorne total
+    senão
+      fecha(foriginal)
+      retorne -99999
+    fimse
   senão
     retorne -99999
   fimse

@@ -1,0 +1,28 @@
+funcao duplica(s:string):logica
+var
+    x : inteiro
+    f, t : sequencia de inteiro
+inicio
+    se abre(f, s) entao
+        se cria(t, "temp") entao
+            enquanto NAO fds(f) faca
+                leia(f, x)
+            fim enquanto
+            enquanto NAO fds(t) faca
+                leia(t, x)
+                escreva(f, x)
+            fim enquanto
+            fecha(t)
+        senao
+            escreva("O arquivo ", temp, "não pode ser criado")
+            fecha(f)
+            retorne falso
+        fim se
+        fecha(f)
+        apaga(temp)
+        retorne verdadeiro
+    senao
+        escreva("O arquivo ", s, "não pode ser aberto")
+        retorne falso
+    fim se
+fim funcao

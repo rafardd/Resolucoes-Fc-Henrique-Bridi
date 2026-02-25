@@ -1,0 +1,23 @@
+funcao media(s:string):real
+var
+	quantidade, soma , x:inteiro
+	f: sequencia de inteiro
+inicio
+	quantidade <- 0 
+	soma <- 0
+	se abre(f,s) entao
+		enquanto nao fds(f) faca
+			leia(f,x)
+			soma <- soma + x
+			quantidade <- quantidade + 1
+		fim enquanto
+		fecha(f)
+		se quantidade > 0 entao
+			retorne soma/quantidade
+		senao
+			retorne -999999999
+		fimse
+	senao
+		retorne -9999999999
+	fimse
+fim funcao

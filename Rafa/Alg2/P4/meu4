@@ -1,0 +1,26 @@
+procedimento escreveSegundaMetade(s:string)
+var
+	tamanho:inteiro
+	f:sequencia de real
+	numAtual:real
+inicio
+	tamanho <- 0
+	se abre(f,s) entao
+		enquanto nao fds(f) faca
+			tamanho <- tamanho + 1
+			leia(f,numAtual)
+		fim enquanto
+		reinicia(f)
+		tamanho <- tamanho div 2
+		enquanto nao fds(f) faca
+			leia(f,numAtual)
+			se tamanho = 0 entao
+				escreva(numAtual)
+			senao
+				tamanho <- tamanho - 1
+			fimse
+		fim enquanto
+		fecha(f)
+	fim se
+fim procedimento
+

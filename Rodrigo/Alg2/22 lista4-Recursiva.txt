@@ -1,0 +1,24 @@
+tipo 
+    PNo : ponteiro para TNo
+    TNo : registro
+            info : inteiro
+            prox : PNo
+        fimregistro 
+
+funcao removePrimeiraOcorrenciaDeX(ref head : PNo; x : inteiro) : logico
+var
+    aux : PNo
+inicio
+    se head = NULO entao
+        retorne FALSO
+    fimse
+
+    se head^.info = x entao
+        aux <- head
+        head <- head^.prox
+        desaloca(aux)
+        retorne VERDADEIRO
+    fimse
+    
+    retorne removePrimeiraOcorrenciaDeX(head^.prox, x)
+fimfuncao

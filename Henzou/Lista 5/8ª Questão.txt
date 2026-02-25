@@ -1,0 +1,42 @@
+função trocaElementos(s: string; p: inteiro): lógico
+var
+  numAtual, numProx : real
+  posição : inteiro
+  foriginal, fnovo: sequência de real
+início
+  se abre(foriginal, s) então
+    posição <- 1
+    enquanto não fds(foriginal) faça
+      leia(foriginal, numAtual)
+      posição <- posição + 1
+    fimenquanto
+    fecha(foriginal)
+    se posição >= p + 1 então
+      posição <- 1
+      se abre(foriginal, s) e cria(fnovo, "temp.dat") então
+        enquanto não fds(foriginal) faça
+          leia(foriginal, numAtual)
+          se posição = p então
+            leia(foriginal, numProx)
+            escreva(fnovo, numProx)
+            escreva(fnovo, numAtual)
+            posição <- posição + 2
+          senão
+            escreva(fnovo, numAtual)
+            posição <- posição + 1
+          fimse
+        fimenquanto
+        fecha(foriginal)
+        fecha(fnovo)
+        apaga(s)
+        renomeia("temp.dat", s)
+        retorne VERDADEIRO
+      senão
+        retorne FALSO
+    senão
+      retorne FALSO
+    fimse
+  senão
+    retorne FALSO
+  fimse
+fimfunção
