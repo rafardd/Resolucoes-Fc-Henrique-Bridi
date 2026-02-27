@@ -1,7 +1,0 @@
-funcao decimalParaOctal(n:inteiro):inteiro
-inicio
-  se abs(n) < 8 entao
-    retorne n
-  fimse
-  retorne decimalParaOctal(n div 8)*10 + n mod 8
-fim funcao

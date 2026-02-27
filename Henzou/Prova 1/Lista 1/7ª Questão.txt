@@ -1,0 +1,21 @@
+função converteStringEmInteiro(s : string) : inteiro
+var
+  num, i : inteiro
+  convertível : lógico
+início
+  se tamanho(s) = 0 então 
+    retorne -99999999
+  senão
+    num <- 0
+    i <- 1
+    enquanto i <= tamanho(s) faça 
+      se s[i] < '0' ou s[i] > '9' então
+        retorne -99999999
+      senão
+        num <- num * 10 + asc(s[i]) - asc('0')
+      fimse
+      i <- i + 1
+    fimenquanto
+    retorne num
+  fimse
+fimfunção

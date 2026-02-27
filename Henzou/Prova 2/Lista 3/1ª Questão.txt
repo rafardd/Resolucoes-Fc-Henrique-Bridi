@@ -1,0 +1,16 @@
+função retornaStrEmMinúsculo(str : string): string
+var
+  procedimento transformaCaracterEmMinúsculo(n : inteiro)
+  início
+    se n > 0 então
+      se 'A' <= str[n] e str[n] <= 'Z' então
+        str[n] <- chr(asc(str[n]) + asc('a') - asc('A'))
+      fimse
+      transformaCaracterEmMinúsculo(n - 1)
+    fimse
+  fimprocedimento
+
+início
+  transformaCaracterEmMinúsculo(tamanho(str))
+  retorne str
+fimfunção

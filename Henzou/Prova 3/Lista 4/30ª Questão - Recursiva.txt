@@ -1,0 +1,59 @@
+tipo
+    PNo = ponteiro para TNo
+    TNo = registro
+            coef: real
+            exp: real
+            prox: PNo
+          fimregistro
+
+função somaPolinômios(l1, l2: PNo): PNo
+var
+    novo : PNo
+    coef : real
+
+início
+    se l1 = NULO então
+        retorne l2
+    fimse
+    se l2 = NULO então
+        retorne l1
+    fimse
+
+    se l1^.exp = l2^.exp então
+        coef <- l1^.coef + l2^.coef
+        se coef = 0 então
+            retorne somaPolinômios(l1^.prox, l2^.prox)
+        fimse
+
+        novo <- aloca(TNo)
+        se novo = NULO então
+            retorne NULO
+        fimse
+        novo^.coef <- coef
+        novo^.exp <- l1^.exp
+        novo^.prox <- somaPolinômios(l1^.prox, l2^.prox)
+        retorne novo
+    fimse
+
+    se l1^.exp > l2^.exp então
+        novo <- aloca(TNo)
+        se novo = NULO então
+            retorne NULO
+        fimse
+        novo^.coef <- l1^.coef
+        novo^.exp <- l1^.exp
+        novo^.prox <- somaPolinômios(l1^.prox, l2)
+        retorne novo
+    fimse
+
+    novo <- aloca(TNo)
+    se novo = NULO então
+        retorne NULO
+    fimse
+    novo^.coef <- l2^.coef
+    novo^.exp <- l2^.exp
+    novo^.prox <- somaPolinômios(l1, l2^.prox)
+    retorne novo
+fimfunção
+
+

@@ -1,7 +1,0 @@
-procedimento ConversorSegundosHoras (inicial:inteiro;ref horas,minutos,segundos: inteiro)
-inicio
-  horas <- inicial div 3600
-  inicial <- inicial mod 3600
-  minutos <- inicial div 60
-  segundos<- inicial mod 60
-fimprocedimento

@@ -1,7 +1,0 @@
-algoritmo SortearDado
-var
-    lado_dado: inteiro
-inicio
-    lado_dado <- trunca(7*aleatorio()) mod (7+1)
-    escreva(lado_dado)
-fim algoritmo

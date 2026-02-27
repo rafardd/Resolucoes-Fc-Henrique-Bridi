@@ -1,0 +1,19 @@
+tipos
+    PNo = ponteiro para TNo
+    TNo = registro
+            info : real
+            prox : PNo
+          fimregistro
+
+função procuraValor(l: PNo; X: real): lógico
+início
+    se l = NULO então
+        retorne FALSO
+    senão
+        se l^.info = X então
+            retorne VERDADEIRO
+        senão
+            retorne procuraValor(l^.prox, X)
+        fimse
+    fimse
+fimfunção

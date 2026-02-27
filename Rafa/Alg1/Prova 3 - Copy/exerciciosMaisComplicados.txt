@@ -1,7 +1,0 @@
-lista 6
-  olhada detalhada:12
-  refazer : 16
-lista 7
-
-
-

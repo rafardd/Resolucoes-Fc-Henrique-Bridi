@@ -1,0 +1,47 @@
+tipos
+    PNo = ponteiro para TNo
+    TNo = registro
+            info : string
+            prox : PNo
+          fimregistro
+
+função mergeListas(l1, l2 : PNo): PNo
+var
+    head, ant : PNo
+início
+    se l1 = NULO então
+        retorne l2
+    fimse
+    se l2 = NULO então
+        retorne l1
+    fimse
+
+    se l1^.info <= l2^.info então
+        head <- l1
+        l1 <- l1^.prox
+    senão
+        head <- l2
+        l2 <- l2^.prox
+    fimse
+
+    ant <- head
+    enquanto l1 != NULO e l2 != NULO faça
+        se l1^.info <= l2^.info então
+            ant^.prox <- l1
+            ant <- l1
+            l1 <- l1^.prox
+        senão
+            ant^.prox <- l2
+            ant <- l2
+            l2 <- l2^.prox
+        fimse
+    fimenquanto
+
+    se l1 != NULO então
+        ant^.prox <- l1
+    senão
+        ant^.prox <- l2
+    fimse
+
+    retorne head
+fimfunção

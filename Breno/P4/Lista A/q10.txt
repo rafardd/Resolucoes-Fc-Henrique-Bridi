@@ -1,7 +1,0 @@
-algoritmo SortearUmBit
-var
-    resultado: inteiro
-inicio
-    resultado <- trunca(2*aleatorio()) mod 2
-    escreva (resultado)
-fim algoritmo

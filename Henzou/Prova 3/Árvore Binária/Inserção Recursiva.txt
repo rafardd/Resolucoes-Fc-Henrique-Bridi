@@ -1,0 +1,34 @@
+tipos
+    PNo = ponteiro
+    TNo = registro
+            chave : string
+            info : string
+            esq : PNo
+            dir : PNo
+          fimregistro
+
+função Insere(ref l: PNo; ch, Tinfo: string): lógico
+início
+    se l = NULO então
+        l <- aloca(TNo)
+        se l = NULO então
+            retorne FALSO
+        fimse
+
+        l^.chave <- ch
+        l^.info <- Tinfo
+        l^.esq <- NULO
+        l^.dir <- NULO
+        retorne VERDADEIRO
+    fimse
+
+    se l^.chave = ch então
+        retorne FALSO
+    fimse
+
+    se ch < l^.chave então
+        retorne InsereString(l^.esq, ch, Tinfo)
+    senão
+        retorne InsereString(l^.dir, ch, Tinfo)
+    fimse
+fimfunção
