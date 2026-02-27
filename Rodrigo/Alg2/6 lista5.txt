@@ -5,18 +5,23 @@ var
   x : inteiro
   f, g : sequencia de inteiro
 inicio
-  se abre(f, nome) e cria(g, "novo.txt") entao
-    enquanto nao fds(f) faca
-      leia(f, x)
-      se x != num entao
-        escreva(g, x)
-      fimse
-    fimenquanto
-    fecha(f)
-    fecha(g)
-    apaga(nome)
-    renomeia("novo.txt", nome)
-    retorne verdadeiro
+  se abre(f, nome) entao
+    se cria(g, "novo.txt") entao
+      enquanto nao fds(f) faca
+        leia(f, x)
+        se x != num entao
+          escreva(g, x)
+        fimse
+      fimenquanto
+      fecha(f)
+      fecha(g)
+      apaga(nome)
+      renomeia("novo.txt", nome)
+      retorne verdadeiro
+    senao
+      retorne falso
+    fimse
   senao
     retorne falso
+  fimse
 fimfuncao

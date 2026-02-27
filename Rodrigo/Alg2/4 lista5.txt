@@ -13,7 +13,10 @@ inicio
       // Tomar cuidado com loops, no contexto de arquivos, que não precisam altera-los/le-los, pois, assim, o apontador não muda de posição e vira um loop infinito!
       tamanho <- tamanho + 1
     fimenquanto
-    reinicia(f)
+    fecha(f)
+  fimse
+
+  se abre(f, nome) entao
     metade <- tamanho div 2
     para i de 1 até tamanho faca
       leia(f, x) 

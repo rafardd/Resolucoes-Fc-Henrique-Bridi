@@ -1,0 +1,65 @@
+Faça o algoritmo de um procedimento que receba o nome de três sequências de reais, sendo que as
+duas primeiras sequências contém números inteiros em ordem ascendente e a terceira sequência deve ser
+construída com a junção das duas primeiras de forma que ela também esteja em ordem ascendente.
+
+procedimento geraSequenciaRealOrdenadaAPartirDeDuasOrdenadas(nome1, nome2, nome3 : string)
+var
+  f, g, h : sequencia de real
+  nf, ng : real
+  tem_g, tem_f : logico
+inicio
+  se abre(f, nome1) entao
+    se abre(g, nome2) entao
+      se cria(h, nome3) entao
+        tem_g <- falso
+        tem_f <- falso
+        se nao fds(f) entao 
+          leia(f, nf)
+          tem_f <- verdadeiro
+        fimse
+        se nao fds(g) entao
+          leia(g, ng) 
+          tem_g <- verdadeiro
+        fimse
+        enquanto tem_f e tem_g faca
+          se ng < nf entao  
+            escreva(h,ng)
+            se nao fds(g) entao 
+              leia(g, ng)
+            senao
+              tem_g <- falso
+            fimse
+          senao 
+            escreva(h, nf)
+            se nao fds(f) entao 
+              leia(f, nf)
+            senao
+              tem_f <- falso
+            fimse
+          fimse
+        fimenquanto
+
+        enquanto tem_f faca 
+          escreva(h, nf)
+          se nao fds(f) entao
+            leia(f, nf)
+          senao
+            tem_f <- falso
+          fimse
+        fimenquanto
+
+        enquanto tem_g faca 
+          escreva(h, ng)
+          se nao fds(g) entao
+            leia(g, ng)
+          senao
+            tem_g <- falso
+          fimse
+        fimenquanto
+        fecha(h)
+      fimse
+      fecha(g)
+    fimse
+    fecha(f)
+  fimse
+fimprocedimento

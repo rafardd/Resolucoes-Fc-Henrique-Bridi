@@ -1,0 +1,45 @@
+Faça o algoritmo de um procedimento que receba o nome de três sequências de reais, sendo que as
+duas primeiras sequências contém números inteiros em ordem ascendente e a terceira sequência deve ser
+construída com a junção das duas primeiras de forma que ela também esteja em ordem ascendente.
+
+procedimento geraSequenciaRealOrdenadaAPartirDeDuasOrdenadas(nome1, nome2, nome3 : string)
+var
+  f, g, h : sequencia de real
+  nf, ng : real
+  fds_f, fds_g : logico
+  funcao verificaFdsLeProx(ref seq : sequencia de real, ref num : real) : logico
+  var
+  inicio
+    se nao fds(seq) entao
+      leia(seq, num)
+      retorne falso
+    senao
+      retorne verdadeiro
+    fimse
+  fimfuncao
+inicio
+  se abre(f, nome1) entao
+    se abre(g, nome2) entao
+      se cria(h, nome3) entao
+        fds_f <- verificaFdsLeProx(f, nf)
+        fds_g <- verificaFdsLeProx(g, ng)
+        // Aqui, diferente da outra versão, o loop é até as duas acabarem, e não quando apenas uma acabar.
+        enquanto nao fds_f ou nao fds_g faca
+          se fds_f ou (ng < nf e nao fds_g) entao
+            escreva(h, ng)
+            fds_g <- verificaFdsLeProx(g, ng)
+          senao
+            escreva(h, nf)
+            fds_f <- verificaFdsLeProx(f, nf)
+          fimse
+        fimenquanto
+        fecha(h)
+      fimse
+      fecha(g)
+    fimse
+    fecha(f)
+  fimse
+fimprocedimento
+    
+          
+        

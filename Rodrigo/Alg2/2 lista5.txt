@@ -7,21 +7,25 @@ var
   f, g : sequencia de string
 inicio
   quantidade <- 0
-  se abre(f, nome) e cria(g, "copia.txt") entao
-    enquanto nao fds(f) faca
-      leia(f, x)
-      se x = a entao
-        escreva(g, b)
-        quantidade <- quantidade + 1
-      senao
-        escreva(g, x)
-      fimse
-    fimenquanto
-    fecha(f)
-    fecha(g)
-    apaga(nome)
-    renomeia("copia.txt", nome) 
-    retorne quantidade
+  se abre(f, nome) entao
+    se cria(g, "copia.txt") entao
+      enquanto nao fds(f) faca
+        leia(f, x)
+        se x = a entao
+          escreva(g, b)
+          quantidade <- quantidade + 1
+        senao
+          escreva(g, x)
+        fimse
+      fimenquanto
+      fecha(f)
+      fecha(g)
+      apaga(nome)
+      renomeia("copia.txt", nome) 
+      retorne quantidade
+    senao
+      retorne -1
+    fimse
   senao
     retorne -1 
   fimse

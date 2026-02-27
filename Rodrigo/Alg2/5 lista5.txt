@@ -6,9 +6,9 @@ var
   f : sequencia de real
   x : real
 inicio
-  posicao <- 1
-  soma <- 0
-  se abre(f, nome) entao
+ se abre(f, nome) entao
+    posicao <- 1
+    soma <- 0
     enquanto nao fds(f) faca
       leia(f, x)
       se x = num entao

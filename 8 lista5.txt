@@ -1,0 +1,48 @@
+Faça o algoritmo de uma função lógica que receba o nome de uma sequência de reais e um inteiro p que
+representa a posição de um elemento dentro da sequência e troque, entre si, os valores das posições p e
+p + 1 da sequência. A função deve retornar VERDADEIRO se, e somente se, não tiver havido algum erro e
+a troca tiver sido feita, e FALSO em caso contrário. Considere que a primeira posição da sequência é 1.
+
+funcao trocaValoresPeProxPSequenciaReal(nome : string, p : inteiro) : logico
+var 
+  tamanho, i : inteiro
+  x, numP, numProx : real
+  f : sequencia de real
+  trocou : logico
+inicio
+  trocou <- falso
+  tamanho <- 0
+  se abre(f, nome) entao
+    enquanto nao fds(f) faca
+      tamanho <- tamanho + 1
+      leia(f, x)
+      se tamanho = p entao
+        numP <- x
+      fimse
+      se tamanho = p + 1 entao
+        numProx <- x
+      fimse
+    fimenquanto
+    fecha(f)
+    
+    se tamanho >= p + 1 entao
+      se abre(f, nome) entao
+        i <- 1
+        enquanto nao fds(f) e nao trocou faca
+          se i = p entao
+            escreva(f, numProx)
+            escreva(f, numP)
+            trocou <- verdadeiro
+          senao
+            i <- i + 1
+            leia(f, x)
+          fimse
+        fimenquanto
+      fimse
+    fimse
+  fimse
+  retorne trocou
+fimfuncao
+
+      
+

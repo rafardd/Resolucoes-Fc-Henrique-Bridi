@@ -5,20 +5,24 @@ var
   x : string
   f, g : sequencia de string
 inicio
-  se cria(g, "novo.txt") e abre(f, nome) entao
-    enquanto nao fds(f) faca 
-      leia(f, x)
-      escreva(g, x)
-    fimenquanto
-    reinicia(g)
-    enquanto nao fds(g) faca
-      leia(g, x)
-      escreva(f, x)
-    fimenquanto
-    fecha(g)
-    fecha(f)
-    apaga("novo.txt")
-    retorne verdadeiro
+  se cria(g, "novo.txt") entao
+    se abre(f, nome) entao
+      enquanto nao fds(f) faca 
+        leia(f, x)
+        escreva(g, x)
+      fimenquanto
+      reinicia(g)
+      enquanto nao fds(g) faca
+        leia(g, x)
+        escreva(f, x)
+      fimenquanto
+      fecha(g)
+      fecha(f)
+      apaga("novo.txt")
+      retorne verdadeiro
+    senao
+     retorne falso
+    fimse
   senao
     retorne falso
   fimse

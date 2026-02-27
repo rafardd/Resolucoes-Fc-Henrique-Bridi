@@ -1,5 +1,6 @@
 12 lista 5
 
+// Esse algoritmo está "errado, por que nao posso usar o reinicia!"
 Faça o algoritmo de uma função que receba o nome de uma sequência de strings com nomes de sequências
 de reais e retorne quantidade de valores que encontram-se acima da média de todos os valores nelas
 contidos.

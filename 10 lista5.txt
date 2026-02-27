@@ -1,0 +1,59 @@
+Faça o algoritmo de uma função lógica que receba o nome de três sequências de reais, sendo que as duas
+primeiras sequências contém valores em ordem ascendente e a terceira sequência deve ser construída a
+partir da junção das duas primeiras de forma que ela também esteja em ordem ascendente. A função
+deve retornar VERDADEIRO se, e somente se, não tiver havido algum erro na operação, sendo que uma
+sequência de entrada vazia não representa um erro, e FALSO em caso contrário.
+
+funcao geraSequenciaRealOrdenadaAPartirDeDuasOrdenadas(nome1, nome2, nome3 : string) : logico
+var
+  f, g, h : sequencia de real
+  nf, ng : real
+  fds_f, fds_g : logico
+  funcao verificaFdsLeProx(ref seq : sequencia de real, ref num : real) : logico
+  var
+  inicio
+    se nao fds(seq) entao
+      leia(seq, num)
+      retorne falso
+    senao
+      retorne verdadeiro
+    fimse
+  fimfuncao
+inicio
+  se abre(f, nome1) entao
+    se abre(g, nome2) entao
+      se cria(h, nome3) entao
+        fds_f <- verificaFdsLeProx(f, nf)
+        fds_g <- verificaFdsLeProx(g, ng)
+        // Aqui, diferente da outra versão, o loop é até as duas acabarem, e não quando apenas uma acabar.
+        enquanto nao fds_f ou nao fds_g faca
+          se fds_f ou (ng < nf e nao fds_g) entao
+            escreva(h, ng)
+            fds_g <- verificaFdsLeProx(g, ng)
+          senao
+            escreva(h, nf)
+            fds_f <- verificaFdsLeProx(f, nf)
+          fimse
+        fimenquanto
+        fecha(h)
+        fecha(g)
+        fecha(f)
+        retorne verdadeiro
+      senao
+        fecha(g)
+        fecha(f)
+        retorne falso
+      fimse
+    senao 
+      fecha(f)
+      retorne falso
+    fimse
+  senao
+    retorne falso
+  fimse
+fimfuncao
+
+// Tomar cuidado com o fechamento dos if's. No caso do procedimento, nao tinhamos retornos, então era certeza que chegaríamos nos próximos fechamos e, então, todos os arquivos com certeza seriam fechados. Aqui não, 
+// pois, como temos retornos, pode ser que a função acabe antes de chegar nas outras linhas, o que faria com que os outros arquivos abertos anteriormente não fechassem.
+
+ 
