@@ -1,0 +1,48 @@
+tipos
+    PNo = ponteiro para TNo
+    TNo = registro
+            info : inteiro
+            prox : PNo
+          fimregistro
+
+procedimento separaParesEÍmpares(l1, l2 : PNo; ref lPar, lÍmpar : PNo)
+var
+    temp1, temp2, antPar, antÍmpar, atual : PNo
+início
+    temp1 <- l1
+    temp2 <- l2
+    lPar <- NULO
+    lÍmpar <- NULO
+    antPar <- NULO
+    antÍmpar <- NULO
+
+    enquanto temp1 != NULO ou temp2 != NULO faça
+        se temp2 = NULO ou (temp1 != NULO e temp1^.info <= temp2^.info) então
+            atual <- temp1
+            temp1 <- temp1^.prox
+        senão
+            atual <- temp2
+            temp2 <- temp2^.prox
+        fimse
+
+        atual^.prox <- NULO
+
+        se atual^.info mod 2 = 0 então
+            se lPar = NULO então
+                lPar <- atual
+                antPar <- atual
+            senão
+                antPar^.prox <- atual
+                antPar <- atual
+            fimse
+        senão
+            se lÍmpar = NULO então
+                lÍmpar <- atual
+                antÍmpar <- atual
+            senão
+                antÍmpar^.prox <- atual
+                antÍmpar <- atual
+            fimse
+        fimse
+    fimenquanto
+fimfunção

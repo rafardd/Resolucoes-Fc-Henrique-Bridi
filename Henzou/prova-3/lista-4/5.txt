@@ -1,0 +1,33 @@
+tipos
+    PNo = ponteiro para TNo
+    TNo = registro
+            info : string
+            prox : PNo
+          fimregistro
+
+função retornaStrCentral(l: PNo): string
+var
+    total, posição: inteiro
+    aux : PNo
+início
+    se l = NULO então
+        retorne ""
+    fimse
+
+    total <- 0
+    aux <- l
+    enquanto aux != NULO faça
+        total <- total + 1
+        aux <- aux^.prox
+    fimenquanto
+
+    posição <- total div 2
+    se total mod 2 != 0 então
+        posição <- posição + 1
+    fimse
+
+    para i de 1 até posição faça
+        l <- l^.prox
+    fimenquanto
+    retorne(l^.info)
+fimfunção

@@ -1,0 +1,40 @@
+função retornaBinEmDec(n : inteiro): inteiro
+var
+  função confereBin(bin : inteiro): lógico
+  início
+    se bin = 0 então        
+      retorne VERDADEIRO
+    senão
+      se bin mod 10 = 1 ou bin mod 10 = 0 então
+        retorne confereBin(bin div 10)
+      senão
+        retorne FALSO
+      fimse
+    fimse
+  fimfunção
+
+  função converteBinEmDec(num, fator : inteiro): inteiro
+  início
+    se num = 0 então
+      retorne 0
+    senão
+      retorne num mod 10 * fator + converteBinEmDec(num div 10, fator * 2)
+    fimse
+  fimfunção 
+
+início
+  se n = 0 então
+    retorne 0
+  fimse
+
+  se confereBin(abs(n)) então
+    se n < 0 então
+      retorne converteBinEmDec(-n, 1) * -1
+    senão
+      retorne converteBinEmDec(n, 1)
+    fimse
+  senão
+    pare
+  fimse
+fimfunção
+    

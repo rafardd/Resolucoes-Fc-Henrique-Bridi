@@ -1,0 +1,19 @@
+tipos
+    PNo = ponteiro para TNo
+    TNo = registro
+            info : real
+            prox : TNo
+          fimregistro
+
+função verificaElementosContíguos(l: PNo; X, Y: real): lógico
+início
+    enquanto l != NULO faça
+        se l^.prox != NULO então
+            se l^.info = X e l^.prox^.info = Y então
+                retorne VERDADEIRO
+            fimse
+        fimse
+        l = l^.prox
+    fimenquanto
+    retorne FALSO
+fimfunção

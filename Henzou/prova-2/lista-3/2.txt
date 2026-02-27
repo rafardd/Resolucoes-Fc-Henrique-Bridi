@@ -1,0 +1,18 @@
+função retornaNumInvertido(num : inteiro): inteiro
+var
+  função inverteNum(n, resto : inteiro): inteiro
+  início
+    se n < 10 então
+      retorne resto + n
+    senão
+      retorne inverteNum(n div 10, resto * 10 + n mod 10)
+    fimse
+  fimfunção
+
+início
+  se num < 0 então
+    retorne -inverteNum(-num, 0)
+  fimse
+  retorne inverteNum(num, 0)
+
+fimfunção

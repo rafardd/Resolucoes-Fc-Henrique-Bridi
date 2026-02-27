@@ -1,0 +1,16 @@
+função retornaDecimalEmOctal(d : inteiro): inteiro
+início
+  se d < 0 então
+    retorne -retornaDecimalEmOctal(-d)
+  fimse
+
+  se d < 8 então
+    retorne d
+  senão
+    retorne (d mod 8) + 10 * retornaDecimalEmOctal(d div 8)
+  fimse
+fimfunção
+
+
+
+

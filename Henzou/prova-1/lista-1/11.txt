@@ -1,0 +1,14 @@
+procedimento leiaAlternativo(ref num, min, max : inteiro)
+var
+início
+  se min > max então
+    pare
+  senão 
+    escreva("Insira um número entre ", min, " e ", max, ": ")
+    leia(num)
+    enquanto num < min ou num > max então
+      escreva("Insira novamente: ")
+      leia(num)
+    fimenquanto
+  fimse
+fimprocedimento

@@ -1,0 +1,57 @@
+função retornaStrDecEmBin(s : string): inteiro
+var
+  função confereStr(i : inteiro): lógico
+  início
+    se i = 1 então
+      se (s[i] = '-' e tamanho(s) > 1) ou (s[i] >= '0' e s[i] <= '9') então
+        retorne VERDADEIRO
+      senão
+        retorne FALSO
+      fimse
+    senão    
+      se s[i] < '0' ou s[i] > '9' então
+        retorne FALSO
+      senão
+        retorne confereStr(i - 1)
+      fimse
+    fimse
+  fimfunção 
+   
+  função converteStrEmInt(n : inteiro): inteiro
+  início
+    se n = 1 então
+      se s[n] = '-' então
+        retorne 0
+      senão
+        retorne asc(s[n]) - asc('0')
+      fimse
+    senão
+      retorne (asc(s[n]) - asc('0')) + converteStrEmInt(n - 1) * 10
+    fimse
+  fimfunção
+
+  função converteIntEmBin(num : inteiro)
+  início
+    se num < 2 então
+      retorne num
+    senão
+      retorne num mod 2 + converteIntEmBin(num div 2) * 10
+    fimse
+  fimfunção
+    
+início
+  se tamanho(s) = 0 então
+    pare
+  fimse
+
+  se confereStr(tamanho(s)) então
+    se s[1] = '-' então
+      retorne converteIntEmBin(converteStrEmInt(tamanho(s))) * -1
+    senão
+      retorne converteIntEmBin(converteStrEmInt(tamanho(s)))
+    fimse
+  senão
+    pare
+  fimse
+
+fimfunção

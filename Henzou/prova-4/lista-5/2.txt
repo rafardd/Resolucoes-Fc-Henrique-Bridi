@@ -1,0 +1,29 @@
+função substitui(s: string; a, b: inteiro): inteiro
+var
+    n, total : inteiro
+    fOriginal, fNovo : sequência de inteiro
+início
+    se abre(fOriginal, s) então
+        se cria(fNovo, "temp.dat") então
+            total <- 0
+            enquanto não fds(fOriginal) faça
+                leia(fOriginal, n)
+                se n = a então
+                    escreva(fNovo, b)
+                    total <- total + 1
+                senão
+                    escreva(fNovo, n)
+                fimse
+            fimenquanto
+            fecha(fOriginal)
+            fecha(fNovo)
+            apaga(s)
+            renomeia("temp.dat", s)
+        senão
+            fecha(fOriginal)
+            pare
+        fimse
+    senão
+        pare
+    fimse
+fimfunção
