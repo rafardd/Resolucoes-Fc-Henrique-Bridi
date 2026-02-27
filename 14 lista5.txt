@@ -1,0 +1,69 @@
+14 lista 5
+
+Faça o algoritmo de uma função que receba o nome de uma sequência de inteiros, sabendo que os
+valores nela contidos variam entre 0 e 3000, e retorne a mediana desta sequência. Lembre-se de que,
+por natureza e definição, a sequência não cabe inteira na memória primária.
+
+funcao medianaSequenciaInteiros(nome : string) : real
+var
+  totalElementos, valor1, valor2,posicao, contador , passosParaMediana , x : inteiro
+  f : sequencia de inteiro
+  v : vetor[0..3000] de inteiro
+inicio
+  se abre(f, nome) entao 
+    para contador de 0 até 3000 faca
+      v[contador] <- 0
+    fimpara
+
+    totalElementos <- 0
+    enquanto nao fds(f) faca
+      leia(f, x)
+      v[x] <- v[x] + 1
+      totalElementos <- totalElementos + 1
+    fimenquanto
+
+    se totalElementos = 0 entao
+      retorne -1
+    fimse
+
+    passosParaMediana <- totalElementos div 2
+
+    posicao <- 0
+    contador <- 0
+
+    enquanto contador < passosParaMediana faca
+      se v[posicao] != 0 entao
+        enquanto v[posicao] > 0 e contador < passosParaMediana faca
+          v[posicao] <- v[posicao] - 1
+          contador <- contador + 1
+        fimenquanto
+      senao
+        posicao <- posicao + 1
+      fimse
+    fimenquanto
+ 
+      se contador = passosParaMediana entao
+        se v[posicao] != 0 entao
+          valor1 <- posicao
+          valor2 <- posicao
+        senao
+          valor1 <- posicao
+          enquanto v[posicao] = 0 faca  
+            posicao <- posicao + 1
+          fimenquanto
+          valor2 <- posicao
+        fimse
+        fecha(f)        
+        se totalElementos mod 2 = 0 entao
+          retorne (valor1 + valor2) / 2 
+        senao
+          retorne valor2
+        fimse
+      fimse
+
+  senao
+    retorne -1
+  fimse
+fimfuncao
+       
+      

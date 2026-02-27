@@ -1,0 +1,59 @@
+ 14 lista5 otimizada
+
+
+Faça o algoritmo de uma função que receba o nome de uma sequência de inteiros, sabendo que os
+valores nela contidos variam entre 0 e 3000, e retorne a mediana desta sequência. Lembre-se de que,
+por natureza e definição, a sequência não cabe inteira na memória primária.
+
+funcao medianaSequenciaInteiros(nome : string) : real
+var
+  totalElementos, acumulado, valor1, valor2, contador , alvo1, alvo2, x : inteiro
+  f : sequencia de inteiro
+  v : vetor[0..3000] de inteiro
+inicio
+  se abre(f, nome) entao 
+    para contador de 0 até 3000 faca
+      v[contador] <- 0
+    fimpara
+
+    totalElementos <- 0
+    enquanto nao fds(f) faca
+      leia(f, x)
+      v[x] <- v[x] + 1
+      totalElementos <- totalElementos + 1
+    fimenquanto
+
+    se totalElementos = 0 entao
+      retorne -1
+    fimse
+
+    alvo1 <- (totalElementos + 1) div 2
+    alvo2 <- (totalElementos + 2) div 2
+
+    acumulado <- 0
+    valor1 <- -1
+    valor2 <- 2
+    contador <- 0
+
+    enquanto contador <= 3000 e (valor1 = -1 ou valor2 = -1) faca // Quer iterar até que os dois valores nao sejam mais -1, enquanto haja sequencia disponível
+      acumulado <- acumulado + v[contador]
+
+      se valor1 = -1 e acumulador >= alvo1 entao
+        valor1 <- contador
+      fimse
+
+      se valor2 = -1 e acumulador >= alvo2 entao
+        valor2 <- contador
+      fimse
+
+      contador <- contador + 1
+    fimenquanto
+
+    fecha(f)
+
+    retorne (valor1 + valor2) / 2
+  senao
+    retorne -1
+  fimse
+fimfuncao
+

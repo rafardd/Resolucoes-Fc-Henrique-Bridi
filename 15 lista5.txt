@@ -1,0 +1,72 @@
+15 lista 5
+
+Faça o algoritmo de uma função real que receba o nome de uma string representando o nome de uma
+sequência de reais e retorne o 7o maior elemento dessa sequência. Em qualquer caso em que isso não
+possa ser feito, interrompa a execução com o comando pare. Procure deixar seu código o mais flexível
+(parametrizado com constantes) possível.
+
+// Estratégia : usar um vetor de K elementos, pegar os K primeiros, ordenar, e depois, a cada elemento novo, verificar se ele é maior que o Késimo elemento e ordenar denovo, repetindo o processo.
+// Esse processo torna-se ruim para posições K muito altas, pois fica caro ficar ordenando grande vetores a cada iteração. Um pensamento que pesquisei e pode ser interessante é : 
+// 1) Pequenas posições em grandes arquivos (caso desse exercício) : fazer dessa forma, usando esse "buffer".
+// 2) Posições grandes, porém com valores limitados (como de 0 a 3000) : vetor de frequência.
+// 3) Arquivos gigantes com grandes posições : merge sort. Divide o arquivo em vários pedaços menores, ordena esses pedaços, depois faz um merge deles.
+
+funcao kMaiorSequenciaReal(nome : string) : real
+constantes
+  k : 7
+tipos
+  vetorReal : vetor[1..k] de real
+var
+  f : sequencia de real
+  v : vetorReal
+  x : real
+  i : inteiro
+
+  procedimento ordenaBubbleSort(ref vet : vetorReal)
+  var
+    i : inteiro
+    aux : real
+    trocou : logico
+  inicio
+    trocou <- verdadeiro
+    enquanto trocou faca
+      trocou <- falso
+      para i de 1 ate k - 1 faca
+        se vet[i] > vet[i + 1] entao
+          aux <- vet[i]
+          vet[i] <- vet[i + 1]
+          vet[i + 1] <- aux
+          trocou <- verdadeiro
+        fimse
+      fimpara
+    fimenquanto
+  fimfuncao
+
+inicio
+  se abre(f, nome) entao
+    i <- 1
+    enquanto i <= k e nao fds(f) faca
+      leia(f, x)
+      v[i] <- x
+      i <- i + 1
+    fimenquanto
+    se i <= k entao
+      pare
+    senao
+      ordenaBubbleSort(v)
+      enquanto nao fds(f) faca
+        leia(f, x)
+        se x > v[1] entao
+          v[1] <- x
+          ordenaBubbleSort(v)
+        fimse
+      fimenquanto
+      fecha(f)
+      retorne v[1]
+    fimse
+  senao
+    pare
+  fimse
+fimprocedimento
+    
+  
