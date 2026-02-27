@@ -1,8 +1,0 @@
-procedimento converteSegundos(ref s, m, h : inteiro; total : inteiro)
-início
-  h <- total div 3600
-  total <- total mod 3600
-  m <- total div 60
-  total <- total mod 60
-  s <- total
-fimprocedimento
