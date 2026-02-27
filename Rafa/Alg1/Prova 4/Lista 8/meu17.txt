@@ -1,0 +1,17 @@
+algoritmo ordenacao
+var
+   v: vetor[1..165] de real
+   i, j: inteiro
+   elemento_atual: real
+inicio
+   escreva("Insira os 165 números:")
+   para i de 1 ate 165 faca
+      leia(elemento_atual)
+      j <- i - 1
+      enquanto  j > 0  e  v[j] > elemento_atual  faca
+         v[j+1] <- v[j]
+         j <- j - 1
+      fimenquanto
+      v[j+1] <- elemento_atual
+   fimpara
+fimalgoritmo

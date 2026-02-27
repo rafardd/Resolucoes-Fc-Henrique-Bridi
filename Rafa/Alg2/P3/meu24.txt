@@ -1,0 +1,24 @@
+tipos
+	Pno:ponteiro para Tno
+	Tno:registro
+		info:real
+		prox:Pno
+	    fim registro
+funcao removeDuplicados(ref l:Pno):inteiro
+var
+	contador:inteiro
+	p,temp:Pno
+inicio
+	contador <- 0
+	p <- l
+	enquanto p != NULO faca
+		enquanto p^.prox != NULO e p^.prox^.info = p^.info faca
+			temp <- p^.prox
+			p^.prox <- p^.prox^.prox
+			desaloca(temp)
+			contador <- contador + 1
+		fim enquanto
+		p <- p^.prox
+	fim enquanto
+	retorne contador
+fim funcao

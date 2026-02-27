@@ -1,0 +1,24 @@
+ tipos
+	PNo:ponteiro para Tno
+	Tno: registro 
+		info: string
+		chave: inteiro
+		prox : PNo
+	    fim registro
+funcao elementoDaPosicaoP(l:Pno;p:inteiro):string
+var
+	i:inteiro
+inicio
+	se l = NULO entao
+		retorne ""
+	fim se
+	i <- 1 
+	enquanto i < p e l != NULO faca
+		i <- i + 1
+		l <- l^.prox
+	fim enquanto
+	se l != NULO entao
+		retorne l^.info
+	fim se
+	retorne ""
+fim funcao

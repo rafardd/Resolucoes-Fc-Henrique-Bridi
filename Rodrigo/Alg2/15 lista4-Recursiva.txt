@@ -1,0 +1,30 @@
+tipo 
+    PNo : ponteiro para TNo
+    TNo : registro
+            info : string
+            prox : PNo
+        fimregistro
+
+funcao insereNóFinalLista(ref head : PNo; x : string) : logico
+var 
+    novo : PNo
+inicio
+    se head = NULO entao
+        novo <- aloca(TNo)
+        se novo = NULO entao
+            retorne falso
+        fimse
+        novo^.info <- x
+        novo^.prox <- NULO
+        head <- novo
+        retorne verdadeiro
+    fimse
+    retorne insereNóFinalLista(head^.prox, x)
+fimfuncao
+    
+
+    ## Já na versão recursiva, o penultimo é passado como parâmetro na ultima chamada recursiva, então não é preciso para no head^.prox != NULO, Já
+    que o head dos casos base serão o próprio penultimo ponteiro. Quando a recursão vai acontecendo, quando é alterado o head, por exemplo, na ultima recursao,
+    está sendo mudado na verdade o head(passado)^.prox da chamada anterior e, para que isso seja possivel, deve-se passar também na resolucao recursiva o 
+    parametro head como referência. Se for preciso mudar o valor global de head, no método recursivo isso só é possível se for a primeira recursao, se estiver
+    no "fundo" da recursao e quiser alterar o início global, devem ser passadas duas variáveis ponteiro, uma para o que vai mudando e outra estática.

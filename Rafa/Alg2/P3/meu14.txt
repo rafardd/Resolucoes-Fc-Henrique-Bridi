@@ -1,0 +1,21 @@
+tipos
+	Pno: ponteiro para Tno
+	Tno: registro
+		info:string
+		chave:inteiro
+		prox:Pno
+	     fim registro
+funcao insereInicio(ref l:pno;x:string):logico
+var
+	novo : Pno
+inicio
+	novo <- aloca(Tno)
+	se novo = NULO entao
+		retorne FALSO
+	fim se
+	novo^.prox <- l 
+	l <- novo
+	novo^.info <- x
+	retorne VERDADEIRO
+fim funcao
+	

@@ -1,0 +1,22 @@
+tipos
+    PNo = ponteiro para TNo
+    TNo = 
+        registro
+            chave : inteiro
+            info : TInfo
+            prox : PNo
+        fim registro
+    
+funcao count(l:PNo ; x:real):inteiro
+var
+    i: inteiro
+inicio
+    i <- 0
+    ENQUANTO l != nulo FACA 
+        SE l^.info = x ENTAO
+            i = i + 1
+        FIM SE
+        l <- l^.prox
+    FIM ENQUANTO
+    retorna i
+fim funcao

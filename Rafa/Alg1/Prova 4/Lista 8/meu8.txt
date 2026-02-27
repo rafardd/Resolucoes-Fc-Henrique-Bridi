@@ -1,0 +1,31 @@
+algoritmo moda_dos_numeros
+var
+  numeros: vetor[13..51] de inteiros
+  i,n,maior: inteiro
+inicio
+  para i de 13 ate 51 faca
+    numeros[i] <- 0
+  fimpara
+  para i de 1 ate 791 faca
+    n <- -1 
+    enquanto n < 13 ou n > 51 faca
+      escreva("insira um numero entre 13 e 51")
+      leia(n)
+    fimenquanto
+    numeros[n] <- numeros[n] + 1 
+  fimpara
+  maior <- 0
+  para i de 13 ate 51 faca
+    se numeros[i] > maior entao
+      maior <- numeros[i]
+    fimse
+  fimpara
+  escreva("moda(s):")
+  para i de 13 ate 51 faca
+    se numeros[i] = maior entao
+      escreva(i)
+    fimse
+  fimpara
+fimalgoritmo
+    
+

@@ -1,0 +1,21 @@
+tipo
+    PNo : ponteiro para TNo
+    TNo : registro
+            info : string
+            prox : PNo
+        fimregistro
+
+funcao elementoNaListaEncadeada(head : PNo; p : inteiro): string
+var
+inicio
+    se p < 1 entao
+        retorne ""
+    fimse
+    se head = NULO entao
+        retorne ""
+    fimse
+    se p = 1 entao
+        retorne head^.info
+    fimse
+    retorne elementoNaListaEncadeada(head^.prox, p - 1)
+fimfuncao

@@ -1,0 +1,24 @@
+ tipos
+	Pno:ponteiro para Tno
+	Tno: registro 
+		info: inteiro
+		chave: inteiro
+		prox : Pno
+	    fim registro
+funcao mediaDosValores(l:Pno):real
+var
+	contador,termos:inteiro
+inicio
+	contador <- 0
+	termos <- 0
+	enquanto l != NULO faca
+		contador <- contador + l^.info
+		termos <- termos + 1
+		l <- l^.prox
+	fim enquanto
+	se termos !=  0 entao
+		retorne contador/termos
+	fimse
+	retorne contador
+fim funcao
+

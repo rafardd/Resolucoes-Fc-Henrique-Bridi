@@ -1,0 +1,21 @@
+algoritmo frequencia_de_cada_caracter
+var
+  frase:string
+  frequencia: vetor[0..255] de inteiro
+  i: inteiro
+inicio
+  para i de 0 ate 255 faca
+    frequencia[i] <- 0 
+  fim para
+  escreva("insira a frase a ser analisada: ")
+  leia(frase)
+  i <- 1 
+  para i de 1 ate tamanho(frase) faca
+    frequencia[asc(frase[i])] <- frequencia[asc(frase[i])] + 1 
+  fim para
+  para i de 0 ate 255 faca
+    se frequencia[i] > 0 entao
+      escreva("o caracter ",chr(i)," aparece ",frequencia[i], " vezes")
+    fimse
+  fimpara
+fimalgoritmo

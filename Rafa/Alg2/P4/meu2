@@ -1,0 +1,26 @@
+funcao substituicao(s,a,b:string):inteiro
+var
+	total:inteiro
+	sAtual:string
+	fOriginal,fNovo:sequencia de string
+inicio
+	total <- 0
+	se abre(fOriginal, s) e cria(fNovo,"temp.dat") entao
+		enquanto nao fds(fOriginal) faca
+			leia(fOriginal,sAtual)
+			se sAtual = a entao
+				escreva(fNovo,b)
+				total <- total + 1
+			senao
+				escreva(fNovo,sAtual)
+			fimse
+		fim enquanto
+		fecha(fOriginal)
+		fecha(FNovo)
+		apaga(s)
+		renomeia("temp.dat",s)
+		retorne total
+	senao
+		retorne -9999999
+	fimse
+fim funcao

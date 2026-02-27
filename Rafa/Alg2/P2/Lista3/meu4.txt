@@ -1,0 +1,17 @@
+funcao MDC(a,b:inteiro):inteiro
+var
+  funcao calculaMDC(a,r:inteiro):inteiro
+  inicio
+    se r=0 entao
+      retorne a
+    senao
+      retorne calculaMDC(r,a mod r)
+    fimse
+inicio
+  se a <= 0 ou b <= 0 entao
+    retorne 0
+  senao
+    retorne calculaMDC(b,a mod b)
+  fimse
+fim funcao
+

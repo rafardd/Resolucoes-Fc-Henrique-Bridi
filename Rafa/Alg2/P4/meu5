@@ -1,0 +1,23 @@
+funcao somaDasPosições(s:string;v:real):inteiro
+var
+	soma,p : inteiro
+	x:real
+	f:sequencia de real
+inicio
+	soma <- 0
+	p <- 1
+	se abre(f,s) entao
+		enquanto nao fds(f) faca
+			leia(f,x)
+			se x = v entao
+				soma <- soma + p
+			fimse
+			p <- p + 1
+		fim enquanto
+		fecha(f)
+	senao	
+		retorne -999999
+	fimse
+	retorne soma
+fim funcao
+		

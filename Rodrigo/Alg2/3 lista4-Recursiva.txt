@@ -1,0 +1,17 @@
+tipo
+    PNo = ponteiro para TNo
+    TNo = registro
+            info : real
+            prox : ponteiro para TNo
+        fimregistro
+    
+funcao elementoApareceNalista(head : PNo; x : real) : logico
+inicio
+    se head = NULO entao    
+        retorne falso
+    fimse
+    se head^.info = x entao
+        retorne verdadeiro
+    fimse
+    retorne elementoApareceNalista(head^.prox, x)
+fimfuncao

@@ -1,0 +1,17 @@
+funcao existemRaizes(ref raiz1,raiz2 : real;a,b,c:real):logico
+var
+  discriminante:real
+inicio
+  se a = 0 entao
+    retorne FALSO
+  fimse
+  discriminante <- b*b-4*a*c
+  se discriminante >= 0 entao
+    raiz1 <- (-b + raizq(discriminante))/(2*a)
+    raiz2 <- (-b - raizq(discriminante))/A(2*a)
+    retorne VERDADEIRO
+  senao
+    retorne FALSO
+  fimse
+fimfuncao
+

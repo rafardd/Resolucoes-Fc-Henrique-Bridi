@@ -1,0 +1,8 @@
+  funcao podeSerTriangulo (a:inteiro;b:inteiro;c:inteiro): lógico
+  inicio
+    se a + b > c e b + c > a e a + c > b entao
+      retorne VERDADEIRO
+    senao
+      retorne FALSO
+    fimse
+  fim funcao

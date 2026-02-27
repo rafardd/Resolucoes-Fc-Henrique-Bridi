@@ -1,0 +1,11 @@
+algoritmo SortearMoedaInteiro
+var
+    lado: inteiro
+inicio
+    lado <- trunca(2*aleatorio()) mod 2
+    se lado > 0 entao
+        escreva("Coroa")
+    senao
+        escreva("Cara")
+    fim se
+fim algoritmo

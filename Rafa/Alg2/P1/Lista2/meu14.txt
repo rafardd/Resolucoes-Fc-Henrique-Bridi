@@ -1,0 +1,17 @@
+funcao cos(x:real):real
+var
+  n,soma:real
+  d,i:inteiro
+inicio
+  n <- 1
+  d <- 1
+  soma <- 1
+  i <- 1 + 1
+  enquanto i <= 20 faca
+    n <- abs(n) * x *x*(-n/abs(n))
+    d <- d * (2*i-3) * (2*i-2)
+    soma <- soma + n/d
+    i <- i + 1
+  fim enquanto
+  retorne soma
+fim funcao

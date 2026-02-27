@@ -1,0 +1,19 @@
+TIPOS
+    PNo = PONTEIRO PARA TNo
+    TNo =
+        REGISTRO
+            elemento : real
+            prox : PNo
+        FIM REGISTRO
+
+FUNÇÃO busca_x_y_juntos(l:PNo ; x,y:real):lógico
+INICIO
+    SE l != NULO E l^.prox != NULO ENTAO
+        ENQUANTO l^.prox != NULO FAÇA
+            SE x = l^.elemento E y = l^.prox^.elemento ENTAO
+                RETORNE verdadeiro
+            FIMSE
+            l <- l^.prox
+        FIM ENQUANTO
+    FIM SE
+    RETORNE falso

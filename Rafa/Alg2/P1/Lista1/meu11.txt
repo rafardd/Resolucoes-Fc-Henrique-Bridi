@@ -1,0 +1,15 @@
+procedimento leiaEspecifico(ref variavel:inteiro;max,min:inteiro)
+var
+  aux:inteiro
+inicio
+  leia(aux)
+  se min > max entao
+    pare
+  fimse
+  enquanto aux < min ou aux > max faca
+    escreva("deve estar entre ",max," e ",min)
+    leia(aux)
+  fimenquanto
+  variavel <- aux
+fim procedimento
+

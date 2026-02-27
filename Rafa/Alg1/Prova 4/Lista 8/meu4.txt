@@ -1,0 +1,26 @@
+algoritmo acha_x_em_a
+const
+  MAX: 100
+  MIN: 10
+var
+  a: vetor[1..100] de inteiro
+  i,x,n: inteiro
+inicio
+  n <- trunc((MAX-MIN+1)*aleatorio()) mod (MAX - MIN + 1) + MIN
+  escreva("insira os valores da sequencia: ")
+  para i de 1 ate n faca
+    leia(a[i])
+  fimpara
+  escreva("insira o valor de x: ")
+  leia(x)
+  i<- 1
+  enquanto i<= n e a[i] != x faca
+    i <- i + 1 
+  fimenquanto
+  se i > n entao
+    escreva("0")
+  senao
+    escreva(i)
+  fimse
+fimalgoritmo
+

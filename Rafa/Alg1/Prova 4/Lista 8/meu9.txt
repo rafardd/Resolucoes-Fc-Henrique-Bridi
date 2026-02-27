@@ -1,0 +1,36 @@
+algoritmo verifica_se_as_primeiras_letras_do_alfabeto_aparecem
+var
+  alfabeto: vetor[1..26] de logico
+  s:string
+  i,t:inteiro
+inicio
+  para i de 1 ate 26 faca
+    alfabeto[i] <- FALSO
+  fim para
+  escreva("insira a string a ser analisada" )
+  leia(s)
+  para i de 1 ate tamamho(s) faca
+    se s[i] >='A' e s[i] <= 'Z' entao
+      s[i] <- chr(asc(s[i]) + asc('a') - asc('A'))
+    fimse
+  fimpara
+  t <- tamanho(s)
+  se t > 26 entao
+    t <- 26 
+  fimse
+  para i de 1 ate tamamho(s) faca 
+    se s[i] >= 'a' e s[i] <= 'z' entao
+      alfabeto[asc(s[i]) - asc('a') + 1] <- VERDADEIRO
+    fimse
+  fimpara
+  i <- 1 
+  enquanto i <= t e s[i] faca
+    i <- i + 1
+  fimenquanto
+  se i > t entao
+    escreva("todas as letras aparecem")
+  senao
+    escreva("nem todas as letras aparecem")
+  fimse
+fimalgoritmo
+      

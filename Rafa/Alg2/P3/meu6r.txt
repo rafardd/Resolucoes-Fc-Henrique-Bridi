@@ -1,0 +1,17 @@
+ tipos
+	PNo:ponteiro para Tno
+	Tno: registro 
+		info: string
+		chave: inteiro
+		prox : PNo
+	    fim registro
+funcao elementoNaPosicaoP(l:Pno;p:inteiro):string
+inicio
+	se l = NULO entao
+		retorne ""
+	fimse
+	se p = 1 entao
+		retorne l^.info
+	fimse
+	retorne elementoNaPosicaoP(l^.prox,p-1)
+fim funcao

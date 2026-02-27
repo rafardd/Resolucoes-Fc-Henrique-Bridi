@@ -1,0 +1,56 @@
+funcao valoresAcimaMedia(s:string):inteiro
+var
+	fS:sequencia de string
+	fR:sequencia de real
+	quantidade:inteiro
+	media,soma,vAtual:real
+	sAtual:string
+inicio
+	quantidade <- 0
+	soma <- 0
+	se abre(fS,s) entao
+		enquanto nao fds(fS) faca
+			leia(fS,sAtual)
+			se abre(fR,sAtual) entao
+				enquanto nao fds(fR) faca
+					leia(fR,vAtual)
+					soma <- soma + vAtual
+					quantidade <- quantidade + 1
+				fim enquanto
+				fecha(fR)
+			senao
+				fecha(fS)
+				retorne -9999
+			fimse
+		 fim enquanto
+		 fecha(fS)
+	senao 
+		retorne -9999
+	fimse
+	se quantidade = 0 entao
+		retorne -9999
+	fimse
+	media <- soma/quantidade
+	quantidade <- 0
+	se abre(fS,s) entao
+		enquanto nao fds(fS) faca
+			leia(fS,sAtual)
+			se abre(fR,sAtual) entao
+				enquanto nao fds(fR) faca
+					leia(fR,vAtual)
+					se vAtual > media entao
+						quantidade <- quantidade + 1
+					fimse
+				fim enquanto
+				fecha(fR)
+			senao
+				fecha(fS)
+				retorne -9999
+			fimse
+		 fim enquanto
+		 fecha(fS)
+	senao 
+		retorne -9999
+	fimse
+	retorne quantidade
+fim funcao

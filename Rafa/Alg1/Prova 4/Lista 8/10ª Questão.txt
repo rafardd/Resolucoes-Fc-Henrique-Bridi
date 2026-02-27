@@ -1,0 +1,24 @@
+10ª Questão:
+algoritmo EncontraNúmerosAcimaDaMédia
+
+var
+   v : vetor[1..53] de inteiro
+   i, n : inteiro
+   média : real
+
+início
+   média <- 0
+   para i de 1 até 53 faça
+      escreva("Insira um número da sequência: ")
+      leia(v[i])
+      média <- média + v[i]
+   fimpara
+   média <- média / 53
+   n <- 0
+   para i de 1 até 53 faça
+      se v[i] >= média então
+         n <- n + 1   
+      fimse
+   fimpara
+   escreva("Números acima ou igual a média ", média, ": ", n)
+fimalgoritmo

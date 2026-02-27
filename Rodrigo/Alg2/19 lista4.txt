@@ -1,0 +1,19 @@
+tipo 
+    PNo : ponteiro para TNo
+    TNo : registro
+            info : strings
+            prox : PNo
+        fimregistro 
+
+funcao retiraPrimeiroNo(ref head : PNo) : logico
+var
+    aux : PNo
+inicio
+    se head = NULO entao
+        retorne FALSO
+    fimse
+    aux <- head
+    head <- head^.prox
+    desaloca(aux)
+    retorne VERDADEIRO
+fimfuncao

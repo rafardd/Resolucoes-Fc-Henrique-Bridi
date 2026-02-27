@@ -1,0 +1,22 @@
+funcao calculaMedia(s:string):real
+var
+    soma, i, x : inteiro
+    f : sequencia de inteiro
+inicio
+    se abre(f, s) entao
+        soma <- 0
+        i <- 0
+        enquanto NAO fds(f) faca
+            leia(f, x)
+            soma <- soma + x
+            i <- i + 1
+        fim enquanto
+        fecha(f)
+        se i != 0 entao
+            retorne soma/i
+        fim se
+    senao
+        escreva("O arquivo ", s, "não pode ser aberto")
+    fim se
+    retorne -4040404
+fim funcao

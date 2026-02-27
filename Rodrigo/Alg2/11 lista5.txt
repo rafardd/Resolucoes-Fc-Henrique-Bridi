@@ -1,0 +1,32 @@
+Questão 11 lista5
+
+// Recebemos uma sequencia (arquivos) de strings, que sao nomes de arquivos de inteiros. Somar todos os valores de todos os arquivos.
+// Para o arquivo principal, abrir e passar por cada nome de arquivo que ele salva
+// Para cada arquivo dentro, ir somando os valores dentro dele
+
+funcao somatorioDeVariosArquivosInteiros(nome : string) : inteiro
+var
+  f : sequencia de string
+  g : sequencia de inteiro
+  somatorio, x : inteiro
+  s : string
+inicio
+  somatorio <- 0
+  se abre(f, nome) entao
+    enquanto nao fds(f) faca
+      leia(f, s)
+      se abre(g, s) entao
+        enquanto nao fds(g) faca
+          leia(g, x)
+          somatorio <- somatorio + x
+        fimenquanto
+        fecha(g)
+      // Vou parar o programa apenas se o arquivo principal nao abrir
+      fimse
+    fimenquanto
+    fecha(f)
+    retorne somatorio
+  senao
+    retorne pare
+  fimse
+fimfuncao

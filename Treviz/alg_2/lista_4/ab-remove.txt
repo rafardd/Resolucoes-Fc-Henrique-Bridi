@@ -1,0 +1,54 @@
+TIPOS
+    PNo = PONTEIRO PARA TNo
+    TNo = 
+        REGISTRO
+            chave : inteiro
+            info : string
+            esq : PNo
+            dir : PNo
+        FIM REGISTRO
+
+FUNÇÃO remove(REF l:PNo; ch:inteiro):lógico
+VAR
+    lixo, ant_lixo : PNo
+INICIO
+    SE l = NULO ENTAO                           // NAO ENCONTROU A CHAVE
+        RETORNE falso
+    FIM SE
+    SE ch = l^.chave ENTAO                      // ENCONTROU A CHAVE
+        SE l^.esq = NULO E l^.dir = NULO ENTAO      // SEM FILHOS
+            desaloca(l)
+            RETORNE verdadeiro
+        FIM SE
+        SE l^.esq = NULO ou l^.dir = NULO ENTAO     // APENAS UM FILHO
+            lixo <- l
+            SE l^.esq != NULO ENTAO
+                l <- l^.esq
+            SENAO
+                l <- l^.dir
+            FIM SE
+            desaloca(lixo)
+            RETORNE verdadeiro
+        FIM SE
+        lixo <- l^.esq                  // DOIS FILHOS. ESCOLHI O DA ESQUERDA
+        ant_lixo <- l
+        ENQUANTO lixo^.dir != NULO FAÇA
+            ant_lixo <- lixo
+            lixo <- lixo^.dir
+        FIM ENQUANTO
+        SE lixo^.esq != NULO ENTAO
+            ant_lixo^.dir <- lixo^.esq
+        SENAO
+            ant_lixo^.dir <- NULO    
+        FIM SE
+            l^.chave <- lixo^.chave
+            l^.info <- lixo^.info
+            desaloca(lixo)
+            RETORNE verdadeiro
+    FIM SE
+    SE ch > l^.chave ENTAO
+        RETORNE insere(l^.dir, ch, inf)
+    SENAO
+        RETORNE insere(l^.esq, ch, inf)
+    FIM SE
+FIM FUNÇÃO

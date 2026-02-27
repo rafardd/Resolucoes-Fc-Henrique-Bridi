@@ -1,0 +1,56 @@
+12 lista 5
+
+Faça o algoritmo de uma função que receba o nome de uma sequência de strings com nomes de sequências
+de reais e retorne quantidade de valores que encontram-se acima da média de todos os valores nelas
+contidos.
+
+funcao valoresAcimaMediaSequenciaReal(nome : string) : inteiro
+var
+  x, soma, media : real
+  s : string
+  quantidade, n : inteiro
+  f : sequencia de string
+  g : sequencia de real
+inicio
+  quantidade <- 0
+  n <- 0
+  soma <- 0 
+  se abre(f, nome) entao
+    enquanto nao fds(f) faca
+      leia(f, s)
+      se abre(g, s) entao
+        enquanto nao fds(g) faca
+          leia(g, x)
+          soma <- soma + x
+          n <- n + 1
+        fimenquanto
+        fecha(g)
+      fimse
+    fimenquanto
+    
+    reinicia(f)
+    se n != 0 entao
+      media <- soma / n
+      enquanto nao fds(f) faca
+        leia(f, s)
+        se abre(g, s) entao
+          enquanto nao fds(g) faca
+            leia(g, x)
+            se x > media entao
+             quantidade <- quantidade + 1
+            fimse
+          fimenquanto
+          fecha(g)
+        fimse
+      fimenquanto
+      fimse
+      fecha(f)
+      retorne quantidade
+      senao
+      retorne -1
+    fimse
+  senao
+    retorne -1
+  fimse
+
+

@@ -1,0 +1,24 @@
+tipos
+	Pno : ponteiro para Tno
+	Tno : registro
+		info:string
+		prox:Pno
+	     fim registro
+funcao insereFim(ref l : Pno;x:string):logico
+inicio
+	se l = NULO ou l^.prox = NULO entao
+		novo <- aloca(Tno)
+		se novo = NULO entao
+			retorne FALSO
+		fimse
+		novo^.prox <- NULO
+		novo^.info <- x 
+		se l = NULO entao
+			l <- novo
+			retorne VERDADEIRO
+		fimse
+		l^.prox <- novo
+		retorne VERDADEIRO
+	fimse
+	retorne insereFim(l^.prox,x)
+fim funcao

@@ -1,0 +1,15 @@
+funcao Fatorial(n:inteiro):inteiro
+var
+  fatorial
+inicio
+  se n < 0 entao
+    retorne -1
+  fimse
+  fatorial <- 1
+  i <- 1
+  enquanto i <= n faca
+    fatorial <- i * fatorial
+    i <- i + 1
+  fimenquanto
+  retorne fatorial
+fim funcao

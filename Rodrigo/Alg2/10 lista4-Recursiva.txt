@@ -1,0 +1,34 @@
+tipo
+    PNo : ponteiro para TNo 
+    TNo : registro
+            info : inteiro
+            prox : PNo 
+        fimregistro
+
+funcao verificaXeYNaListaEmOrdem(head : PNo; x, y : inteiro) : logico
+var
+    funcao procuraElementoListaEncadeada( head : PNo; x, y : inteiro; achouX : logico):logico
+    var
+    inicio
+        se head = NULO entao
+            retorne falso
+        fimse
+        se achouX = falso entao
+            se head^.info = x entao
+                retorne procuraElementoListaEncadeada(head^.prox, x, y , verdadeiro)
+            senao
+                retorne procuraElementoListaEncadeada(head^.prox, x, y, falso)
+            fimse
+        fimse
+        se achouX = verdadeiro entao
+            se head^.info = y entao
+                retorne verdadeiro
+            senao
+                retorne procuraElementoListaEncadeada(head^.prox, x, y, verdadeiro)
+            fimse
+        fimse
+    fimfuncao
+
+inicio
+    retorne procuraElementoListaEncadeada(head, x, y, falso)
+fimfuncao

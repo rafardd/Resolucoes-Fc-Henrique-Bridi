@@ -1,0 +1,26 @@
+var
+    f : sequencia de tipo
+    s : string
+
+funcao abre(f, s) retorna lógico
+funcao cria(f, s) retorna lógico
+procedimento fecha(f)
+procedimento leia(f, x)
+procedimento escreva(f, s)
+funcao fds(f) retorna logico
+    #Fim da sequencia? Verdadeiro ou Falso
+
+procedimento renomeia(s1, s2)
+procedimento apaga(s)
+
+
+se abre(f, s) entao
+    enquanto NAO fds(f) faca
+        leia(f, x)
+        escreva(x)
+    fim enquanto
+    fecha(f)
+senao
+    escreva("O arquivo ", s, "não pode ser aberto")
+fim se
+

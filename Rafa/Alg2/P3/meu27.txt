@@ -1,0 +1,35 @@
+tipos
+	Pno:ponteiro para Tno
+	Tno:registro
+		info:real
+		prox:Pno
+	    fim registro
+funcao duplica(l:Pno):Pno
+var
+	l2,novo,p:Pno
+inicio
+	se l = NULO entao
+		retorne NULO
+	fimse
+	novo <- aloca(Tno)
+	se novo = NULO entao
+		retorne NULO
+	fimse
+	novo^.info <- l^.info
+	novo^.prox <- NULO
+	p2 <- novo
+	l2 <- novo
+	p <- l^.prox
+	enquanto p != NULO faca
+		novo <- aloca(Tno)
+		se novo = NULO entao
+			retorne NULO
+		fimse
+		novo^.info <- p^.info
+		novo^.prox <- NULO
+		p2^.prox <- novo
+		p <- p^.prox
+		p2 <- novo
+	fim enquanto
+	retorne l2
+fim funcao

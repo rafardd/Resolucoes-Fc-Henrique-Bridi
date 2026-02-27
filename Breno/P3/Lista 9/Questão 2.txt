@@ -1,0 +1,21 @@
+algoritmo RazaoVogaisEConsoantes
+var
+    frase: string
+    i, vogais, consoantes: inteiro
+inicio
+    escreva("Escreva uma frase: ")
+    leia (frase)
+    vogais <- 0
+    consoantes <- 0
+    para i de 1 até tamanho(frase) faça
+        c <- frase[i]
+        se ('A' <= c) e (c <= 'Z') ou ('a' <= c) e ('z' <= c) entao
+            se (c = 'A') ou (c = 'E') ou (c = 'I') ou (c = 'O') ou (c = 'U') entao
+                vogais <- vogais + 1
+            senao
+                consoantes <- consoantes + 1
+            fim se
+        fim se
+    fim para
+    escreva ("A razao entre ", vogais/consoantes)
+fim algoritmo

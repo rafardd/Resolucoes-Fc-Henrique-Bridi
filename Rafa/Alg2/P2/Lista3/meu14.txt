@@ -1,0 +1,16 @@
+funcao maiorValorLido(f:real):real
+var
+  n,maior:real
+inicio
+  escreva("insira o valor: ")
+  leia(n)
+  se n = f entao
+    retorne n
+  fim se
+  maior <- maiorValorLido(f)
+  se n > maior ou maior = f entao
+    retorne n
+  fimse
+  retorne maior
+fim funcao
+

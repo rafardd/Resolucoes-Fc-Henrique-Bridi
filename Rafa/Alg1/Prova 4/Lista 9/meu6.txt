@@ -1,0 +1,20 @@
+algoritmo media_distancias_insertion_sort
+const 
+  N= 100
+var
+  v:vetor[1..N] de inteiro
+  i,j,descidas,aux:inteiro
+inicio
+  para i de 2 ate N faca
+    aux <- v[i]
+    j <- i - 1 
+    enquanto j > 0 e v[j] > aux faca
+      v[j+1] <- v[j]
+      j <- j - 1 
+    fimenquanto
+    descidas <- descidas + i - j - 1
+    v[j + 1] <- aux
+  fimpara
+  escreva("a media das distancias de todas as descidas no insertion sort foi de ",descidas/(N - 1))
+fimalgrotimo
+

@@ -1,0 +1,20 @@
+tipos 
+	Pno:ponteiro para Tno
+	Tno:registro
+		info:real
+		prox:Pno
+	    fim registro
+procedimento ultimoParaPrimeiro(ref l:Pno)
+var
+	penultimo:Pno
+inicio
+	se l!= NULO e l^.prox != NULO entao
+		penultimo <- l
+		enquanto penultimo^.prox^.prox != NULO faca
+			penultimo <- penultimo^.prox
+		fim enquanto
+		penultimo^.prox^.prox <- l
+		l <- penultimo^.prox
+		penultimo^.prox <- NULO
+	fimse
+fim funcao

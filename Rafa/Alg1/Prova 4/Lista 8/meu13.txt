@@ -1,0 +1,26 @@
+Algoritmo duas_sequencias_iguais
+Var
+    a,b: vetor[1..29] de real 
+    i: inteiro
+    iguais: Logico 
+Início
+    Iguais <- VERDADEIRO 
+    Para i de 1 ate 29 faça 
+        escreva("insira o valor na posicao ",i,"da sequência a: ")
+        Leia(a[i])
+    Fim para
+    Para i de 1 ate 29 faça 
+        escreva("insira o valor na posicao ",i,"da sequência b: ")
+        Leia(b[i])
+    Fim para
+    i <- 1 
+    enquanto i <= 29 e a[i] = b[i] faca 
+        i <- i + 1 
+    fimenquanto
+    se i > 29 entao
+        Escreva("sao iguais")
+    senao 
+        Escreva("nao sao iguais")
+    fimse
+Fim algoritmo 
+        

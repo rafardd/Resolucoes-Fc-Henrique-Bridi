@@ -1,0 +1,43 @@
+tipo 
+    PNo : ponteiro para TNo
+    TNo : registro
+            info : inteiro
+            prox : PNo
+        fimregistro 
+
+funcao juntarNoPComProximo(ref head : PNo; p : inteiro) : logico
+var
+    aux, ant : PNo
+    i : inteiro
+inicio
+    se head = NULO ou head^.prox = NULO entao
+        retorne falso
+    fimse 
+    
+    se p = 1 entao
+        aux <- head^.prox
+        head^.info <- head^.info + aux^.info
+        head^.prox <- aux^.prox
+        desaloca(aux)
+        retorne verdadeiro
+    fimse
+
+    i <- 2
+    ant <- head
+    aux <- head^.prox
+    enquanto aux != NULO e i < p + 1 faca
+        ant <- aux
+        aux <- aux^.prox
+        i <- i + 1
+    fimenquanto
+
+    se aux = NULO entao
+        retorne falso
+    fimse
+
+    ant^.info <- ant^.info + aux^.info
+    ant^.prox <- aux^.prox
+    desaloca(aux)
+    retorne verdadeiro
+
+fimfuncao

@@ -1,0 +1,44 @@
+algoritmo diferenca_matricial
+var
+  mX,nX,mY,nY,i,j:inteiro
+  X,Y,Z:vetor[1..10000] de vetor[1..100000] de real
+inicio
+  escreva("insira o numero de linhas e de colunas de X: ")
+  leia(mX,nX)
+  escreva("insira o numero de linhas e colunas de Y: ")
+  leia(mY,nY)
+  se mX = mY e nX = nY entao 
+    para i de 1 ate mX faca
+      para j de 1 ate nX faca
+        leia(X[i][j])
+      fimpara
+    fimpara
+    para j de 1 ate nY faca
+      para i de 1 ate mY faca
+        Y[i][j] <- 100000 * aleatorio()
+      fimpara
+    fimpara
+    para i de 1 ate nX faca
+      para j de ate mY faca
+        Z[i][j] <- X[i][j] - Y[i][j]
+      fimpara
+    fimpara
+    para i de 1 ate mX faca
+      para j de 1 ate nX faca
+        escreva(X[i][j])
+      fimpara
+    fimpara
+    para i de 1 ate mY faca
+      para j de 1 ate nY faca
+        escreva(Y[i][j])
+      fimpara
+    fimpara
+    para i de 1 ate mX faca
+      para j de 1 ate nX faca
+        escreva(Z[i][j])
+      fimpara
+    fimpara
+  senao
+    escreva("nao e possivel fazer a operacao")
+  fimse
+fimalgoritmo

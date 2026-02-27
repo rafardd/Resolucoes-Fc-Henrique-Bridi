@@ -1,0 +1,21 @@
+tipos
+  Vetor = vetor[1..100] de real
+procedimento ordenaVetor(ref A:Vetor)
+var
+  trocou : logico
+  aux : real
+inicio
+  trocou <- VERDADEIRO
+  enquanto trocou faca
+    trocou <- FALSO
+    para i de 1 ate 100 - 1 faca
+      se A[i] > A[i+1] entao
+        trocou <- VERDADEIRO
+        aux <- A[i]
+        A[i] <- A[i+1]
+        A[i+1] <- aux
+      fisme
+    fimpara
+  fimenquanto
+fim procedimento
+    

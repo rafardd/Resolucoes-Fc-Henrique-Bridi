@@ -1,0 +1,26 @@
+funcao hexadecimal(n:inteiro):string
+var
+  funcao conversao(n:inteiro):string
+  var
+    caracter_atual:caracter
+  inicio
+    se n = 0 entao
+      retorne ""
+    senao
+      se n mod 16 >= 10 entao
+        caracter_atual <- chr(asc('A') + n mod 16 - 10)
+      senao
+        caracter_atual <- chr(asc('0') + n mod 16)
+      fimse
+      retorne conversao(n div 16) + caracter_atual
+    fimse
+  fim funcao
+inicio
+  se n = 0 entao
+    retorne "0"
+  fimse
+  se n < 0 entao
+    retorne "-" + conversao(abs(n))
+  fimse
+  retorne conversao(n)
+fim funcao

@@ -1,0 +1,24 @@
+TIPOS
+    PNo = PONTEIRO PARA TNo
+    TNo = 
+        REGISTRO
+            info : string
+            prox : PNo
+        FIM REGISTRO
+
+FUNÇÃO maior_string(l:PNo):string
+VAR
+    s:string
+INICIO
+    SE l = NULO ENTAO
+        RETORNE ""
+    FIMSE
+    s <- l^.string
+    ENQUANTO l != NULO FAÇA
+        SE l^.string > s ENTAO
+            s <- l^.string
+        FIMSE
+        l <- l^.prox
+    FIM ENQUANTO
+    RETORNE s
+FIM FUNCAO

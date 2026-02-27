@@ -1,0 +1,12 @@
+remover espaços multiplos:
+  pula todos os espacos do inicio
+  adiciona na nova string qualquer caracter desde que ele nao seja um espaco seguido de outro espaco
+  verifica no final se o ultimo caracter da frase é um espaço, se nao for adicione ele
+
+achar a posicao da sub em frase:
+  verifique se as duas sao maiores que 0 e tamanho frase e maior ou igual o da sub
+  comece com a flag falsa 
+  quando algum caracter da frase bater com o primeiro da sub, vire a flag e comece a verificar os subsequentes
+  se a flag se manter igual salve a posicao
+
+sempre se atente aos acessos de indices invalidos

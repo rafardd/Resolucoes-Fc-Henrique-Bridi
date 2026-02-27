@@ -1,0 +1,24 @@
+TIPO
+    PNo = PONTEIRO PARA TNo
+    TNo = 
+        REGISTRO
+            info : real
+            prox : PNo
+        FIM REGISTRO
+
+FUNÇÃO remove_e_conta(REF l:PNo):inteiro
+VAR
+    lixo : PNo
+INICIO
+    SE l = NULO OU l^.prox = NULO ENTAO
+        RETORNE 0
+    FIM SE
+    SE l^.info = l^.prox^.info ENTAO
+        lixo <- l^.prox
+        l^.prox <- l^.prox^.prox
+        desaloca(lixo)
+        lixo <- NULO
+        RETORNE remove_e_conta(l) + 1
+    FIM SE
+    RETORNE remove_e_conta(l^.prox)
+FIM FUNÇÃO

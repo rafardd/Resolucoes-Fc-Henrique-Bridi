@@ -1,0 +1,21 @@
+tipo 
+    PNo : ponteiro para TNo
+    TNo : registro
+            info : string
+            prox : PNo
+        fimregistro
+
+funcao maiorStringEmListaEncadeada(head : PNo) : string
+var
+    maior : string
+inicio
+    se head = NULO entao
+        retorne ""
+    fimse
+    maior <- maiorStringEmListaEncadeada(head^.prox)
+    se head^.info > maior entao
+        retorne head^.info
+    senao
+        retorne maior
+    fimse
+fimfuncao

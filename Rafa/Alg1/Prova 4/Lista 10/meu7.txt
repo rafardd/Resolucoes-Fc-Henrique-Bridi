@@ -1,0 +1,34 @@
+algoritmo matriz_de_caracteres_imprimiveis
+var
+  K:vetor[1..30] de vetor[1..20] de caracter
+  W:vetor[1..20] de vetor[1..30] de caracter
+  i,j:inteiro
+inicio
+  escreva("insira o numero de linhas: ")
+  leia(m)
+  enquanto m < 1 ou m > 30 faca
+    escreva("o numero de linhas deve ser de no maximo 30")
+    leia(m)
+  fimenquanto
+  escreva("insira o numero de colunas: ")
+  leia(n)
+  enquanto n < 1 ou m > 20 faca
+    escreva("o numero de colunas deve ser de no maximo 20")
+    leia(n)
+  fimenquanto
+  para j de 1 ate n faca
+    para i de 1 ate m faca
+      K[i][j] <- chr(trunca((255 - 32 + 1)*aleatorio()) mod (255 - 32 + 1) + 32)
+    fimpara
+  fimpara
+  para i de 1 ate n faca
+    para j de 1 ate m faca
+      W[i][j] <- K[j][i]
+    fimpara
+  fimpara
+  para i de 1 ate n faca
+    para j de 1 ate m faca
+      escreva(W[i][j])
+    fimpara
+  fimpara
+fimalgoritmo

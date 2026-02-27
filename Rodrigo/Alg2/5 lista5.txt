@@ -1,0 +1,22 @@
+5 lista 5
+
+funcao somaDasPosicoesDeRealEmSequencia(nome : string, num : real) : inteiro
+var
+  posicao, soma : inteiro
+  f : sequencia de real
+  x : real
+inicio
+  posicao <- 1
+  soma <- 0
+  se abre(f, nome) entao
+    enquanto nao fds(f) faca
+      leia(f, x)
+      se x = num entao
+        soma <- soma + posicao
+      fimse
+      posicao <- posicao + 1
+    fimenquanto
+    fecha(f)
+  fimse
+  retorne soma
+fimfuncao
