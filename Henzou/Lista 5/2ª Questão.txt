@@ -1,27 +1,29 @@
-função substituiString(s, a, b: string): inteiro
+função substitui(s: string; a, b: inteiro): inteiro
 var
-  total : inteiro
-  strAtual : string
-  f : sequência de string
+    n, total : inteiro
+    fOriginal, fNovo : sequência de inteiro
 início
-  total <- 0
-  se abre(f, s) então
-    enquanto não fds(f) faça
-        leia(f, strAtual)
-        se strAtual = a então
-          escreva(f, b)
-          total <- total + 1
+    se abre(fOriginal, s) então
+        se cria(fNovo, "temp.dat") então
+            total <- 0
+            enquanto não fds(fOriginal) faça
+                leia(fOriginal, n)
+                se n = a então
+                    escreva(fNovo, b)
+                    total <- total + 1
+                senão
+                    escreva(fNovo, n)
+                fimse
+            fimenquanto
+            fecha(fOriginal)
+            fecha(fNovo)
+            apaga(s)
+            renomeia("temp.dat", s)
+        senão
+            fecha(fOriginal)
+            pare
         fimse
-      fimenquanto
-      fecha(f)
-      retorne total
     senão
-      fecha(foriginal)
-      retorne -99999
+        pare
     fimse
-  senão
-    retorne -99999
-  fimse
 fimfunção
-      
-          

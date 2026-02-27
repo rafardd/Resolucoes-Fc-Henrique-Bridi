@@ -1,38 +1,43 @@
 função trocaElementos(s: string; p: inteiro): lógico
 var
-  numAtual, numProx : real
-  posição : inteiro
-  foriginal, fnovo: sequência de real
+  numAtual, numP, numPMais1: real
+  posição, total : inteiro
+  trocou : lógico
+  f : sequência de real
 início
-  se abre(foriginal, s) então
-    posição <- 1
-    enquanto não fds(foriginal) faça
-      leia(foriginal, numAtual)
-      posição <- posição + 1
+  se abre(f, s) então
+    total <- 0
+    enquanto não fds(f) faça
+      total <- total + 1
+      leia(f, numAtual)
+      se total = p então
+        numP = numAtual
+      fimse
+      se total = p + 1 então
+        numPMais1 = numAtual
+      fimse
     fimenquanto
-    fecha(foriginal)
-    se posição >= p + 1 então
-      posição <- 1
-      se abre(foriginal, s) e cria(fnovo, "temp.dat") então
-        enquanto não fds(foriginal) faça
-          leia(foriginal, numAtual)
+    fecha(f)
+    se total >= p + 1 então
+      se abre(f, s) então
+        posição <- 1
+        trocou <- FALSO
+        enquanto não fds(f) e não trocou faça
           se posição = p então
-            leia(foriginal, numProx)
-            escreva(fnovo, numProx)
-            escreva(fnovo, numAtual)
-            posição <- posição + 2
+            escreva(f, numPMais1)
+            leia(f, numAtual)
+            escreva(f, numP)
+            trocou <- VERDADEIRO
           senão
-            escreva(fnovo, numAtual)
+            leia(f, numAtual)
             posição <- posição + 1
           fimse
         fimenquanto
-        fecha(foriginal)
-        fecha(fnovo)
-        apaga(s)
-        renomeia("temp.dat", s)
+        fecha(f)
         retorne VERDADEIRO
       senão
         retorne FALSO
+      fimse
     senão
       retorne FALSO
     fimse
