@@ -1,0 +1,21 @@
+procedimento escreveNúmerosMúltiplos(x, y, z : inteiro)
+início
+  se x >= y então
+    enquanto y <= x faça
+      se y mod z = 0 então
+        escreva(y)
+      fimse
+      y <- y + 1
+    fimenquanto
+  senão
+    enquanto y >= x faça
+      se y mod z = 0 então
+        escreva(y)
+      fimse
+      y <- y - 1
+    fimenquanto
+  fimse
+fimprocedimento
+      
+
+    

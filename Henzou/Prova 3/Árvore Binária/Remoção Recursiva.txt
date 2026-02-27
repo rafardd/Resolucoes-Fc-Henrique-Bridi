@@ -1,0 +1,61 @@
+tipos
+    PNo = ponteiro para TNo
+    TNo = registro
+            chave : real
+            info : inteiro
+            esq : PNo
+            dir : PNo
+          fimregistro
+
+função remove(ref l: PNo; ch: real): lógico
+var
+    aux : PNo
+
+    função procuraMenor(l: PNo): PNo
+    início
+        se l^.esq = NULO então
+            retorne l
+        fimse
+        retorne procuraMenor(l^.esq)
+    fimfunção
+
+início
+    se l = NULO então
+        retorne FALSO
+    fimse
+
+    se ch < l^.chave então
+        retorne remove(l^.esq, ch)
+    senão
+        se ch > l^.chave então
+            retorne remove(l^.dir, ch)
+        fimse
+    fimse
+
+    // Sem Filhos
+    se l^.esq = NULO e l^.dir = NULO então
+        desaloca(l)
+        l <- NULO
+        retorne VERDADEIRO
+    fimse
+
+    // 1 Filho
+    se l^.esq = NULO ou l^.dir = NULO então
+        se l^.esq != NULO então
+            aux <- l^.esq
+        senão
+            aux <- l^.dir
+        fimse
+
+        desaloca(l)
+        l <- aux
+        retorne VERDADEIRO
+    fimse
+
+    // 2 Filhos
+    aux <- procuraMenor(l^.dir)
+    l^.chave <- aux^.chave
+    l^.info  <- aux^.info
+
+    retorne remove(l^.dir, aux^.chave)
+fimfunção

@@ -1,0 +1,20 @@
+tipos
+    PNo = ponteiro para TNo
+    TNo = registro
+            info : string
+            prox : PNo
+          fimregistro
+
+função retornaMaiorStr(l: PNo): string
+var
+    maior : string
+início
+    maior <- ""
+    enquanto l != NULO faça
+        se l^.info > maior então
+            maior <- l^.info
+        fimse
+        l <- l^.prox
+    fimenquanto
+    retorne maior
+fimfunção

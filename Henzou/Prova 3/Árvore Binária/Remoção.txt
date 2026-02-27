@@ -1,0 +1,85 @@
+tipos
+    PNo = ponteiro para TNo
+    TNo = registro
+            chave : real
+            info : inteiro
+            esq : PNo
+            dir : PNo
+          fimregistro
+
+função remove(ref l: PNo; ch: real): lógico
+var
+    r, pai, aux : PNo
+início
+    pai <- NULO
+    r <- l
+    enquanto r != NULO e r^.chave != ch faça
+        pai <- r
+        se ch < r^.chave então
+            r <- r^.esq
+        senão
+            r <- r^.dir
+        fimse
+    fimenquanto
+
+    se r = NULO então
+        retorne FALSO
+    fimse
+
+    // Sem Filhos
+    se r^.esq = NULO e r^.dir = NULO então
+        se pai = NULO então
+            l <- NULO
+        senão
+            se r^.chave < pai^.chave então
+                pai^.esq <- NULO
+            senão
+                pai^.dir <- NULO
+            fimse
+        fimse
+        desaloca(r)
+        retorne VERDADEIRO
+    fimse
+
+    // 1 Filho
+    se r^.esq = NULO ou r^.dir = NULO então
+        se r^.esq != NULO então
+            aux <- r^.esq
+        senão
+            aux <- r^.dir
+        fimse
+
+        se pai = NULO então
+            l <- aux
+        senão
+            se r^.chave < pai^.chave então
+                pai^.esq <- aux
+            senão
+                pai^.dir <- aux
+            fimse
+        fimse
+
+        desaloca(r)
+        retorne VERDADEIRO
+    fimse
+
+    // 2 Filhos
+    pai <- r
+    aux <- r^.dir
+
+    enquanto aux^.esq != NULO faça
+        pai <- aux
+        aux <- aux^.esq
+    fimenquanto
+
+    r^.chave <- aux^.ch
+    r^.info <- aux^.info
+
+    se pai^.esq = aux então
+        pai^.esq <- aux^.dir
+    senão
+        pai^.dir <- aux^.dir
+    fimse
+    desaloca(aux)
+    retorne VERDADEIRO
+fimfunção

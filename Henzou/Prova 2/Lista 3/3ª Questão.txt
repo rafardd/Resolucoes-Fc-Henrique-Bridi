@@ -1,0 +1,16 @@
+|F0 = 1
+|F1 = 1
+|Fn = Fn-2 + Fn-1 + 1
+
+função retornaQuantidadeDeChamadas(n : inteiro) : inteiro
+início
+  se n < 0 então
+    retorne -999
+  fimse
+
+  se n = 1 ou n = 0 então
+    retorne 1
+  senão
+    retorne retornaQuantidadeDeChamadas(n - 2) + retornaQuantidadeDeChamadas(n - 1) + 1
+  fimse
+fimfunção

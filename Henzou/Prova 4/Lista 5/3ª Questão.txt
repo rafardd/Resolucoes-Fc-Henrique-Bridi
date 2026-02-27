@@ -1,0 +1,27 @@
+função duplica(s: string): lógico
+var
+  i : inteiro
+  numAtual : real
+  foriginal, fnovo : sequência de real
+início
+  se cria(fnovo, "temp.dat") então
+    para i de 1 até 2 faça
+      se abre(foriginal, s) então
+        enquanto não fds(foriginal) faça
+          leia(foriginal, numAtual)
+          escreva(fnovo, numAtual)
+        fimenquanto
+        fecha(foriginal)
+      senão
+        fecha(fnovo)
+        apaga("temp.dat")
+        retorne FALSO
+    fimpara
+    fecha(fnovo)
+    apaga(s)
+    renomeia("temp.dat", s)
+    retorne VERDADEIRO
+  senão
+    retorne FALSO
+  fimse
+fimfunção

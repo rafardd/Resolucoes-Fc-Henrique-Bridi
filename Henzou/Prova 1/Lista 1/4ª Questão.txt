@@ -1,0 +1,18 @@
+procedimento lêStrings(ref string1, string 2 : string)
+var
+  aux : string
+início
+  escreva("Insira duas strings distintas: ")
+  leia(string1, string2)
+
+  enquanto string1 = string2 faça
+    escreva("Insira novamente: ")
+    leia(string1, string2)
+  fimenquanto
+
+  se string1 > string 2 então
+    aux <- string1
+    string1 <- string2
+    string2 <- aux
+  fimse
+fimprocedimento

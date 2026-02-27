@@ -1,0 +1,34 @@
+função adicionaInt(s: string; x: inteiro): lógico
+var
+  numAtual : inteiro
+  inserido : lógico
+  foriginal, fnovo : sequência de inteiro
+início
+  se abre(foriginal, s) então
+    se cria(fnovo, "temp.dat") então
+      inserido <- FALSO
+      enquanto não fds(foriginal) faça
+        leia(foriginal, numAtual)
+        se x <= numAtual e não inserido então
+          escreva(fnovo, x)
+          inserido <- VERDADEIRO
+        fimse
+        escreva(fnovo, numAtual)
+      fimenquanto
+      se não inserido então
+        escreva(fnovo, x)
+      fimse
+      fecha(foriginal)
+      fecha(fnovo)
+      apaga(s)
+      renomeia("temp.dat", s)
+      retorne VERDADEIRO
+    senão
+      fecha(foriginal)
+      retorne FALSO
+    fimse
+  senão
+    retorne FALSO
+  fimse
+fimfunção
+

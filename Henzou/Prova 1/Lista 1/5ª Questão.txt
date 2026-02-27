@@ -1,0 +1,18 @@
+tipos 
+  VetReal = vetor[1..100] de real 
+
+procedimento ordenaVetor(ref Vet : VetReal)
+var
+  aux : real
+  i, j : inteiro
+início
+  para i de 2 até 100 faça
+    aux <- Vet[i]
+    j <- i - 1
+    enquanto j > 0 e Vet[j] > aux faça
+      Vet[j + 1] <- Vet[j]
+      j <- j - 1
+    fimenquanto
+    Vet[j + 1] <- aux
+  fimpara
+fimprocedimento

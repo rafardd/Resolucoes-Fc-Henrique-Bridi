@@ -1,0 +1,12 @@
+tipos
+    PNo = ponteiro para TNo
+    TNo = registro
+            info : real
+            prox : PNo
+          fimregistro
+
+função estáVazia(l: PNo): lógico
+início
+    retorne l = NULO;
+fimfunçao
+    
