@@ -1,0 +1,13 @@
+procedimento merge(s1,s2, merge:string)
+var
+    x1, x2 : inteiro
+    f1, f2, m: sequencia de inteiro
+inicio
+    se abre(f1, s1) entao
+        se abre(f2, s2) entao
+            se abre(m, merge) entao
+                enquanto NAO fds(f1) E NAO fds(f2) faca
+                    leia(f1, x1)
+                    leia(f2, x2)
+                    se fds(f1) ou fds(f2) entao
+                    
