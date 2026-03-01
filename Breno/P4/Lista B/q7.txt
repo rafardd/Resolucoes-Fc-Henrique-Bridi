@@ -1,0 +1,22 @@
+algoritmo CalculeAFrequenciaDosCaracteresDaFrase
+var
+    frase, aux: string
+    i: inteiro
+    v: vetor[32..126] de inteiro
+inicio
+    escreva("Insira uma frase: ")
+    leia(frase)
+    T <- tamanho(frase)
+    para i de 32 até 126 faça
+        v[i] <- 0
+    fim para
+    para i de 1 até T faça
+        v[asc(frase[i])] <- v[asc(frase[i])] + 1
+    fim para
+    para i de 32 até 126 faça
+        aux <- shr(i)
+        se v[i] > 0 entao
+            escreva(aux,": ",v[i])
+        fim se
+    fim para
+fim algoritmo

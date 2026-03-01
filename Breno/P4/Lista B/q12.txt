@@ -1,0 +1,21 @@
+algoritmo
+var
+    A: vetor[1..128] de real
+    i, posicao: inteiro
+    maior: real
+inicio
+    para i de 1 até 128 faça
+        escreva("Insira o ",i,"° número: ")
+        leia(A[i])
+    fim para
+    maior <- A[64] + A[65]
+    posicao <- 64
+    para i de 1 até 63 faça
+        se A[64-i+1] + A[64 + i] >= maior entao
+            maior <- A[64 - i + 1] + A[64+1]
+            poiscao <- 64 - i + 1
+        fim se
+    fim para
+    escreva("A maior soma dos simétricos foi ", maior, " e estava na posicao ", poiscao, " e ", 128 - posicao + 1)
+fim algoritmo
+

@@ -1,0 +1,17 @@
+algoritmo VetorCSendoMultiplicacaoDeAB
+var
+    A: vetor[1..243] de inteiro
+    B: vetor[1..243] de inteiro
+    i: inteiro
+inicio
+    para i de 1 até 243 faça
+        escreva("Insira o ",i,"° número da 1° Sequencia: ")
+        leia(A[i])
+        escreva("Insira o ",i,"° número da 2° Sequencia: ")
+        leia(B[i])
+        C[i] <- A[i] * B[i]
+    fim para
+    para i de 1 até 243 faça
+        escreva (C[i])
+    fim para
+fim algoritmo

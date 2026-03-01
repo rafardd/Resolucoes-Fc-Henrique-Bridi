@@ -10,14 +10,12 @@ inicio
     fim para
     escreva("Insira o escalar: ")
     leia(n)
-    para i de 1 até 173 faça
-        se i = 1 entao
-            escreva("(",v[i] * n",")
-        fim se
-        se i = 173 entao
-            escreva ("(",v[i] * n")")
+    escreva("(", v[1] * n,",")
+    para i de 2 até 173 faça
+        se i <> 173
+            escreva (v[i] * n,",")
         senao
-            escreva (v[i] * n",")
+            escreva (v[i] * n,")")
         fim se
     fim para
 fim algoritmo

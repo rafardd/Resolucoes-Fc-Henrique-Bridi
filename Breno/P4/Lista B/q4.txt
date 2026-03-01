@@ -3,6 +3,28 @@ const
     MIN = 10
     MAX = 100
 var
-    n, x: inteiro
+    n, x, i: inteiro
     A: vetor[MIN .. n] de inteiro
-    
+inicio
+    n <- trunca((MAX-MIN + 1) * aleatorio()) mod (MAX-MIN + 1) + MIN
+    para i de MIN até n faça
+        escreva("Insira o ", i - MIN + 1,"° número; ")
+        leia(A[i])
+    fim para
+    escreva("Insira o valor para a busca: ")
+    leia(x)
+    achou <- FALSO
+    i <- MIN
+    enquanto i <= n e nao achou faça
+        se A[i] = x entao
+            achou <- VERDADEIRO
+        senao
+            i <- i + 1
+        fim se
+    fim enquanto
+    se achou entao
+        escreva("Foi encontrado na ",i," posição")
+    se nao
+        escreva("0")
+    fim se
+fim algoritmo

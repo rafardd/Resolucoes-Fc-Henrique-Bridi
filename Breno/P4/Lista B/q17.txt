@@ -1,0 +1,26 @@
+algoritmo LerUmaSequenciaDeNumerosNaOrdem
+var
+    i,j,aux: inteiro
+    Numeros: vetor[1..165] de inteiro
+inicio
+    para i de 1 até 165 faça
+        escreva("Insira o ", i,"° número: ")
+        leia(Numeros[i])
+    fim se
+    menor <- Numeros[1]
+    para i de 1 até 165 faça
+        pos <- i
+        para j de i + 1 até 165 faça
+            se Numeros[j] <= menor entao
+                menor <- Numeros[j]
+                pos <- j
+            fim se
+        fim enquanto
+        aux <- Numeros[i]
+        Numeros[i] <- Numeros[pos]
+        Numeros[pos] <- aux
+    fim para
+    para i de 1 até 165 faça
+        escreva(Numeros[i])
+    fim para
+fim algoritmo

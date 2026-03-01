@@ -16,7 +16,7 @@ var
 inicio 
     escreva("Insira um numero menor que 543: ")
     leia(n)
-    enquanto n >= MAX ou n < 0 faça // RESTRIÇÃO DE MAXIMO
+    enquanto n >= MAX faça // RESTRIÇÃO DE MAXIMO
         escreva("Numero não permitido. Insira novamente: ")
         leia(n)
     fim enquanto

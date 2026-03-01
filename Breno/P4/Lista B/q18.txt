@@ -1,0 +1,37 @@
+algoritmo DuasSequenciasLineares
+var
+    i, aux, aux2: inteiro
+    A: vetor[1..39] de inteiro
+    B: vetor[1..39] de inteiro
+    Dependentes: Logico
+inicio
+    para i de 1 até 39 faça
+        escreva("Insira o ", i,"° valor da 1° Sequencia: ")
+        leia(A[i])
+        escreva("Insira o ", i,"° valor da 2° Sequencia: ")
+        leia(B[i])
+    fim para
+    Dependentes <- VERDADEIRO
+    para i de 1 até 39 faça
+        se A[i] = 0 e B[i] <> 0 ou A[i] <> 0 e B[i] = 0 entao
+            Dependentes <- Dependentes e FALSO
+        fim se
+    fim para
+    se Dependentes entao
+        i <- 1
+        enquanto i <= 39 faça
+            se A[i] <> 0 e B[i] <> 0 entao
+                aux <- A[i] div B[i]
+                se A[i] * aux <> B[i] e B[i] * aux <> A[i] entao
+                    Dependentes <- Dependentes e FALSO
+                fim se
+            fimse
+            i <- i + 1
+        fim enquanto
+    fim se
+    se Dependentes entao
+        escreva("São Lineares Dependentes")
+    senao
+        escreva("São Lineares Independentes")
+    fim se
+fim algoritmo

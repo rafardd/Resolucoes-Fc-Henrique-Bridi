@@ -1,0 +1,42 @@
+algoritmo LerNaENbNumeros
+var
+    nA,nB,i,j,posicao: inteiro
+    igual: logico
+    A,B: vetor[17..71] de inteiro
+inicio
+    nA <- ...  
+    nB <- ...
+    se nB > nA entao
+        escreva("Falha")
+    senao
+        para i de 1 até nA faça
+            escreva(...)
+            leia(A[i])
+        fim para
+        para i de 1 até nB faça
+            escreva(...)
+            leia(B[i])
+        fim para
+        igual <- FALSO
+        i <- 1
+        posicao <- i 
+        enquanto i <= nA e nao igual faça
+            igual <- VERDADEIRO
+            se A[i] = B[i] entao
+                posicao <- i
+                j <- i + 1
+                enquanto j <= nB e nao igual faça
+                    se A[j] <> B[j] entao
+                        igual <- FALSO
+                    fim se
+                    j <- j + 1
+                fim enquanto
+            fim se
+            i <- i + 1
+        fim enquanto
+        se igual entao
+            escreva("A sequencia B está dentro da sequencia A na posição ", posicao)
+        senao
+            escreva("0")
+        fim se
+fim algoritmo

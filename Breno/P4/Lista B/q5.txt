@@ -1,0 +1,24 @@
+algoritmo Ler4095NumerosEVerQuantosSeRepetem
+const
+    MIN = 1
+    MAX = 63
+var
+    v: vetor[MIN..MAX] de inteiro
+    i,n : inteiro
+inicio
+    para i de MIN até MAX faça / ZERAR TODOS OS VALORES DE 1 ATÉ 63
+        v[i] <- 0
+    fim para
+    para i de 1 até 4095 faça // FAZER O USUARIO DIGITAR 4095 NUMEROS
+        escreva("Insira o ", i,° número: ")
+        leia(n)
+        enquanto n < MIN e n > MAX faça // TEM QUE SER DE 1 ATÉ 63
+            escreva("Numero invalido. Insira novamente: ")
+            leia(n)
+        fim enquanto
+        v[n] <- v[n] + 1 // ADICIONANDO NO VETOR O NUMERO
+    fim para
+    para i de MIN até MAX faça // PARA DIZER A QUANTIDADE
+        escreva("A quantidade de ",i," é: ",v[i])
+    fim para
+fim algoritmo

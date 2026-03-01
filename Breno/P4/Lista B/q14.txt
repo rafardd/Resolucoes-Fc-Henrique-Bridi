@@ -1,0 +1,25 @@
+algoritmo
+var
+    n, i: inteiro
+    Numeros: vetor[3..30] de Real
+inicio
+    escreva("Insira um número de 3 a 30: ")
+    leia(n)
+    enquanto n > 30 e n < 3 faça
+        escreva("Numero Invalido. Tente novamente: ")
+        leia(n)
+    fim enquanto
+    escreva("Insira o 1° número: ")
+    leia(Numeros[3])
+    para i de 4 até n faça
+        escreva("Insira um número: ")
+        leia(Numeros[i])
+        enquanto Numeros[i-1] = Numeros[i] faça
+            escreva("Insira numeros distintos do anterior: ")
+            leia(Numeros[i])
+        fim enquanto
+    fim para
+    para i de 3 até n faça
+        escreva(Numeros[i])
+    fim para
+fim algoritmo

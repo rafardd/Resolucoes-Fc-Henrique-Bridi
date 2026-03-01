@@ -1,0 +1,21 @@
+algoritmo VerSeDuasSequenciasReaisSaoIdenticas
+var
+    N1: vetor[1..29] de real
+    N2: vetor[1..29] de real
+    i: inteiro
+    identicos: Logico
+inicio
+    identicos <- VERDADEIRO
+    para i de 1 até 29 faça
+        escreva("Insira o ",i,"° número da 1° sequencia: ")
+        leia(N1[i])
+        escreva("Insira o ",i,"° número da 2° sequencia: ")
+        leia(N2[2])
+        identicos <- identicos e N1[i] = N2[i]
+    fim para
+    se identicos entao
+        escreva("Sucesso.")
+    senao
+        escreva("Fracasso.")
+    fim se
+fim algoritmo

@@ -1,0 +1,21 @@
+algoritmo FaçaAMediaEEncontreOMaior
+var
+    n: vetor[1..53] de inteiro
+    soma, i, media, quantidade: inteiro
+inicio
+    soma <- 0
+    para i de 1 até 53 faça
+        escreva("Insira o ",i,"° número: ")
+        leia(n[i])
+        soma <- soma + n[i]
+    fim para
+    i <- 53
+    media <- soma div i
+    quantidade <- 0
+    para i de 1 até 53 faça
+        se n[i] >= media entao
+            quantidade <- quantidade + 1
+        fim se
+    fim para
+    escreva(quantidade)
+fim algoritmo

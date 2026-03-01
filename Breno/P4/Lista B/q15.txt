@@ -1,0 +1,15 @@
+algoritmo BuscarOValorMaisProximoDaMedia
+var
+
+inicio
+    media <- 0
+    para i de 1 até 537 faça
+        escreva("Insira o ", i,"° número: ")
+        leia(n[i])
+        media <- media + n[i]
+    fim para
+    media <- media/537
+    menor <- n[i] - media
+    para i de 1 até 537 faça
+        
+fim algoritmo

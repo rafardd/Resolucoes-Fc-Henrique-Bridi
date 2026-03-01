@@ -1,0 +1,32 @@
+algoritmo BuscaBinaria
+const
+    MIN = 15
+    MAX = 150
+var
+    n, i, j, m, x: inteiro
+    A: vetor[1..n] de inteiro
+inicio
+    n <- trunca(MAX-MIN + 1 * aleatorio()) mod (MAX-MIN + 1) + a // PEGAR O ALEATORIO inteiro
+    para i de 1 até n faça
+        escreva("Insira o ",i,"° valor: ")
+        leia(A[i])
+    fim para
+    escreva("Insira o valor para a busca: ")
+    leia(x)
+    i <- 1
+    j <- MAX
+    m <- (i + j) div 2
+    enquanto i <> j faça
+        se x >= A[m] entao
+            i <- m
+        senao
+            j <- m-1
+        fim se
+        m <- (i + j) div 2
+    fim enquanto
+    se x = A[i] entao
+        escreva("Posição: ",i)
+    senao
+        escreva("0")
+    fim se
+fim algoritmo

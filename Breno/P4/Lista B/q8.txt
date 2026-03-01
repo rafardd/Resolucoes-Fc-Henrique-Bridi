@@ -1,0 +1,27 @@
+algoritmo CalculoModa
+var
+    frequencia: vetor[13..51] de inteiro
+    i, n, maior: inteiro
+inicio
+    para i de 13 até 51 faça
+        frequencia[i] <- 0
+    fim para
+    maior <- 0
+    para i de 1 até 791 faça
+        escreva("Insira o ,"i,"° valor: ")
+        leia(n)
+        enquanto n < 13 e n > 51 faca
+            escreva("Numero invalido. Insira novamente: ")
+            leia (n)
+        fim enquanto
+        frequencia[n] <- frequencia[n] + 1
+        se frenquencia[n] > maior entao
+            maior <- frequencia[n]
+        fim se
+    fim para
+    para i de 13 até 51 faça
+        se frequencia[i] = maior entao
+            escreva(i)
+        fim se
+    fim para
+fim algoritmo

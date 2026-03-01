@@ -1,0 +1,15 @@
+algoritmo ProdutoEscalarDeAB
+var
+    A: vetor[1..317] de real
+    B: vetor[1..317] de real
+    i: inteiro
+inicio
+    para i de 1 até 317 faça
+        escreva("Insira o ",i,"° número da 1° Sequencia: ")
+        leia(A[i])
+        escreva("Insira o ",i,"° número da 2° Sequencia: ")
+        leia(B[i])
+        produto <- A[i] * B[i]
+    fim para
+    escreva(produto)
+fim algoritmo

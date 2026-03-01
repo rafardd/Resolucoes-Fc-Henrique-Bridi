@@ -1,0 +1,18 @@
+algoritmo Gerar153NumerosEOrdenalosParDepoisImpar
+var
+    numero, i: inteiro
+    N: vetor[1..153] de inteiro
+inicio
+    para i de 1 até 153 faça
+        escreva("Insira o ", i,"° número: ")
+        leia(numero)
+        se numero mod 2 = 0 entao
+            N[i] <- numero
+        senao
+            N[1 + 153 - i]
+        fim se
+    fim para
+    para i de 1 até 153 faça
+        escreva(N[i])
+    fim para
+fim algoritmo

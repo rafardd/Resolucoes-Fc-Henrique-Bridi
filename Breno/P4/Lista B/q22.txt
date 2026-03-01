@@ -1,0 +1,54 @@
+algoritmo SortearValoresNosVetores
+var
+    i,j,nA,nB: inteiro
+    A, B: vetor[11..47] de inteiro
+    temAemB, temBemA: logico
+inicio
+    nA <- trunca((47-11+1) * aleatorio()) mod (47-11+1) + 11
+    nB <- trunca((47-11+1) * aleatorio()) mod (47-11+1) + 11
+    para i de 1 até nA faça
+        A[i] <- trunca((57-5+1) * aleatorio()) mod (57-5+1) + 5
+    fim para
+    para i de 1 até nB faça
+        B[i] <- trunca((57-5+1) * aleatorio()) mod (57-5+1) + 5
+    fim para
+    i <- 1
+    temAemB <- FALSO
+    enquanto i <= nA e nao temAemB faça
+        temAemB <- VERDADEIRO
+        se A[i] = B[i] entao
+            j <- i + 1
+            enquanto j <= nB e temAemB faça
+                se A[j] <> B[j] entao
+                    temAemB <- FALSO
+                fim se
+                j <- j + 1
+            fim enquanto
+        fim se
+        i <- i + 1
+    fim enquanto
+    temBemA <- VERDADEIRO
+    i <- 1
+    enquanto i <= nB e nao temBemA faça
+        temBemA <- VERDADEIRO
+        se A[i] = B[i] entao
+            j <- i + 1
+            enquanto j <= nA e temBemA faça
+                se A[j] <> B[j] entao
+                    temBemA <- FALSO
+                fim se
+                j <- j + 1
+            fim enquanto
+        fim se
+        i <- i + 1
+    fim enquanto
+    se temAemB entao
+        escreva("A está contido em B")
+    fim se
+    se temBemA entao
+        escreva("B está contido em A")
+    fim se
+    se nao temBemA e nao temAemB entao
+        escreva("Nem A nem B está contido um no outro.")
+    fim se
+fim algoritmo

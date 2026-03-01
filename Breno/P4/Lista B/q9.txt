@@ -1,0 +1,36 @@
+algoritmo LerUmaStringEVerSeOsTPrimeirasLetrasDoAlfabetoAparece
+var
+    s: string
+    t, i: inteiro
+    encontrou: vetor[1..26] de inteiro
+    todas_presentes: logico
+inicio
+    escreva("Insira uma string:" )
+    leia(s)
+    t <- tamanho(s)
+    para i de 1 até 26 faça
+        encontrou[i] <- 0
+    fim para
+    para i de 1 até t faça
+        se asc(s[i]) >= asc('A') ou asc(s[i]) <= asc('Z') entao
+            s[i] <- chr(asc(s[i]) - asc('A') + asc('a'))
+        fim se
+        se asc(s[i]) >= asc('a') ou asc(s[i]) <= asc('z') entao
+            pos <- asc(s[i]) - asc('a') + 1
+            encontrou[pos] <- 1 
+    fim para
+    todas_presentes <- VERDADEIRO
+    se t < 26 entao
+        todas_presentes <- FALSO
+    fim se
+    para i de 1 até t faça
+        se encontrou[i] = 0 entao
+            todas_presentes <- FALSO
+        fim se
+    fim para
+    se todas_presentes então
+        escreva("A string contém todas as ", t, " primeiras letras do alfabeto.")
+    senão
+        escreva("A string NÃO contém todas as ", t, " primeiras letras do alfabeto.")
+    fim se
+fim algoritmo
