@@ -1,0 +1,45 @@
+funcao merge(s1, s2, mrg:string):logica
+var
+    f, g, m: sequencia de inteiro
+    nf, ng: inteiro
+    fds_f, fds_g : logico
+    funcao atualiza(ref seq: sequencia de inteiro; ref num:inteiro):logico
+    inicio
+        se NAO fds(seq) entao
+            leia(seq, num)
+            retorne FALSO
+        senao
+            retorne VERDADEIRO
+        fim se
+    fim funcao
+inicio
+    se abre(f, s1) entao
+        se abre(g, s2) entao
+            se abre(m, mrg) entao
+                fds_f <- atualiza(f, xf)
+                fds_g <- atualiza(g, xg)
+                enquanto NAO fds_f OU NAO fds_g faca
+                    se fds_f OU (NAO fds_g E nf > ng) entao
+                        escreva(m, xg)
+                        fds_g <- atualiza(g, xg)
+                    senao
+                        escerva(m, xf)
+                        fds_f <- atualiza(f, xf)
+                    fim se
+                fim enquanto
+                fecha(m)
+            senao
+                fecha(g)
+                retorne FALSO
+            fim se
+            fecha(g)
+        senao
+            fecha(f)
+            retorne FALSO
+        fim se
+        fecha(f)
+    senao
+        retorne FALSO
+    fim se
+    retorne VERDADEIRO
+fim funcao

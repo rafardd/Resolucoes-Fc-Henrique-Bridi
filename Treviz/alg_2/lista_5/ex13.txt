@@ -1,0 +1,29 @@
+funcao verifica_moda(s:string)
+var
+    f : sequencia de inteiro
+    xf, moda, i: inteiro
+    v : vetor[0..3000] de inteiro
+inicio
+    se abre(f, s) entao
+        para i de 0 ate 3000 faca
+            v[i] <- 0
+        fim para
+        enquanto NAO fds(f) faca
+            leia(f, xf)
+            v[xf] <- v[xf] + 1
+        fim enquanto
+        fecha(f)
+        abre(f, s)
+        moda <- 0
+        enquanto NAO fds(f) faca
+            leia(f, xf)
+            se v[xf] >= v[moda] entao
+                moda <- xf
+            fim se
+        fim enquanto
+        fecha(f)
+        retorne moda
+    senao
+        retorne -40404
+    fim se
+fim funcao

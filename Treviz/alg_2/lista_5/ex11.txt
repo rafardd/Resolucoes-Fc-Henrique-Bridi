@@ -1,0 +1,28 @@
+funcao soma_numeros(s:string):inteiro
+var
+    f : sequencia de string
+    g : sequencia de inteiro
+    sf : string
+    xg, soma: inteiro
+inicio
+    se abre(f, s) entao
+        soma <- 0
+        enquanto NAO fds(f) faca
+            leia(f, sf)
+            se abre(g, sf) entao
+                enquanto NAO fds(g) faca
+                    leia(g, xg)
+                    soma <- soma + xg
+                fim enquanto
+                fecha(g)
+            senao
+                fecha(f)
+                retorne -40404
+            fim se
+        fim enquanto
+        fecha(f)
+        retorne soma
+    senao
+        retorne -40404
+    fim se
+fim funcao

@@ -1,0 +1,45 @@
+funcao numeros_acima_da_media(s:string):inteiro
+var
+    f : sequencia de string
+    g : sequencia de real
+    sf : string
+    xg, soma, media: real
+    n_total, n_acima_da_media : inteiro
+inicio
+    se abre(f, s) entao
+        soma <- 0
+        n_total <- 0
+        enquanto NAO fds(f) faca
+            leia(f, sf)
+            se abre(g, sf) entao
+                enquanto NAO fds(g) faca
+                    leia(g, xg)
+                    soma <- soma + xg
+                    n_total <- n_total + 1
+                fim enquanto
+                fecha(g)
+            senao
+                fecha(f)
+                retorne -40404
+            fim se
+        fim enquanto
+        fecha(f)
+        abre(f, s)
+        media <- soma / n_total
+        n_acima_da_media <- 0
+        enquanto NAO fds(f) faca
+            leia(f, sf)
+            abre(g, sf)
+            enquanto NAO fds(g) faca
+                leia(g, xg)
+                se xg > media entao
+                    n_acima_da_media <- n_acima_da_media + 1
+                fim se
+            fim enquanto
+            fecha(g)
+        fim enquanto
+        retorne n_acima_da_media
+    senao
+        retorne -40404
+    fim se
+fim funcao

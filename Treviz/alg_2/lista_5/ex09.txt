@@ -1,13 +1,62 @@
-procedimento merge(s1,s2, merge:string)
+procedimento merge(s1,s2, mrg:string)
 var
-    x1, x2 : inteiro
-    f1, f2, m: sequencia de inteiro
+    xf, xg : inteiro
+    f, g, m: sequencia de inteiro
 inicio
-    se abre(f1, s1) entao
-        se abre(f2, s2) entao
-            se abre(m, merge) entao
-                enquanto NAO fds(f1) E NAO fds(f2) faca
-                    leia(f1, x1)
-                    leia(f2, x2)
-                    se fds(f1) ou fds(f2) entao
-                    
+    se abre(f, s1) entao
+        se abre(g, s2) entao
+            se abre(m, mrg) entao
+                tem_f <- FALSO
+                tem_g <- FALSO
+                se NAO fds(f) entao
+                    leia(f, xf)
+                    tem_f <- VERDADEIRO
+                fim se
+                se NAO fds(g) entao
+                    leia(g, xg)
+                    tem_g <- VERDADEIRO
+                fim se
+                enquanto tem_f E tem_g faca
+                    se xf < xg entao
+                        escreva(m, xf)
+                        se NAO fds(f) entao
+                            leia(f, xf)
+                            tem_f <- VERDADEIRO
+                        senao
+                            tem_f <- FALSO
+                        fim se
+                    senao
+                        escreva(m, xg)
+                        se NAO fds(g) entao
+                            leia(g, xg)
+                            tem_g <- VERDADEIRO
+                        senao
+                            tem_g <- FALSO
+                        fim se
+                    fim se
+                fim enquanto
+                enquanto tem_f faca
+                    escreva(m, nf)
+                    se NAO fds(f) entao
+                        leia(f, xf)
+                        tem_f <- VERDADEIRO
+                    senao
+                        tem_f <- FALSO
+                    fim se
+                fim enquanto
+                enquanto tem_g faca
+                    escreva(m, xg)
+                    se NAO fds(g) entao
+                        leia(g, xg)
+                        tem_g <- VERDADEIRO
+                    senao
+                        tem_g <- FALSO
+                    fim se
+                fim enquanto
+                fecha(m)
+            fim se
+            fecha(g)
+        fim se
+        fecha(f)
+    fim se
+fim procedimento

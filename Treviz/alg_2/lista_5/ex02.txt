@@ -20,7 +20,7 @@ inicio
         senao
             escreva("O arquivo ", temp, "não pode ser criado")
             fecha(f)
-            retorne -40404
+            PARE
         fim se
         fecha(f)
         apaga(s)
@@ -28,6 +28,6 @@ inicio
         retorne qtd
     senao
         escreva("O arquivo ", s, "não pode ser aberto")
-        retorne -40404
+        PARE
     fim se
 fim funcao

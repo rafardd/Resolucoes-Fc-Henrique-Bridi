@@ -11,17 +11,14 @@ inicio
             tam <- tam + 1
         fim enquanto
         fecha(f)
-    fim se
-    se tam > 0 entao
-        se abre(f, s) entao
-            i <- 0
-            enquanto NAO fds(f) faca
+        se tam > 0 entao
+            abre(f, s)
+            para i de 1 ate tam faca
                 leia(f, x)
-                i <- i + 1
                 se i > tam/2 entao
                     escreva(x)
                 fim se
-            fim enquanto
+            fim para
             fecha(f)
         fim se
     fim se

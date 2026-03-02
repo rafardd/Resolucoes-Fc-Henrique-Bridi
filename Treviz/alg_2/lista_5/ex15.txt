@@ -1,0 +1,39 @@
+CONST
+    K = 7
+    N = 1000
+FUNCAO k_maior_valor(s:string):real
+VAR
+    f : sequencia de real
+    v : vetor[0..N] de real
+    xf, aux : real
+    trocou : logico
+    num, i : inteiro
+INICIO
+    se abre(f, s) entao
+        num <- 0
+        enquanto NAO fds(f) faca
+            leia(f, xf)
+            v[num] <- xf
+            num <- num + 1
+        fim enquanto
+        
+        trocou <- VERDADEIRO
+        enquanto trocou faca
+            trocou <- falso
+            para i de 0 ate num-2 faca
+                se v[i] < v[i+1] entao
+                    aux <- v[i]
+                    v[i] <- v[i+1]
+                    v[i+1] <- aux
+                    trocou <- VERDADEIRO
+                fim se
+            fim para
+        fim enquanto
+
+        fecha(f)
+        se num >= K entao
+            retorne v[K-1]
+        fim se
+    fim se
+    PARE
+FIM FUNCAO

@@ -4,22 +4,16 @@ var
     f, t : sequencia de inteiro
 inicio
     se abre(f, s) entao
-        se cria(t, "temp") entao
-            enquanto NAO fds(f) faca
-                leia(f, x)
-            fim enquanto
-            enquanto NAO fds(t) faca
-                leia(t, x)
-                escreva(f, x)
-            fim enquanto
-            fecha(t)
-        senao
-            escreva("O arquivo ", temp, "não pode ser criado")
-            fecha(f)
-            retorne falso
-        fim se
+        abre(t, s)
+        enquanto NAO fds(f) faca
+            leia(f, x)
+        fim enquanto
+        enquanto NAO fds(t) faca
+            leia(t, x)
+            escreva(f, x)
+        fim enquanto
+        fecha(t)
         fecha(f)
-        apaga(temp)
         retorne verdadeiro
     senao
         escreva("O arquivo ", s, "não pode ser aberto")
