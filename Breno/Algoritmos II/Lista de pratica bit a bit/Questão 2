@@ -1,0 +1,9 @@
+algoritmo DobrarOValorComBitABit
+var
+	n, n_dobrado: inteiro
+inicio
+	escreva("Insira o valor: ")
+	leia(n)
+	n_dobrado <- n shl 1
+	escreva(n_dobrado)
+fim algoritmo

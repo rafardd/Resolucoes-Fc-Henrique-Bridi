@@ -1,0 +1,9 @@
+algoritmo RotaçãoDeDoisBits
+var
+	n, n_rotacionado: inteiro
+inicio
+	escreva("Insira um valor: ")
+	leia(n)
+	n_rotacionado <- n rote 2
+	escreva(n_rotacionado)
+fim algoritmo

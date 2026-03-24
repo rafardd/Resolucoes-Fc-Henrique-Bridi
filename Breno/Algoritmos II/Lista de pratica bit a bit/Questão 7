@@ -1,0 +1,8 @@
+algoritmo Ligaros2MaisSignificativosEMenosSignificativos
+var
+	n, n_modificado: inteiro
+inicio
+	escreva("Insira o valor: ")
+	leia(n)
+	n_modificado <- (n bit e 193) bit e 3
+fim algoritmo

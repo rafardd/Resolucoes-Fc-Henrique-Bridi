@@ -1,0 +1,9 @@
+algoritmo InversãoDosBits
+var
+	n, n_invertido: inteiro
+inicio
+	escreva("Insira o valor: ")
+	leia(n)
+	n_invertido <- n bit not
+fim algoritmo
+

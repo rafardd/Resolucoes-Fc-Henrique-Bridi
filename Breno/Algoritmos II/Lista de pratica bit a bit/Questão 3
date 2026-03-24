@@ -1,0 +1,9 @@
+algoritmo DesligarBits
+var
+	n, mascara: inteiro
+inicio
+	escreva("Insira um numero ")
+	leia(n)
+	mascara <- n bit e 143
+	escreva(mascara)
+fim algoritmo

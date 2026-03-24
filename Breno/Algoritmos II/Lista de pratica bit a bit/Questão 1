@@ -1,0 +1,10 @@
+algoritmo PegarMetadeDoValorInteiroSemMod
+var
+	n, metade: inteiro
+inicio
+	escreva()
+	leia(n)
+	metade <- n shr 1
+	escreva(metade)
+fim algoritmo
+

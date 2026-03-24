@@ -1,0 +1,10 @@
+algoritmo DesligarOBitMaisSignificativo
+var
+	n, n_modificado: inteiro
+inicio
+	escreva("Insira o valor: ")
+	leia(n)
+	n_modificado <- n bit e 127
+	escreva(n_modificado)
+fim algoritmo
+
