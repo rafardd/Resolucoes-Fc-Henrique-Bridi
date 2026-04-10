@@ -1,0 +1,17 @@
+função achaMaiorValor (a,b,c:real): real
+var
+	maiorvalor: real
+inicio
+	maiorvalor <- a
+	se maiorvalor < b entao
+		maiorvalor <- b
+		se maiorvalor < c entao
+			maiorvalor <- c
+		fim se
+	senao
+		se maiorvalor < c entao
+			maiorvalor <- c
+		fim se
+	fim se
+	retorne maiorValor
+fim funcao

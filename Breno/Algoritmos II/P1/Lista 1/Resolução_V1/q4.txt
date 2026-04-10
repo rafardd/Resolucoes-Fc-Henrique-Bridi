@@ -1,0 +1,20 @@
+procedimento verificarStrings (ref menor, maior:string)
+var
+	s1,s2: string
+inicio
+	s1 <- ""
+	s2 <- ""
+	enquanto s1 = s2 entao
+		escreva("Insira uma string: ")
+		leia(s1)
+		escreva("Insira a segunda string: ")
+		leia(s2)
+	fim enquanto
+	se s1 < s2 entao
+		menor <- s1
+		maior <- s2
+	senao
+		menor <- s2
+		maior <- s1
+	fim se
+fim procedimento

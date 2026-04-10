@@ -1,0 +1,17 @@
+funcao palindrome (s: string): logico
+var
+	metade, i, j: inteiro
+inicio
+	valido <- VERDADEIRO
+	metade <- tamanho(s) div 2
+	j <- tamanho(s)
+	i <- 1
+	enquanto i <= metade faça
+		se s[i] <> s[j] entao
+			valido <- FALSO
+		fim se
+		i <- i + 1
+		j <- j - 1
+	fim enquanto
+	retorne valido
+fim funcao

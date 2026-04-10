@@ -1,0 +1,14 @@
+funcao imprimirCaracteresApartirdeCNvezes (c:caracter ; n: inteiro): string
+var
+	i: inteiro
+inicio
+	s <- c
+	se n >= 1 entao
+		para i de 1 até n faça
+			se asc(c+i) <> asc(chr(127)) entao
+				s <- s + chr(c+i)
+			fim se
+		fim para
+	fim se
+	retorne s
+fim funcao	

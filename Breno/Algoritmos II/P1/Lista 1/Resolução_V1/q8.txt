@@ -1,0 +1,27 @@
+funcao decbin (s:string): string
+var
+	fator, n_dec, n_bin, i: inteiro
+	n_s: string
+inicio
+	fator <- 1
+	n_dec <- 0
+	se s(1) = '-' entao
+	para i de 1 até tamanho(s) faça
+		n_dec <- n_dec + (asc(s[i]) - asc('0')) * fator
+		fator <- fator * 10
+	fim para
+	n_dec <- 0
+	fator <- 1
+	enquanto n_dec > 0 entao
+		n_bin <- n_bin + ((n_dec mod 2) * fator))
+		n_dec <- n_dec div 2
+		fator <- fator * 10
+	fim enquanto
+	n_s <- ""
+	enquanto n_bin >= 0 faça
+		digito <- n_bin mod 10
+		n_s <- n_s + (asc(digito) - asc('0'))
+		n_bin <- n_bin div 10
+	fim enquanto
+	retorne digito
+fim funcao	

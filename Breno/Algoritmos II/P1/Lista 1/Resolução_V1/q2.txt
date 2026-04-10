@@ -1,0 +1,19 @@
+procedimento escrevaSequencia (a,b,c:inteiro)
+var
+	i: inteiro
+inicio
+	se a < b entao
+		para i de a até b faça
+			se i mod c = 0 entao
+				escreva(i)
+			fim se
+		fim para
+	senao
+		enquanto b >= a faça
+			se b mod c = 0 entao
+				escreva(b)
+			fim se
+			b <- b - 1
+		fim enquanto
+	fim se
+fim procedimento 

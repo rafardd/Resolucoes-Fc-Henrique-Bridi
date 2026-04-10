@@ -1,0 +1,13 @@
+procedimento leiaAprimorado (ref x: inteiro ; a, b: inteiro)
+var
+	aux: inteiro
+inicio
+	se a > b entao
+		aux <- a
+		a <- b
+		b <- a
+	fim se
+	enquanto x < a ou x > b faça
+		leia(x)
+	fim enquanto
+fim procedimento	

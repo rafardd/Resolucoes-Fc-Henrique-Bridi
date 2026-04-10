@@ -1,0 +1,19 @@
+tipos
+	V: vetor[1..100] de real
+procedimento selecaoDireta (ref a: V)
+var
+	i,j,m: inteiro
+	aux: real
+inicio
+	para i de 1 até 100-1 faça
+		m <- i
+		para j de 1 até 100 faça
+			se a[j] < a[i] entao
+				m <- j
+			fim se
+		fim para
+		aux <- a[i]
+		a[i] <- a[j]
+		a[j] <- aux
+	fim para
+fim procedimento	

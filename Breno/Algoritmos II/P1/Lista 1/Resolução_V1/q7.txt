@@ -1,0 +1,27 @@
+funcao SparaInt (s:string): inteiro
+var
+	n_int, fator, i: inteiro
+	valido: logico
+	digito: caracter
+inicio
+	valido <- VERDADEIRO
+	i <- 1
+	fator <- 1
+	enquanto i < tamanho(s) e valido faça
+		se asc(s[i]) < asc('0') ou asc(s[i]) > asc('9') entao
+			valido <- FALSO
+		senao			
+			digito <- asc(s(i))
+			n_int <- (digito - asc('0')) * fator
+			fator <- fator * 10
+			i <- i+1
+		fim se
+	se valido entao
+		retorne n_int
+	senao
+		retorne -9999999
+	fim se
+fim funcao	
+			
+			
+	

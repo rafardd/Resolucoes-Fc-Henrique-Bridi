@@ -1,0 +1,7 @@
+funcao triangulo (x,y,z: inteiro): logico
+var
+	é_triangulo: logico
+inicio
+	é_triangulo <-x > 0 e y > 0 e z > 0 e (x+y) > z e (x+z) > y e (z+y) > x
+	retorne é_triangulo
+fim funcao

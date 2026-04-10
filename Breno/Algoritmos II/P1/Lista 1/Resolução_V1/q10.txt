@@ -1,0 +1,13 @@
+funcao verificarExistenciadeRaizesReais (ref r1, r2: real; a,b,c: real): logico
+var
+	delta: real
+inicio
+	delta <- b * b - 4 * a * c
+	se delta > 0 entao
+		r2 <- -b + raizq(delta) / (2 * a)
+		r1 <- -b - raizq(delta) / (2 * a)
+		retone VERDADEIRO
+	senao
+		retorne FALSO	
+	fim se
+fim funcao

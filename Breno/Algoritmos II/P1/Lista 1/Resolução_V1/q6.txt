@@ -1,0 +1,15 @@
+procedimento conversãoHorasMinutos (segundos: inteiro ref h,m,s:inteiro)
+var
+
+inicio
+	se s > 0 entao
+		h <- segundos div 3600
+		segundos <- segundos mod 3600
+		m <- segundos div 60
+		s <- segundos mod 60
+	senao
+		s <- 0
+		m <- 0
+		h <- 0
+	fim se
+fim procedimento	
