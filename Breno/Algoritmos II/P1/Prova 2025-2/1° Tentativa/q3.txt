@@ -1,0 +1,19 @@
+funcao binarioString (n:inteiro):string
+var
+	s: string
+	n_copia, n: inteiro
+inicio
+	se n < 0 entao
+		n <- n * -1
+	fim se
+	s <- ""
+	enquanto n >= 0 faça
+		aux <- n mod 10
+		s <- chr(asc(aux) - asc('0')) + s	
+		se aux > 1 entao
+			retorne ""
+		fim se
+		n <- n div 10
+	fim enquanto
+	retorne s
+fim funcao

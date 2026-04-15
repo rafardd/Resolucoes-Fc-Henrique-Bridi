@@ -1,0 +1,22 @@
+tipos
+	V: vetor [1..100] de real
+
+procedimento BubbleSort (ref a:V)
+var
+	trocou: logico
+	i: inteiro
+	aux: real
+inicio
+	trocou <- VERDADEIRO
+	enquanto trocou faça
+		trocou <- FALSO	
+		para i de 1 até n-1 faça
+			se a[i] > a[i+1] entao
+				aux <- a[i]
+				a[i] <- a[i+1]
+				a[i+1] <- aux
+				trocou <- VERDADEIRO
+			fim se
+		fim para
+	fim enquanto
+fim procedimento

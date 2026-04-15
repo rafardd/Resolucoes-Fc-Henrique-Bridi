@@ -1,0 +1,22 @@
+procedimento DuasStringsDistintas (ref s1,s2: string)
+var
+	aux: string
+	valido: logico
+inicio
+	valido <- FALSO
+	enquanto nao valido faça
+		valido <- VERDADEIRO
+		escreva("Insira uma string: ")
+		leia(s1)
+		escreva("Insira outra string: ")
+		leia(s2)
+		se s1 = s2 entao
+			valido <- FALSO
+		fim se
+	fim enquanto
+	se s2 > s1 entao
+		aux <- s1
+		s1 <- s2
+		s2 <- aux
+	fim se
+fim procedimento

@@ -1,0 +1,19 @@
+funcao maiorValor (x,y,z: real): real
+var
+	maior: real
+inicio
+	se x > y entao
+		se x > z entao
+			maior <- x
+		senao
+			maior <- z
+		fim se
+	senao
+		se y > z entao
+			maior <- y
+		senao
+			maior <- z
+		fim se
+	fim se
+	retorne maior
+fim funcao

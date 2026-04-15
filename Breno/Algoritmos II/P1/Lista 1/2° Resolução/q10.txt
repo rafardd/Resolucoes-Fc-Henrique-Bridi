@@ -1,0 +1,22 @@
+funcao verificarRaizesReais (ref r1,r2: real ; a,b,c: real): logico
+var
+	delta: real
+inicio	
+	se a = 0 entao
+		se b = 0 entao
+			retorne FALSO
+		senao
+			r1 <- -b/c
+			r2 <- r1
+			retorne VERDADEIRO
+		fim se
+	fim se
+	delta <- b*b - 4 * a * c
+	se delta >= 0 entao
+		r1 <- (-b + raizQ(delta)) / (2 * a)
+		r2 <- (-b - raizQ(delta)) / (2 * a)
+		retorne VERDADEIRO
+	senao
+		retorne FALSO
+	fim se
+fim funcao

@@ -1,0 +1,4 @@
+funcao verificarTriangulo (x,y,z: inteiro): logico
+inicio
+	retorne (x + y) > z e (x + z) > y e (y + z) > x
+fim função

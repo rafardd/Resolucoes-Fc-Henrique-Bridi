@@ -1,0 +1,17 @@
+procedimento leiaEntreValores (ref valor: inteiro ; min, max: inteiro)
+var
+	valido : logico
+inicio
+	valido <- FALSO
+	se max < min entao
+		aux <- max
+		max <- min
+		min <- aux
+	fim se
+	enquanto não valido faça
+		valido <- VERDADEIRO
+		escreva("Insira o valor entre ", min," e", maximo":")
+		leia(valor)
+		valido <- valido e (valor >= min e valor <= max)
+	fim enquanto
+fim procedimento

@@ -1,0 +1,21 @@
+funcao StringBinario (valor: inteiro): string
+var
+	digito: inteiro
+	sinal, s: string
+inicio
+	se valor = 0 entao
+		retorne "0"
+	senao
+	sinal <- ""
+	se valor < 0 entao
+		sinal <- "-"
+		valor <- valor * -1
+	fim se
+	s <- ""
+	enquanto valor > 0 faça
+		digito <- valor mod 2
+		s <- chr(asc(digito) - asc('0')) + s
+		valor <- valor div 2
+	fim enquanto
+	retorne sinal + s
+fim funcao

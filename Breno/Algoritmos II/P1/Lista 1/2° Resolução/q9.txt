@@ -1,0 +1,21 @@
+funcao verificarPalindrome (s:string): logico
+var
+	i,j,metade: inteiro
+	é_igual: logico
+inicio
+	é_igual <- FALSO
+	se s <> "" entao
+		i <- 1
+		metade <- tamanho(s) div 2
+		j <- tamanho(s)
+		é_igual <- VERDADEIRO
+		enquanto i <= metade faça
+			se s[i] <> s[j] entao
+				é_igual <- falso
+			fim se
+			i <- i + 1
+			j <- j - 1
+		fim enquanto
+	fim se
+	retorne é_igual
+fim funcao

@@ -1,0 +1,9 @@
+funcao verificarRaizesReais (ref r1,r2: reais; a,b,c: real):logico
+var
+
+inicio
+	se a = 0 entao
+		retorne FALSO
+	senao
+		se b = 0 entao
+				 

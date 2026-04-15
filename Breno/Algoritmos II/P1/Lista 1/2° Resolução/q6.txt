@@ -1,0 +1,13 @@
+procedimento segundosEquivalentesHorasMinutos (ref h,m,s: inteiro ; segundos: inteiro)
+inicio
+	se segundos > 0 entao
+		h <- segundos div 3600
+		segundos <- segundos mod 3600
+		m <- segundos div 60
+		s <- segundos mod 60
+	senao
+		h <- 0
+		m <- 0
+		s <- 0
+	fim se
+fim procedimento

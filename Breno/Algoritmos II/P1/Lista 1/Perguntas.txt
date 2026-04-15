@@ -1,0 +1,12 @@
+Questão 11 
+Tem que verificar se é min e maximo mesmo?
+
+Questão 12
+Caso o N seja negativo tem que ler de tras pra frente?
+
+
+12
+5
+8
+10
+4

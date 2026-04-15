@@ -1,0 +1,18 @@
+procedimento escrevaSequencia (começo, final, x: inteiro)
+inicio
+	se começo <= final entao
+		enquanto começo <= faça
+			se começo mod x = 0 entao
+				escreva(começo)
+			fim se
+			começo <- começo + 1
+		fim enquanto
+	senao
+		enquanto começo >= final faça
+			se começo mod x = 0 entao
+				escreva(começo)
+			fim se
+			começo <- começo - 1
+		fim enquanto
+	fim se
+fim procedimento

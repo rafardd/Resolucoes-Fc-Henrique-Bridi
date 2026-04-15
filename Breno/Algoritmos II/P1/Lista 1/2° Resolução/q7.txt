@@ -1,0 +1,14 @@
+funcao conversaoStringInteiro (s: string): inteiro
+var
+	valor_convertido: inteiro
+inicio
+	valor_convertido <- 0
+	para i de 1 até tamanho(s) faça
+		se s[i] < '0' ou s[i] > '9' entao
+			retorne <- -99999999
+		senao
+			valor_convertido <- valor_convertido * 10 + (asc(s[i]) - asc('0')
+		fim se
+	fim para 
+	retorne valor_convertido
+fim funcao

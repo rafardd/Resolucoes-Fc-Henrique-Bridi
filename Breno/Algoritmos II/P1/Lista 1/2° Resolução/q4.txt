@@ -1,0 +1,24 @@
+procedimento LerDuasStrings (ref maior,menor: string)
+var
+	valido: logico
+	s1, s2: string
+inicio
+	valido <- FALSO
+	enquanto não valido faça
+		valido <- VERDADEIRO
+		escreva("Insira a primeira string: ")
+		leia(s1)
+		escreva("Insira a segunda string: ")
+		leia(s2)
+		se s1 = s2 entao
+			valido <- FALSO
+		fim se
+	fim enquanto
+	se s1 < s2 entao
+		menor <- s1
+		maior <- s2
+	senao
+		menor <- s2
+		maior <- s1
+	fim se
+fim procedimento	
