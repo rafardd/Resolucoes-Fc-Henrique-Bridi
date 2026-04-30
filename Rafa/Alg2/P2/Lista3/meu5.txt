@@ -10,7 +10,7 @@ inicio
     retorne 0
   fimse
   se a mod 10 = b entao
-    retorne bApareceEmA(a,b) + 1
+    retorne bApareceEmA(a div 10,b) + 1
   fimse
-  retorne bApareceEmA(a,b)
+  retorne bApareceEmA(a div 10,b)
 fim funcao
