@@ -2,7 +2,7 @@ funcao binarioParaDecimal(n:inteiro):inteiro
 var
   funcao conversaoDeBase(n:inteiro):inteiro
   inicio
-    se n > 1 entao
+    se n mod 10 > 1 entao
          pare
     fimse 
     se n  = 0 entao
