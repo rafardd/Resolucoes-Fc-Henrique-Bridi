@@ -1,20 +1,15 @@
 funcao binarioParaDecimal(n:inteiro):inteiro
-var
-  funcao conversaoDeBase(n:inteiro):inteiro
-  inicio
+inicio
+    se n < 0 entao
+         retorne -binarioParaDecimal(-n)
+    fimse 
     se n mod 10 > 1 entao
          pare
     fimse 
-    se n  = 0 entao
-      retorne 0
+    se n  <= 1 entao
+      retorne n
     senao
       retorne conversaoDeBase(n div 10) * 2 + n mod 10 
     fimse
-  fim funcao
-inicio
-    se n < 0 entao
-      retorne -conversaoDeBase(abs(n))
-    fimse
-    retorne conversaoDeBase(n)
 fim funcao
 
