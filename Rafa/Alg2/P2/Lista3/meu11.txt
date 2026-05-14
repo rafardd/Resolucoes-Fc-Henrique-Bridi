@@ -1,15 +1,10 @@
 funcao binarioParaDecimal(n:inteiro):inteiro
 var
-  funcao numeroValido(n:inteiro):logico
-  inicio
-    se n = 0 entao
-      retorne VERDADEIRO
-    fimse
-    retorne n mod 10 <=1 e numeroValido(n div 10) 
-  fim funcao
-
   funcao conversaoDeBase(n:inteiro):inteiro
   inicio
+    se n > 1 entao
+         pare
+    fimse 
     se n  = 0 entao
       retorne 0
     senao
@@ -17,12 +12,9 @@ var
     fimse
   fim funcao
 inicio
-  se numeroValido(abs(n)) entao
     se n < 0 entao
       retorne -conversaoDeBase(abs(n))
     fimse
     retorne conversaoDeBase(n)
-  fimse
-  retorne -999999
 fim funcao
 
