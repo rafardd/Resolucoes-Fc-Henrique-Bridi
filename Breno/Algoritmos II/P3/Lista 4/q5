@@ -1,0 +1,21 @@
+tipos
+	PNo: ponteiro de TNo
+	TNo: registro de
+		frase: string
+		prox: PNo
+	     fim registro
+funcao strngPosicaoCentral(l: PNo): string
+var
+	rapido, lento: PNo
+inicio
+	se l = nulo entao
+		retorne ""
+	fim se
+	rapido <- l
+	lento <- l
+	enquanto rapido.prox != nulo e rapido^.prox^.prox != nulo faça
+		lento <- lento^.prox
+		rapido <- rapido^.prox^.prox
+	fim enquanto
+	retorne lento^.frase
+fim funcao

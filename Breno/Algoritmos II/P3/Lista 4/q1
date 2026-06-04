@@ -1,0 +1,12 @@
+tipo
+	PNo: ponteiro para TNo
+	TNo: registro de
+		info: inteiro
+		prox: PNo
+	     fim registro
+funcao listaVazia(l:PNo): logico
+inicio
+	retorne l = nulo
+fim funcao
+
+		

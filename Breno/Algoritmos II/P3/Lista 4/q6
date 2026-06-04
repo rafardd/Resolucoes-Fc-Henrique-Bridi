@@ -1,0 +1,34 @@
+tipos
+	PNo: ponteiro de TNo
+	TNo: registro de 
+		frase: string
+		prox: PNo
+	     fim registro
+funcao elementoPosicaoP(l: PNo, p: inteiro): string
+inicio
+	se p <= 0 entao
+		retorne ""
+	fim se
+	enquanto l != nulo e p > 1 entao
+		l <- l^.prox
+		p <- p - 1
+	fim enquanto
+	se l = nulo entao
+		retorne ""
+	fim se
+	retorne l^.frase
+fim funcao
+------------------------------------------------------
+funcao elementoPosicaoP(l: PNo, p: inteiro): string
+inicio
+	se p <= 0 entao
+		retorne ""
+	fim se
+	se l = nulo entao
+		retorne ""
+	fim se
+	se p = 1 entao
+		retorne l^.frase
+	fim se
+	retorne elementoPosicaoP(l^.prox, p-1)
+fim funcao

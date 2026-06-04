@@ -1,0 +1,30 @@
+tipos
+	PNo: ponteiro de TNo
+	TNo: registro de
+		elemento: inteiro
+		prox: PNo
+	     fim registro
+funcao quantosXAparecem(l: PNo, x: inteiro): inteiro
+var
+	i: inteiro
+inicio
+	i <- 0
+	enquanto l != nulo faça
+		se l^.elemento = x entao
+			i <- i + 1
+		fim se
+		l <- l^.prox
+	fim enquanto
+	retorne i
+fim funcao
+---------------------------------------------------------
+funcao quantosXAparecem(l: PNo, x: inteiro): inteiro
+inicio
+	se l = nulo entao
+		retorne 0
+	fim se
+	se l^.elemento = x entao
+		retorne 1 + quantosXAparecem(l^.prox, x)
+	fim se
+	retorne quantosXAparecem(l^.prox, x)
+fim funcao

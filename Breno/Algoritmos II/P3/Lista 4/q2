@@ -1,0 +1,26 @@
+tipos
+	PNo: ponteiros de Tno
+	TNo: registro de
+		info: inteiro
+		prox: PNo
+	     fim registro
+funcao tamanhoLista(l:PNo): inteiro
+var
+	i: inteiro
+inicio
+	i <- 0
+	enquanto l != nulo faça	
+		i <- i + 1
+		l <- l^.prox
+	fim enquanto
+	retorne i
+fim funcao
+------------------------------------------ RECURSIVA
+funcao tamanhoLista(l:PNo): inteiro
+inicio
+	se l = nulo entao
+		retorne 0
+	fim se
+	retorne 1 + tamanhoLista(l^.prox)
+fim funcao
+	

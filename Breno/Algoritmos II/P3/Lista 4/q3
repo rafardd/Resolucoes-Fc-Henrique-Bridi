@@ -1,0 +1,30 @@
+tipos
+	PNo: ponteiros de TNo
+	TNo: registro de
+	    	elemento: real
+	     	prox: PNo
+	     fim registro
+funcao encontrarElemento(l:PNO, x: real): logico
+var
+	encontrou: logico
+inicio
+	encontrou <- FALSO
+	enquanto l != nulo e nao encontrou entao
+		encontrou <- l^.elemento = x
+		l <- l^.prox
+	fim enquanto
+	retorne encontrou
+fim funcao
+
+-------------------------------------------------
+
+funcao encontrarElemento(l:PNo, x: real): logico
+inicio
+	se l = nulo entao 
+		retorne FALSO
+	fim se
+	se l^.elemento = x entao
+		retorne VERDADEIRO
+	fim se
+	retorne encontrarElemento(l^.prox, x)
+fim funcao
