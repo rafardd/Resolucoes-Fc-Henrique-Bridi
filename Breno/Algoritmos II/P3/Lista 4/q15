@@ -1,0 +1,60 @@
+----------
+iterativa
+---------
+
+tipo
+	PNo: ponteiro para TNo
+	TNo: registro de
+		frase: string
+		prox: PNo
+	     fim registro
+funcao inserirNoFinal(ref l: PNo; x: string): logico
+var
+    p, novo: PNo
+inicio
+    // 1. Aloca e prepara o novo nó
+    novo <- aloca(TNo)
+    se novo = NULO entao
+        retorne FALSO
+    fim se
+    novo^.frase <- x
+    novo^.prox <- NULO // Como ele vai para o final, o próximo dele sempre será NULO
+
+    // 2. Se a lista estiver totalmente vazia, o novo nó se torna o início
+    se l = NULO entao
+        l <- novo
+        retorne VERDADEIRO
+    fim se
+
+    // 3. Caso geral: Lista não vazia. Vamos caminhar até o ÚLTIMO nó
+    p <- l
+    enquanto p^.prox != NULO faca
+        p <- p^.prox
+    fim enquanto
+
+    // Quando o laço termina, 'p' está apontando exatamente para o último nó.
+    // Agora basta fazer o antigo último apontar para o novo nó!
+    p^.prox <- novo
+
+    retorne VERDADEIRO
+fim funcao
+
+
+------
+RECURSIVO
+--------
+
+funcao inserirNoFinal(ref l:Pno;x: string): logico
+inicio
+	se l = NULO entao
+		l <- aloca(TNo)
+		se l = NULO entao
+			retorne FALSO
+		fim se
+		l^.frase <- x
+		l^.prox <- NULO
+		retorne VERDADEIRO
+	fim se
+	retorne inserirNoFinal(l^.prox, x)
+fim funcao
+

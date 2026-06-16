@@ -1,0 +1,47 @@
+---------------------------
+ITERATIVA
+---------------------------
+tipos
+	PNo: ponteiro para TNo
+	TNo: registro de
+		frase: string
+		prox: PNo
+	     fim registro
+funcao maiorString(l:PNo): string
+var
+	maior: string
+inicio
+	se l = nulo entao
+		retorne ""
+	fim se
+	maior <- l^.frase
+	l <- l^prox
+	enquanto l != nulo faça
+		se maior < l^.frase entao
+			maior <- l^.frase
+		fim se
+		l <- l^.prox
+	fim enquanto
+	retorne maior
+fim funcao
+			
+---------------------------------
+RECURSIVA
+---------------------------------
+
+funcao maiorString(l:PNo): string
+var
+	maior: string
+inicio
+	se l = NULO entao
+		retorne ""
+	fim se
+	maior <- maiorString(l^.prox)
+	se l^.frase < maior entao
+		retorne maior
+	senao
+		retorne l^.frase
+	fim se
+fim funcao
+
+	// IREI VERIFICAR SE A FRASE É MAIOR DO QUE O MAIOR DO RESTO DA LISTA ENCADEADA

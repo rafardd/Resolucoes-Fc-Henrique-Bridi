@@ -1,0 +1,84 @@
+-------
+iterativo
+-------
+
+funcao inserirNaPosicao(ref l: PNo;pos, x: inteiro): logico
+var
+	p, novo: PNo
+	i: inteiro
+inicio
+	se pos < 1 entao // CONSIDERAR SE A POSICAO ESTÁ CORRETA
+		retorne FALSO
+	fim se
+	se pos = 1 entao // VERIFICAR SE ESTÁ NA PRIMEIRA POSICAO
+		novo <- aloca(TNo)
+		se novo = NULO entao
+			retorne FALSO
+		fim se
+		novo^.elem <- x
+       		novo^.prox <- l
+		l <- novo
+		retorne VERDADEIRO
+	fim se
+	p <- l
+	enquanto pos > 2 - 1 e p != NULO faça // PERCORRER ATÉ A POSICAO ANTERIOR DA DESEJADA
+		p <- p^.prox
+		pos <- pos - 1
+	fim enquanto
+	se p = NULO entao // SE CHEGOU A NULO QUER DIZER QUE A POSICAO ESTÁ ALEM DA LISTA
+		retorne FALSO
+	fim se
+	novo <- aloca(TNo)
+	se novo = NULO entao
+		retorne FALSO
+	fim se
+	novo^.elem <- x
+	novo^.prox <- p^.prox
+	p^.prox <- novo
+	retorne VERDADEIRO
+fim funcao	
+
+-----------
+RECURSIVA
+----------
+
+funcao inserirNaPosicao(ref l: PNo; pos, x: inteiro): logico
+var
+    novo: PNo
+inicio
+    // Caso base 1: Posição inválida de início
+    se pos < 1 entao
+        retorne FALSO
+    fim se
+
+    // Caso base 2: A lista acabou antes de chegarmos na posição (Posição inválida)
+    se l = NULO entao
+        // ATENÇÃO: Só aceitamos l = NULO se pos for exatamente 1 
+        // (que significa inserir no início de uma lista vazia ou no final da lista)
+        se pos = 1 entao
+            novo <- aloca(TNo)
+            se novo = NULO entao 
+		retorne FALSO 
+	    fim se
+            novo^.elem <- x
+            novo^.prox <- NULO
+            l <- novo
+            retorne VERDADEIRO
+        senao
+            retorne FALSO // Tentou inserir na pos 5 de uma lista tamanho 2
+        fim se
+    fim se
+
+    // Caso base 3: Chegou na posição desejada!
+    se pos = 1 entao
+        novo <- aloca(TNo)
+        se novo = NULO entao retorne FALSO fim se
+        novo^.elem <- x
+        novo^.prox <- l
+        l <- novo // Graças ao 'ref', isso altera o ponteiro 'prox' do nó anterior!
+        retorne VERDADEIRO
+    fim se
+
+    // Caso geral: Ainda não chegou na posição, passa para o próximo nó diminuindo pos
+    retorne inserirNaPosicao(l^.prox, pos - 1, x)
+fim funcao

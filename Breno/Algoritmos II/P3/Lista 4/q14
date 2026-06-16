@@ -1,0 +1,12 @@
+funcao inserir(ref l:PNo; s:string): logico
+inicio
+	aux <- l
+	l <- aloca(TNo)
+	se l = NULO entao
+		retorne FALSO
+	fim se
+	l^.frase <- s
+	l^.prox <- aux
+	retorne VERDADEIRO
+fim funcao
+		

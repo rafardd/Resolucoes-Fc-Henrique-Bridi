@@ -1,0 +1,25 @@
+funcao buscarElem(l:PNo; elem: inteiro): logico
+inicio	
+	enquanto l != nulo faça
+		se l^.elem = elem entao
+			retorne VERDADEIRO
+		fim se
+		l <- l^.prox
+	fim enquanto
+	retorne FALSO
+fim funcao
+
+funcao verificacaoDeElem(l1,l2: PNo): logico
+var
+	encontrou: logico
+inicio
+	encontrou <- FALSO
+	enquanto l != nulo faça
+		encontrou <- buscarElem(l2, l^.elem)
+		se nao encontrou entao
+			retorne FALSO
+		fim se
+		l <= l^.prox
+	fim enquanto
+	retorne encontrou
+fim funcao	

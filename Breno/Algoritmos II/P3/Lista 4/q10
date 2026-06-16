@@ -1,0 +1,56 @@
+----------
+iterativa
+---------
+funcao xJuntoDeY(l:PNo; x,y: real): logico
+var
+	encontroux, encontrouy: logico
+inicio
+	se l = NULO entao
+		retorne FALSO
+	fim se
+	se l^.prox = NULO entao
+		retorne falso
+	fim se
+	encontroux <- FALSO
+	encontrouy <- FALSO
+	enquanto l != NULO faça
+		// Se ainda não achou x, continua procurando por ele
+    		se nao encontroux e l^.elem = x entao
+        		encontroux <- VERDADEIRO
+    		fim se
+    
+    		// SÓ procura por y se o x JÁ tiver sido encontrado antes!
+    		se encontroux e l^.elem = y entao
+        		encontrouy <- VERDADEIRO
+    		fim se
+   		l <- l^.prox
+	fim enquanto	
+	retorne encontroux e encontrouy
+fim funcao
+
+
+------------
+RECURSAO
+------------
+
+funcao buscarY (l: PNo; y: real): logico
+inicio
+	se l = NULO entao
+		retorne FALSO
+	fim se
+	se l^.elem = y entao
+		retorne VERDADEIRO
+	fim se
+	retorne buscarY(l^.prox, y)
+fim funcao
+
+funcao xAntesDeY(l: PNo; x, y: real): logico
+inicio
+	se l = NULO entao
+		retorne FALSO
+	fim se
+	se l^.elem = x entao
+		retorne buscarY(l^.prox,y)
+	fim se
+	retorne xAntesDeY(l^.prox, x, y)
+fim funcao

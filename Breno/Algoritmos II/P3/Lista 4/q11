@@ -1,0 +1,51 @@
+------
+iterativo
+-------
+
+tipos
+	Tchave: inteiro
+	TInfo: registro de
+		chave: TChave
+		elem: real
+	       fim registro
+	PNo: ponteiro para TNo
+	TNo: registro de
+		info: TInfo
+		prox: PNo
+	     fim registro
+
+funcao buscarX (l: PNO; x: real): logico
+inicio
+	se l = NULO entao
+		retorne FALSO
+	fim se
+	enquanto l != NULO faça
+		se l^.info.elem > x entao
+			retorne FALSO
+		fim se
+		se l^.info.elem = x entao
+			retorne VERDADEIRO
+		fim se
+		l <- l^.prox
+	fim enquanto
+	retorne FALSO
+fim funcao
+
+
+--------
+RECURSIVO
+---------
+
+funcao buscarX(l: PNo, x: real): logico
+inicio
+	se l = NULO entao
+		retorne FALSO
+	fim se
+	se l^.info.elem = x entao
+		retorne VERDADEIRO
+	fim se
+	se l^.info.elem > x entao
+		retorne FALSO
+	fim se
+	retorne buscarX(l^.prox, x)
+fim funcao

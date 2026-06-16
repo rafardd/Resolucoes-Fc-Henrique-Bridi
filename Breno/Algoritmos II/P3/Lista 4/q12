@@ -1,0 +1,50 @@
+------
+iterativo
+------
+tipos
+        PNo: ponteiro para TNo
+        TNo: registro de
+                frase: string
+                prox: PNo
+             fim registro
+funcao ListasIguais(l1, l2: PNo): logico
+inicio
+    // Avança enquanto nenhuma das duas listas chegar ao fim
+    enquanto l1 != NULO e l2 != NULO faca
+
+        // Se encontrar qualquer diferença, cancela tudo e retorna FALSO
+        se l1^.info.frase != l2^.info.frase entao
+            retorne FALSO
+        fim se
+
+        // Caminha com os dois ponteiros juntos
+        l1 <- l1^.prox
+        l2 <- l2^.prox
+    fim enquanto
+
+    // Se saiu do laço, significa que pelo menos UMA das listas acabou.
+    // Elas só serão iguais se AMBAS tiverem acabado juntas (ou seja, ambas são NULO).
+    se l1 = NULO e l2 = NULO entao
+        retorne VERDADEIRO
+    senao
+        retorne FALSO // Uma lista era maior que a outra
+    fim se
+fim funcao
+
+---------
+RECURSIVA
+---------
+
+funcao ListasIguais(l1,l2: PNo): logico
+inicio
+        se l1 = NULO e l2 = NULO entao // CASO ELE CHEGUE AO FINAL QUER DIZER QUE NAO ENCONTROU DIFERENTE
+                retorne VERDADEIRO
+        fim se
+        se l1 = NULO ou l2 = NULO entao // NAO É DO MESMO TAMANHO A LISTA
+                retorne FALSO
+        fim se
+        se l1^.frase != l2^.frase entao // NAO PODE POIS A LISTA DEVE SER IGUAL
+                retorne FALSO
+        fim se
+        retorne ListasIguais(l1^.prox, l2^.prox) // VAMO SER SE NO RESTO DA LISTA TEM DIFERENTE
+fim funcao

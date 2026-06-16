@@ -1,0 +1,24 @@
+tipos
+	PNo: ponteiro para TNo
+	TNo: registro de
+		valor: real
+		prox: PNo
+	     fim registro
+funcao mediaAritmetica(l: PNo): real
+var
+	soma: real
+	qntd: inteiro
+inicio
+	se l = nulo entao
+		retorne 0
+	fim se
+	soma <- 0
+	qntd <- 0
+	enquanto l =! nulo faça
+		qntd <- qntd + 1
+		soma <- soma + l^.valor
+		l <- l^prox
+	fim enquanto
+	retorne soma/qntd
+fim funcao
+	
