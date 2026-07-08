@@ -1,0 +1,28 @@
+funcao duplicarSequencia(nome:string): logico
+var
+	fOriginal, fNovo: sequencia de inteiro
+	vAtual: inteiro
+inicio
+	se cria(fNovo, "temp.dat") entao
+		para i de 1 até 2 faça
+			se abre(fOriginal, nome) entao
+				enquanto não fds(fOriginal) entao
+					leia(fOriginal, vAtual)
+					escreva(fNovo, vAtual)
+				fim enquanto
+				fecha(fOriginal)
+			senao
+				fecha(fOriginal)
+				fecha(fNovo)
+				retorne FALSO
+			fim se
+		fim para
+		fecha(fOriginal)
+		fecha(fNovo)
+		renomeia("temp.dat", nome)
+		retorne VERDADEIRO
+	fim se
+	retorne FALSO
+fim funcao
+	
+				 

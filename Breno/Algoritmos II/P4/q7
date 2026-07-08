@@ -1,0 +1,25 @@
+funcao inserirValorOrdenado(s:string,valor:inteiro): logico
+var
+	fOriginal, fNovo: sequencia de inteiro
+	valorAtual: inteiro
+inicio
+	se abre(fOriginal, s) e cria(fNovo, "temp.dat") entao
+		aux <- 0
+		enquanto não fds(fOriginal) faça
+			leia(fOriginal, valorAtual)
+			se fds(fOriginal) entao
+				escreva(fNovo,valor)
+			fim se
+			se valorAtual >= valor entao
+				escreva(fNovo, valor)
+			fim se
+			escreva(fNovo, valorAtual)
+		fim enquanto
+		fecha(fOriginal)
+		fecha(fNovo)
+		apaga(s)
+		renomeia("temp.dat", s)
+		retorne VERDADEIRO
+	fim se
+	retorne FALSO
+fim funcao

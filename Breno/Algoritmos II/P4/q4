@@ -1,0 +1,30 @@
+procedimento imprimirMetadedaSequencia(s: string)
+var
+	f: sequencia de reais
+	metade, qnt: inteiro
+	valor: real
+inicio
+	metade <- 0 // CONTADOR
+	se abre(f, s) entao // SE ABRIR O ARQUIVO ENTAO
+		enquanto não fds(f) faça // ENQUANTO NAO FOR FINAL DA SEQUENCIA
+			leia(f,valor) // VOU LER APENAS PARA NAO FICAR NO LOOP INFINITO
+			metade <- metade + 1 // SOMAR A QUATNIDADE PARA A METADE
+		fim enquanto
+		fecha(f) // FECHAR O ARQUIVO
+	fim se
+	se metade > 1 entao // SE FOR = 0 OU = 1 ENTAO NAO TEM COMO EU DIGITAR A METADE DELE
+		metade <- metade div 2
+		qnt <- 0
+		se abre(f,s) entao
+			enquanto não fds(f) faça
+				leia(f, valor)
+				se qnt >= metade entao
+					escreva(valor)
+				fim se
+				qnt <- qnt + 1
+			fim enquanto
+			fecha(f)
+		fim se
+	fim se
+fim procedimento
+

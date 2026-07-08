@@ -1,0 +1,21 @@
+funcao removerValor(s: string; valor: inteiro): logico
+var
+	fOriginal, fNovo: sequencia de inteiro
+	valorAtual: inteiro
+inicio
+	se abre(fOriginal, s) e cria(fNovo, "temp.dat") entao
+		enquanto não fds(fOriginal) faça
+			leia(fOriginal, valorAtual)
+			se valorAtual != valor entao
+				escreva(fNovo, valorAtual)
+			fim se
+		fim enquanto
+		fecha(fOriginal)
+		fecha(FNovo)
+		apaga(fOriginal)
+		renomeia("temp.dat" s)
+		retorne VERDADEIRO
+	fim se
+	retorne FALSO
+fim funcao
+			

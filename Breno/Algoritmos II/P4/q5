@@ -1,0 +1,22 @@
+funcao somaDasPosicoes(s: string, valor: real): inteiro
+var
+	f: sequencia de real
+	pos, soma: inteiro
+	valorAtual: real
+inicio	
+	se abre(f, s) entao
+		pos <- 1
+		soma <- 0
+		enquanto nao fds(f) faça
+			leia(f, valorAtual)
+			se valorAtual = valor entao
+				soma <- soma + pos
+			fim se
+			pos <- pos + 1
+		fim enquanto
+		fecha(f)
+		retorne soma
+	fim se
+	retorne -999999
+fim funcao
+	

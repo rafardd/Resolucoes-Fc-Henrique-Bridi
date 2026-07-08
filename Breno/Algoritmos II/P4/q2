@@ -1,0 +1,25 @@
+funcao trocarValores(s,a,b: string): inteiro
+var
+	qnt: inteiro
+	sAtual: string
+	fOriginal, fNovo: sequencia de string
+inicio
+	qnt <- 0
+	se abre(fOriginal,s) e cria(fNovo,"temp.dat") entao
+		enquanto não fds(fOriginal) faça
+			leia(fOriginal, sAtual)
+			se sAtual = a entao
+				escreva(fNovo, b)
+				qnt <- qnt + 1
+			senao
+				escreva(fNovo, sAtual)
+			fim se
+		fim enquanto
+		fecha(fOriginal)
+		fecha(fNovo)
+		apaga(fOriginal)
+		renomeia("temp.dat", s)
+		retorne qnt
+	fim se
+	retorne -999999999
+fim fucnao

@@ -1,0 +1,41 @@
+funcao trocarPelaPosicao(s:string, pos: inteiro): logico
+var
+	fOriginal, fNovo: sequencia de real
+	aux, valorAtual: real
+inicio
+	se pos < 1 entao 
+		retorne FALSO
+	fim se
+	se abre(fOriginal, s) e cria(fNovo, "temp.dat") entao
+		contador <- 1
+		enquanto nao fds(fOriginal) faça
+			se contador = pos entao
+                		aux <- valorAtual // Guarda o valor atual
+                	
+                		// Só podemos ler o próximo para trocar se NÃO for o fim do arquivo!
+                		se nao fds(fOriginal) entao
+                    			leia(fOriginal, valorAtual) // Lê o elemento seguinte
+                    			escreva(fNovo, valorAtual)  // Escreve o seguinte PRIMEIRO
+                    			escreva(fNovo, aux)         // Escreve o atual (que estava guardado) DEPOIS
+                    
+                    			// Como lemos dois elementos de uma vez, pulamos o contador mais uma casa
+                    			contador <- contador + 1 
+                		senao
+                    			// Era o último elemento, não tem com quem trocar, só copia
+                    			escreva(fNovo, aux) 
+                		fim se
+            		senao
+               		 	// Se não for a posição da troca, copia normalmente
+                		escreva(fNovo, valorAtual)
+            		fim se
+            		// Avança o contador para a próxima rodada do loop
+            		contador <- contador + 1
+        	fim enquanto
+		fecha(fOriginal)
+		fecha(fNovo)
+		apaga(s)
+		renomeia("temp.dat", s)
+		retorne VERDADEIRO
+	fim se
+	retorne FALSO
+fim funcao
