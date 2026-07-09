@@ -1,0 +1,22 @@
+funcao somaDeSequencias(s: string): inteiro
+var
+	fs: sequencia de string
+	fi: sequencia de inteiro
+	soma_final, valor: inteiro
+inicio
+	soma_final <- 0
+	se abre(fs, s) entao
+		enquanto nao fds(fs) faça
+			leia(fs, letra)
+			se abre(fi,letra) entao
+				enquanto nao fds(fi) faça
+					leia(fi, valor)
+					soma_final <- soma_final + valor
+				fim enquanto
+				fecha(fi)
+			fim se
+		fim enquanto
+		fecha(fs)
+	fim se
+	retorne soma_final
+fim funcao

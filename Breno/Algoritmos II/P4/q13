@@ -1,0 +1,37 @@
+funcao modaDeSequencias(s: string): inteiro
+var
+    f: sequencia de inteiro
+    i, qnt, maior, valor, moda: inteiro
+inicio
+    maior <- 0
+    moda <- -1 // Começa com -1 para caso o arquivo esteja vazio
+    
+    // A sua lógica de varredura do 0 ao 3000
+    para i de 0 ate 3000 faça
+        qnt <- 0
+        
+        se abre(f, s) entao
+            enquanto nao fds(f) faça
+                leia(f, valor)
+                
+                se valor = i entao
+                    qnt <- qnt + 1
+                fim se
+            fim enquanto
+            
+            fecha(f) // Fecha para poder reabrir na próxima rodada do 'para'
+            
+            // O TRUQUE DO MULTIMODAL ESTÁ AQUI: O uso do ">="
+            // Se a quantidade atual empatar com a maior quantidade registrada,
+            // ele atualiza a moda. Como o 'i' está crescendo, o último empate a 
+            // ser registrado será sempre o maior número!
+            se (qnt >= maior) e (qnt > 0) entao
+                maior <- qnt
+                moda <- i
+            fim se
+            
+        fim se
+    fim para
+    
+    retorne moda
+fim funcao

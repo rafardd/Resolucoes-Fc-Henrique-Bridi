@@ -1,0 +1,24 @@
+funcao moda(s:string): inteiro
+var
+	f: sequencia de inteiro
+	i,maior,valor,moda : inteiro
+	v: vetor[0..3000] de inteiro
+inicio
+	para i de 0 aaté 3000 faça
+		v[i] <- 0
+	fim para
+	se abre(f,s) entao
+		enquanto nao fds(f) faça
+			leia(f,valor)
+			v[valor] <- v[valor] + 1
+			se v[valor] >= maior entao
+				maior <- v[valor]
+				moda <- valor
+			fim se
+		fim enquanto
+		fecha(f)
+		retorne moda
+	senao
+		retorne -999999
+	fim se	
+fim funcao

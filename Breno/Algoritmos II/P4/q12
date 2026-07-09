@@ -1,0 +1,47 @@
+funcao valoresAcimaDaMedia(s:string): inteiro
+var
+	qnt, aux: inteiro
+	fs: sequencia de string
+	fr: sequencia de real
+	media, soma, valor: real
+	letra: string
+inicio
+	qnt <- 0
+	se abre(fs, s) entao
+		soma <- 0
+		aux <- 0
+		enquanto nao fds(fs) faça
+			leia(fs, letra)
+			se abre(fr, letra) entao
+				enquanto nao fds(fr) faça
+					leia(fr, valor)
+					soma <- soma + valor
+					aux <- aux + 1
+				fim enquanto
+				fecha(fr)
+			fim se
+		fim enquanto
+		se aux = 0 entao
+			fecha(fs)
+			retorne 0
+		fim se
+		media <- soma/aux
+		reinicia(fs)
+		enquanto nao fds(fs) faça
+			leia(fs, letra)
+			se abre(fr, letra) entao
+				enquanto nao fds(fr) faça
+					leia(fr, valor)
+					se valor > media entao
+						qnt <- qnt + 1
+					fim se
+				fim enquanto
+				fecha(fr)
+			fim se
+		fim enquanto
+		fecha(fs)
+	fim se
+	retorne qnt
+fim funcao
+	
+		

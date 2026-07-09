@@ -1,0 +1,42 @@
+funcao setimaMaior(s:string): real
+const
+	K = 7
+var
+	f: sequencia de real
+	v: vetor[1..K] de real
+	maior,valor: real
+inicio
+	para i de 1 até K faça
+		v[i] <- -999999.0
+	fim para
+	
+	se abre(f,s) entao
+		enquanto nao fds(f) faça
+			leia(f,valor)
+			se valor > v[1] entao
+				v[1] <- valor
+				
+				para i de 1 até K-1 faça
+					se v[i] < v[i+1] entao
+						aux <- v[i+1]
+						v[i+1] <- v[i]
+						v[i] <- aux
+					fim se
+				fim para
+			fim se
+		fim enquanto
+		
+		se v[i] = -999999.0 entao
+			pare
+		fim se
+		
+		fecha(f)
+		retorne v[1]
+	senao
+		pare
+	fim se
+fim funcao
+
+
+				
+			

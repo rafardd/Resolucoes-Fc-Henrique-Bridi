@@ -1,0 +1,51 @@
+funcao juncaoAscendente(n1,n2,n3: string): logico
+var
+	f1,f2,f3: sequencia de real
+	v1,v2: real
+	tem_f1,tem_f2: logico
+inicio
+	se abre(f1,n1) e abre(f2,n2) e cria(f3,n3) entao
+		tem_f1 <- nao fds(f1)
+		se tem_f1 entao
+			leia(f1,v1)
+		fim se
+		tem_f2 <- nao fds(f2)
+		se tem_f2 entao
+			leia(f2,v2)
+		fim se
+		enquanto tem_f1 e tem_f2 faça
+			se v2 >= v1 entao
+				escreva(f3,v1)
+				tem_f1 <- nao fds(f1)
+				se tem_f1 entao
+					leia(f1, v1)
+				fim se
+			senao
+				escreva(f3,v2)
+				tem_f2 <- nao fds(f2)
+				se tem_f2 entao
+					leia(f2,v2)
+				fim se
+			fim se
+		fim enquanto
+		enquanto tem_f1 faça
+			escreva(f3,v1)
+			tem_f1 <- nao fds(f1)
+			se tem_f1 entao
+				leia(f1,v1)
+			fim se
+		fim enquanto
+		enquanto tem_f2 faça
+			escreva(f3,v2)
+			tem_f2 <- nao fds(f2)
+			se tem_f2 entao
+				leia(f2,v2)
+			fim se
+		fim enquanto
+		fecha(f1)
+		fecha(f2)
+		fecha(f3)
+		retorne VERDADEIRO
+	fim se
+	retorne FALSO
+fim funcao			

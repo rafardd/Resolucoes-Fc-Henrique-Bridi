@@ -1,0 +1,55 @@
+procedimento juntarSequencias(nome1, nome2, nome3: string)
+var
+    f1, f2, f3: sequencia de real
+    v1, v2: real
+    tem_f1, tem_f2: logico
+inicio
+    // f3 é o arquivo de saída, então usamos 'cria'
+    se abre(f1, nome1) e abre(f2, nome2) e cria(f3, nome3) entao
+        
+        // LEITURA ANTECIPADA: Puxamos o primeiro valor de cada arquivo (se existirem)
+        tem_f1 <- nao fds(f1)
+        se tem_f1 entao leia(f1, v1) fim se
+        
+        tem_f2 <- nao fds(f2)
+        se tem_f2 entao leia(f2, v2) fim se
+
+        // ETAPA 1: Enquanto tivermos dados nas DUAS sequências
+        enquanto tem_f1 e tem_f2 faça
+            se v1 <= v2 entao
+                escreva(f3, v1)
+                // Como usamos o v1, avançamos apenas a f1
+                tem_f1 <- nao fds(f1)
+                se tem_f1 entao
+			leia(f1, v1) 
+		fim se
+            senao
+               	escreva(f3, v2)
+               	// Como usamos o v2, avançamos apenas a f2
+               	tem_f2 <- nao fds(f2)
+               	se tem_f2 entao 
+			leia(f2, v2) 
+		fim se
+           fim se
+        fim enquanto
+
+        // ETAPA 2: Se f2 acabou primeiro, esvaziamos o que sobrou da f1
+        enquanto tem_f1 faça
+            escreva(f3, v1)
+            tem_f1 <- nao fds(f1)
+            se tem_f1 entao leia(f1, v1) fim se
+        fim enquanto
+
+        // ETAPA 3: Se f1 acabou primeiro, esvaziamos o que sobrou da f2
+        enquanto tem_f2 faça
+            escreva(f3, v2)
+            tem_f2 <- nao fds(f2)
+            se tem_f2 entao leia(f2, v2) fim se
+        fim enquanto
+
+        // Fecha tudo para salvar na memória
+        fecha(f1)
+        fecha(f2)
+        fecha(f3)
+    fim se
+fim procedimento
